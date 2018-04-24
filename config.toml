@@ -22,3 +22,6 @@ pygmentsCodeFences = true
 [params]
 	tagline = "A Technical Blog about Computer Science"
 
+
+[[resources]]
+	src = "static/cv.pdf"
