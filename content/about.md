@@ -12,7 +12,7 @@ meta = "false"
 ### Profile
 - Ph.D student at Graduate School of Science and Technology, Keio University, Japan.
 ([Teraoka & Kaneko Lab, Keio University](https://www.inl.ics.keio.ac.jp/))
-- [CV (English)](localhost:1313/cv.pdf)
+- [CV (English)](https://negli0.github.io/cv.pdf)
 - Mail: nelio *at* inl.ics.keio.ac.jp
 
 ### Education
