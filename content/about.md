@@ -12,8 +12,8 @@ meta = "false"
 ### Profile
 - Ph.D student at Graduate School of Science and Technology, Keio University, Japan.
 ([Teraoka & Kaneko Lab, Keio University](https://www.inl.ics.keio.ac.jp/))
-- CV (English)
-- Mail: nelio **at** inl.ics.keio.ac.jp
+- [CV (English)](localhost:1313/cv.pdf)
+- Mail: nelio *at* inl.ics.keio.ac.jp
 
 ### Education
 - In Mar. 2016, he received the B.E degree in Information and Computer Science from Keio University.
