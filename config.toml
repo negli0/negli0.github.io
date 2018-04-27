@@ -21,7 +21,11 @@ pygmentsCodeFences = true
 
 [params]
 	tagline = "A Technical Blog about Computer Science"
+	description = "hogehoge"
 
 
 [[resources]]
 	src = "static/cv.pdf"
+
+[taxonomies]
+tag = "tags"
