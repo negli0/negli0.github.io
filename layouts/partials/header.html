@@ -5,7 +5,13 @@
 <head>
 	{{ $pageTitle := .Title }}
 	{{ $siteTitle := .Site.Title }}
-	<title>{{ if eq $pageTitle $siteTitle }} {{ $siteTitle }} {{ else }} {{ $pageTitle }} - {{ $siteTitle }} {{ end }}</title>
+	<title>{{ if eq $pageTitle $siteTitle }} 
+				{{ $siteTitle }} 
+			{{ else if eq $pageTitle "" }} 
+				{{ $siteTitle }} 
+			{{ else }} {{ $pageTitle }} - {{ $siteTitle }} 
+	{{ end }}
+	</title>
 	{{ partial "meta" . }}
 	{{ partial "header_includes" . -}}
 </head>

@@ -1,5 +1,6 @@
 <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="{{ .Site.Params.description | default "The HTML5 Herald" }}" />
   <meta name="author" content="{{ .Params.Author | default .Site.Author.name }}" />
+  <meta name="description" content="{{ $isHomePage := eq .Title .Site.Title }}{{ .Site.Params.description }}{{ if eq $isHomePage false }} - {{ .Description }}{{ end }}" property="og:description">
+
   {{ .Hugo.Generator -}}
