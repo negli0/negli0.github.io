@@ -38,12 +38,12 @@ description: "About nelio"
 
 ### Publications
 #### Journal
-1. <u>Hiroki Watanabe</u>, Takao Kondo, Kunitake Kaneko, Fumio Teraoka, 
+1. <u>Hiroki Watanabe</u>, Takao Kondo, Kunitake Kaneko and Fumio Teraoka, 
 	**"Inserting Layer-5 to Provide Applications with Richer Functions through Common API,"**
 	*IEICE Transactions on Communications*, Vol. E101-B, No.9 (will be published)
 
 #### International Conference
-1. <u>H. Watanabe</u>, T. Kondo, K. Kaneko and F. Teraoka, 
+1. <u>Hiroki Watanabe</u>, Takao Kondo, Kunitake Kaneko and Fumio Teraoka, 
 	**"Separating Communication Policies and Mechanisms to Make Protocol Layering Clearer,"**
 	*2017 26th International Conference on Computer Communication and Networks (ICCCN)*, 
 	Vancouver, BC, 2017, pp. 1-9. (Acceptance Rate: 27%)

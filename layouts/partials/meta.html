@@ -1,6 +1,32 @@
 <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="author" content="{{ .Params.Author | default .Site.Author.name }}" />
-  <meta name="description" content="{{ $isHomePage := eq .Title .Site.Title }}{{ .Site.Params.description }}{{ if eq $isHomePage false }} - {{ .Description }}{{ end }}" property="og:description">
+  <meta name="description" content="
+	{{ $isHomePage := eq .Title .Site.Title }}
+		{{ .Site.Params.description }}
+	{{ if eq .Page.Description "" }}
+		{{ range $var1 := .Site.Menus.main }}
+			{{ if eq $var1.URL $.URL }}
+				{{ if eq $var1.URL "/posts/" }}
+					All Posts
+				{{ else if eq $var1.URL "/categories/" }}
+					Category List
+				{{ else if eq $var1.URL "/tags/" }}
+					Tag List
+				{{ end }}
+			{{ end }}
+		{{end}}
+	{{ else }}
+		- {{ .Description }}
+	{{ end }}" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="og:title" content="{{ .Title }}" />
+  <meta name="og:description" content="{{ if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+  <meta name="og:image" content="{{ .Site.BaseURL }}{{ .Params.eyecatch }}" />
+  <meta name="twitter:title" content="{{ .Title }}" />
+  <meta name="twitter:url" content="{{ .Permalink }}" />
+  <meta name="twitter:site" content="@__nelio__" />
+  <meta name="twitter:creator" content="@__nelio__" /> 
 
   {{ .Hugo.Generator -}}
