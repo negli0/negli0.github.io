@@ -6,9 +6,19 @@
     <description>Recent content in Tags on Around The Computer</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright &amp;copy; 2018 - negli0</copyright>
+    <lastBuildDate>Fri, 27 Apr 2018 23:38:53 +0900</lastBuildDate>
     
 	<atom:link href="https://negli0.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Foo</title>
+      <link>https://negli0.github.io/tags/foo/</link>
+      <pubDate>Fri, 27 Apr 2018 23:38:53 +0900</pubDate>
+      
+      <guid>https://negli0.github.io/tags/foo/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>World</title>
