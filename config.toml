@@ -9,6 +9,8 @@ paginate = 3
 summaryLength = 30
 enableEmoji = true
 pygmentsCodeFences = true
+hasCJKLanguage = true 
+logo = "img/logo.jpg"
 
 [author]
 	name = "Hiroki Watanabe"
