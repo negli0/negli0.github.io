@@ -13,6 +13,8 @@ hasCJKLanguage = true
 eyecatch = "img/logo.jpg"
 googleAnalytics = "UA-118652153-1"
 
+
+
 [author]
 	name = "Hiroki Watanabe"
 	github = "negli0"
