@@ -160,7 +160,7 @@ time {
 
 #container main article p code {
   padding: 0.2em;
-  background-color: #ffcccc;
+  background-color: #FBEFF2;
   font-size: 0.9em;
 }
 
@@ -372,3 +372,4 @@ ul.pagination {
 ul.pagination li {
   padding: 0 1em;
 }
+

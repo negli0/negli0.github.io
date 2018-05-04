@@ -5,7 +5,7 @@
 <head>
 	
 	
-	<title> GitHub Pages と Hugo のつまづき話 - Around The Computer 
+	<title> GitHub Pages &#43; Hugo で躓いた話 - Around The Computer 
 	
 	</title>
 	<meta charset="utf-8" />
@@ -19,10 +19,10 @@
 	" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="og:title" content="GitHub Pages と Hugo のつまづき話" />
+  <meta name="og:title" content="GitHub Pages &#43; Hugo で躓いた話" />
   <meta name="og:description" content="同じ鐵を踏まないように 前回エントリ(link)で GitHub Pages &#43; Hugo によ" />
   <meta name="og:image" content="https://negli0.github.io" />
-  <meta name="twitter:title" content="GitHub Pages と Hugo のつまづき話" />
+  <meta name="twitter:title" content="GitHub Pages &#43; Hugo で躓いた話" />
   <meta name="twitter:url" content="https://negli0.github.io/posts/struggle-20180429/" />
   <meta name="twitter:site" content="@__nelio__" />
   <meta name="twitter:creator" content="@__nelio__" /> 
@@ -97,7 +97,7 @@
 
 <article>
 
-    <h1>GitHub Pages と Hugo のつまづき話</h1>
+    <h1>GitHub Pages &#43; Hugo で躓いた話</h1>
 
     
         <aside>
@@ -129,7 +129,7 @@
         </li>
         
 
-        <li>1 min read</li>
+        <li>2 min read</li>
     </ul>
 </aside>
     
@@ -141,12 +141,31 @@
 <p><a href="https://negli0.github.io/posts/start-hugo/">前回エントリ(link)</a>で <em>GitHub Pages + Hugo</em> による HP
 開設の話をしました．</p>
 
+<p>私は OSS を自分で設定したり動かしたりすることは好きなのですが，ドキュメント内の目的箇所
+を特定するまでに時間がかかったり，大前提な部分を読み飛ばしたりなどのうっかりをやりがちです．</p>
+
 <blockquote>
-<p><strong>このエントリは，私が GitHub Pages と Hugo を使って HP を開設するまでに躓いたことたちを供養する</strong>ためのものです．</p>
+<p>このエントリは，私が GitHub Pages と Hugo を使って HP を開設するまでに躓いたことたちを供養するためのものです．</p>
 </blockquote>
 
-<p>私は OSS を自分で設定したり動かしたりすることは好きなのですが，慣れるまでに
-それでは Let&rsquo;s Go</p>
+<p>私は<b><em>できるひとたちの成功までに直面した失敗と，その解決までの過程</em></b>
+みたいなものに興味があるので，自分もなるべくそれらを残すようにしようと思っています．どんな人もしょうもないことで詰まったりするんだって話が聞けるとなんだかホッとするじゃないですか．</p>
+
+<h2 id="1-function-default-not-defined">1. function &ldquo;default&rdquo; not defined</h2>
+
+<pre><code> function &quot;default&quot; not defined
+</code></pre>
+
+<p>ローカル環境でサイトを生成して手元で確認するときに <code>hugo server -wD server</code> を実行しますが，その際に Hugo が吐く go のエラーです．
+<a href="https://gohugo.io/functions/default/">ドキュメント</a>を読むとわかるんですが，Hugo には <code>default</code> という function が用意されています．
+用意されているのに未定義だと怒られるということはおそらく当時 APT で入れた Hugo のバージョンが低いのでしょう．GitHub から Hugo の最新版をクローンして使ってみたら解決されました．</p>
+
+<p><code>default</code> の使い方は以下のように，<code>Params.seo_title</code> に値が設定されていない場合はデフォルトである <code>.Title</code> が title タグにというふうです．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang">&lt;<span style="color:#a6e22e">title</span>&gt;{{ .<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">seo_title</span> | <span style="color:#66d9ef">default</span> .<span style="color:#a6e22e">Title</span> }}&lt;<span style="color:#f92672">/</span><span style="color:#a6e22e">title</span>&gt;</code></pre></div>
+<p>他のサイトジェネレータでも同じことだと思いますが，Hugo はサイトやページのタイトルやタグなどを <code>Value</code> として設定します．
+ユーザが設定するサイトの baseurl やタイトルなどは <code>config.toml</code> に設定します．</p>
+
+<p>また，テーマ側の layout 以下とトップディレクトリの <code>layout/</code> 以下に同名ファイル（e.g., <code>header.html</code>）が存在する場合はトップディレクトリの <code>layout/</code> のファイルが優先（オーバーライド）されます．これを利用して既存テーマを改造します．</p>
 
 
 	<a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
