@@ -16,14 +16,12 @@
 	{{ partial "header_includes" . -}}
 	{{ template "_internal/google_analytics.html" . }}
 
-  <meta name="twitter:card" content="summary" />
-  <meta name="og:title" content="{{ .Title }}" />
-  <meta name="og:description" content="{{ if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
-  <meta name="og:image" content="{{ .Site.BaseURL }}{{ .Params.eyecatch }}" />
-  <meta name="twitter:title" content="{{ .Title }}" />
-  <meta name="twitter:url" content="{{ .Permalink }}" />
-  <meta name="twitter:site" content="@__nelio__" />
-  <meta name="twitter:creator" content="@__nelio__" /> 
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@__nelio__" />
+	<meta property="og:url" content="{{ .Permalink }}" />
+	<meta property="og:title" content="{{ .Title }}" />
+	<meta property="og:description" content="{{ if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+	<meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.eyecatch }}" />
 
 </head>
 
