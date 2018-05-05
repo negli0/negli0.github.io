@@ -3,15 +3,12 @@
 <html lang="{{ .Site.LanguageCode | default "en" }}">
 
 <head>
-	{{ $pageTitle := .Title }}
-	{{ $siteTitle := .Site.Title }}
-	<title>{{ if eq $pageTitle $siteTitle }} 
-				{{ $siteTitle }} 
-			{{ else if eq $pageTitle "" }} 
-				{{ $siteTitle }} 
-			{{ else }} {{ $pageTitle }} - {{ $siteTitle }} 
-	{{ end }}
-	</title>
+	{{- $fullTitle := .Site.Title | printf "%s%s" " - " | printf "%s%s" .Title -}} 
+	<title>{{ if or (eq .Title  .Site.Title) ( eq .Title "") }} 
+			{{- .Site.Title -}}
+		{{ else }} 
+			{{- $fullTitle -}} 
+		{{ end }}</title>
 	{{ partial "meta" . }}
 	{{ partial "header_includes" . -}}
 	{{ template "_internal/google_analytics.html" . }}
@@ -19,9 +16,9 @@
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@__nelio__" />
 	<meta property="og:url" content="{{ .Permalink }}" />
-	<meta property="og:title" content="{{ .Title }}" />
-	<meta property="og:description" content="{{ if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
-	<meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.eyecatch }}" />
+	<meta property="og:title" content="{{ if or (eq .Title .Site.Title) ( eq .Title "") }}{{- .Site.Title -}}{{ else }}{{- $fullTitle -}}{{ end }}"/>
+	<meta property="og:description" content="{{ if or (eq .Title  .Site.Title) ( eq .Title "") }}{{- .Site.Params.tagline -}}{{ else }}{{ .Content | truncate 70 | default .Title }}{{ end }}"/>
+	<meta property="og:image" content="{{ .Site.BaseURL }}{{ .Site.Params.logo  }}" />
 
 </head>
 

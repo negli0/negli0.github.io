@@ -10,7 +10,6 @@ summaryLength = 30
 enableEmoji = true
 pygmentsCodeFences = true
 hasCJKLanguage = true 
-eyecatch = "img/logo.jpg"
 googleAnalytics = "UA-118652153-1"
 
 
@@ -26,6 +25,7 @@ googleAnalytics = "UA-118652153-1"
 
 [params]
 	tagline = "A Technical Blog about Computer Science"
+	logo = "/img/logo.jpg"
 
 [menu]
   [[menu.main]]
@@ -34,6 +34,7 @@ googleAnalytics = "UA-118652153-1"
 	title = "All Posts"
     url = "/posts/"
     weight = 10
+	description = "All Posts"
 
   [[menu.main]]
     identifier = "categories"
@@ -41,6 +42,7 @@ googleAnalytics = "UA-118652153-1"
 	title = "Category List"
     url = "/categories/"
     weight = 100
+	description = "Category List"
 
   [[menu.main]]
     identifier = "tags"
@@ -48,6 +50,7 @@ googleAnalytics = "UA-118652153-1"
 	title = "Tag List"
     url = "/tags/"
     weight = 150
+	description = "Tag List"
 
 
 [[resources]]
@@ -56,4 +59,3 @@ googleAnalytics = "UA-118652153-1"
 [taxonomies]
 tag = "tags"
 category = "categories"
-
