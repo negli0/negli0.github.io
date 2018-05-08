@@ -2,36 +2,45 @@
 
 <html lang="en">
 
-<head>
-	
-	
-	<title> GitHub Pages &#43; Hugo で躓いた話 - Around The Computer 
-	
-	</title>
+<head><title>GitHub Pages &#43; Hugo で躓いた話 - Around The Computer</title>
 	<meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="author" content="Hiroki Watanabe" />
   <meta name="description" content="
-	
-		
-	
-		- 苦労したっていいじゃない，完成したんだもの
-	" />
 
-  <meta name="twitter:card" content="summary" />
-  <meta name="og:title" content="GitHub Pages &#43; Hugo で躓いた話" />
-  <meta name="og:description" content="同じ鐵を踏まないように 前回エントリ(link)で GitHub Pages &#43; Hugo によ" />
-  <meta name="og:image" content="https://negli0.github.io" />
-  <meta name="twitter:title" content="GitHub Pages &#43; Hugo で躓いた話" />
-  <meta name="twitter:url" content="https://negli0.github.io/posts/struggle-20180429/" />
-  <meta name="twitter:site" content="@__nelio__" />
-  <meta name="twitter:creator" content="@__nelio__" /> 
+うまくいかなかった話をしたい
+
+前回エントリ(link)で GitHub Pages &#43; Hugo による HP
+開設の話をしました． …" />
 
   <meta name="generator" content="Hugo 0.38-DEV" />
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
   <link rel="stylesheet" type="text/css" href="https://negli0.github.io/css/styles.css" />
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-118652153-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@__nelio__" />
+	<meta property="og:url" content="https://negli0.github.io/posts/struggle-20180429/" />
+	<meta property="og:title" content="GitHub Pages &#43; Hugo で躓いた話 - Around The Computer"/>
+	<meta property="og:description" content="
+
+うまくいかなかった話をしたい
+
+前回エントリ(link)で GitHub Pages &#43; Hugo による HP
+開設の話をしました． …"/>
+	<meta property="og:image" content="https://negli0.github.io/img/logo.jpg" />
 </head>
 
 <body>
@@ -129,14 +138,14 @@
         </li>
         
 
-        <li>2 min read</li>
+        <li>3 min read</li>
     </ul>
 </aside>
     
 
     
 
-<h2 id="同じ鐵を踏まないように">同じ鐵を踏まないように</h2>
+<h2 id="うまくいかなかった話をしたい">うまくいかなかった話をしたい</h2>
 
 <p><a href="https://negli0.github.io/posts/start-hugo/">前回エントリ(link)</a>で <em>GitHub Pages + Hugo</em> による HP
 開設の話をしました．</p>
@@ -148,24 +157,74 @@
 <p>このエントリは，私が GitHub Pages と Hugo を使って HP を開設するまでに躓いたことたちを供養するためのものです．</p>
 </blockquote>
 
-<p>私は<b><em>できるひとたちの成功までに直面した失敗と，その解決までの過程</em></b>
-みたいなものに興味があるので，自分もなるべくそれらを残すようにしようと思っています．どんな人もしょうもないことで詰まったりするんだって話が聞けるとなんだかホッとするじゃないですか．</p>
+<p>私は<b><em>できるひとたちの途中でうまくいかなかった話</em></b>
+みたいなものに興味があるので，自分もなるべくそれらを残すようにしようと思っています．どんな人もしょうもないことで詰まったりするんだって話が聞けるとなんだかホッとするじゃないですか．俺ツエー話とは別で失敗エントリがあってもいいと思うんです．</p>
 
-<h2 id="1-function-default-not-defined">1. function &ldquo;default&rdquo; not defined</h2>
+<h3 id="1-function-default-not-defined">1. function &ldquo;default&rdquo; not defined</h3>
 
 <pre><code> function &quot;default&quot; not defined
 </code></pre>
 
-<p>ローカル環境でサイトを生成して手元で確認するときに <code>hugo server -wD server</code> を実行しますが，その際に Hugo が吐く go のエラーです．
+<p>ローカル環境でサイトを生成して手元で確認するときに <code>hugo -wD server</code> を実行しますが，その際に Hugo が吐く go のエラーです．
 <a href="https://gohugo.io/functions/default/">ドキュメント</a>を読むとわかるんですが，Hugo には <code>default</code> という function が用意されています．
-用意されているのに未定義だと怒られるということはおそらく当時 APT で入れた Hugo のバージョンが低いのでしょう．GitHub から Hugo の最新版をクローンして使ってみたら解決されました．</p>
+用意されているのに未定義だと怒られるということはおそらく当時パッケージマネージャで入れた Hugo のバージョンが低かったのでしょう．GitHub から Hugo の最新版をクローンして使ってみたら解決されました．</p>
 
-<p><code>default</code> の使い方は以下のように，<code>Params.seo_title</code> に値が設定されていない場合はデフォルトである <code>.Title</code> が title タグにというふうです．</p>
+<h4 id="a1-最新版の-hugo-を使用する">A1. 最新版の Hugo を使用する</h4>
+
+<hr />
+
+<p><code>default</code> の使い方は以下のように，<code>Params.seo_title</code> に値が設定されていない場合はデフォルトである <code>.Title</code> が title タグに使われるというふうです．</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang">&lt;<span style="color:#a6e22e">title</span>&gt;{{ .<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">seo_title</span> | <span style="color:#66d9ef">default</span> .<span style="color:#a6e22e">Title</span> }}&lt;<span style="color:#f92672">/</span><span style="color:#a6e22e">title</span>&gt;</code></pre></div>
 <p>他のサイトジェネレータでも同じことだと思いますが，Hugo はサイトやページのタイトルやタグなどを <code>Value</code> として設定します．
 ユーザが設定するサイトの baseurl やタイトルなどは <code>config.toml</code> に設定します．</p>
 
-<p>また，テーマ側の layout 以下とトップディレクトリの <code>layout/</code> 以下に同名ファイル（e.g., <code>header.html</code>）が存在する場合はトップディレクトリの <code>layout/</code> のファイルが優先（オーバーライド）されます．これを利用して既存テーマを改造します．</p>
+<p>また，テーマ側の layout 以下とトップディレクトリの <code>layout/</code> 以下に同名ファイル（e.g., <code>header.html</code>）が存在する場合はトップディレクトリの <code>layout/</code> のファイルが優先（オーバーライド）されます．これを利用して既存テーマを改造することができます．</p>
+
+<h3 id="2-公開ページ用のブランチを-gh-pages-にしたい-できない">2. 公開ページ用のブランチを <code>gh-pages</code> にしたい（できない！）</h3>
+
+<p>研究室の HP でも Hugo を使っています．HP のソース（Hugo 的には <code>public/</code> 以下）は <code>gh-pages</code> というブランチで，そのソースを生成するためのファイル群は <code>master</code> ブランチで，同一のレポジトリで管理しています．記事を書いて <code>master</code> に push すると CircleCI によってサイトが生成され，それを <code>gh-pages</code> に push してくれてページが更新されます．</p>
+
+<p>同様に，自分のサイトでもこのようなブランチの分離をしたくなりました．</p>
+
+<p>私の作業の流れは Hugo Document の Quick Start と Host on GitHub に基づいています．</p>
+
+<ul>
+<li><a href="https://gohugo.io/getting-started/quick-start/">Quick Start | Hugo</a></li>
+<li><a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Host on Github | Hugo</a></li>
+</ul>
+
+<p>ユーザに紐づく GitHub Pages のリポジトリに関して重要なのは以下の2点です．</p>
+
+<ol>
+<li>リポジトリ名は <code>&lt;USERNAME&gt;.github.io</code></li>
+<li><mark>公開ページ用のブランチは <code>master</code></mark></li>
+</ol>
+
+<p>2 でハマりました．ドキュメントにしっかり書いてあるのに読み飛ばしたのでしょう．
+研究室 HP と同様に <code>gh-pages</code> ブランチを公開ページ用に使用できると<strong>勝手に思い込んで</strong>いました．</p>
+
+<p><code>master</code> に生成元のファイル群を push して公開ページ用のブランチを変更しようとしました．
+実際に公開ページ用のブランチを変更しようとするとグレーアウトされて変更できません．
+
+<figure class="center">
+    
+        <img src="https://negli0.github.io/img/github-pages.png" />
+    
+    
+    <figcaption>
+        <h4>master branch から変更不可</h4>
+        
+    </figcaption>
+    
+</figure>
+</p>
+
+<h4 id="a2-ページ公開用には-username-github-io-の-master-ブランチを使う">A2. ページ公開用には <code>&lt;username&gt;.github.io</code> の <code>master</code> ブランチを使う</h4>
+
+<hr />
+
+<p>ユーザに紐づく GitHub Pages では，公開ページ用のブランチが <code>master</code> から変更できないようです．
+これはいささか不便でした．というのも，</p>
 
 
 	<a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
