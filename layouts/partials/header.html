@@ -19,7 +19,6 @@
 	<meta property="og:title" content="{{ if or (eq .Title .Site.Title) ( eq .Title "") }}{{- .Site.Title -}}{{ else }}{{- $fullTitle -}}{{ end }}"/>
 	<meta property="og:description" content="{{ if or (eq .Title  .Site.Title) ( eq .Title "") }}{{- .Site.Params.tagline -}}{{ else }}{{ .Content | truncate 70 | default .Title }}{{ end }}"/>
 	<meta property="og:image" content="{{ .Site.BaseURL }}{{ .Site.Params.logo  }}" />
-
 </head>
 
 <body>

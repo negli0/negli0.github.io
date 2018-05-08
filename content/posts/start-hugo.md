@@ -1,7 +1,7 @@
 ---
 title: "Network × Research なブログを目指す"
 date: 2018-04-29T00:24:46+09:00
-tags: [ "Hugo" ]
+tags: [ "hugo" ]
 categories: [ "web" ]
 slug: 
 draft: false
