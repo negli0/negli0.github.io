@@ -88,5 +88,9 @@ description: "About nelio"
 #### Awards
 1. **"Student Incentive Award"**, IEICE-IA, March, 2016
 
+#### Grants
+1. **"日本学生支援機構 留学生交流支援制度（短期派遣）"** (2013) -- 80,000 JPY
+1. **"KLL 前期博士課程助成金"** (2017) -- 110,000 JPY
+
 ---
-(last update: Apr. 22 2018)
+(last update: Mar. 09 2018)
