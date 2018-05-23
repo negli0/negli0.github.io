@@ -373,3 +373,21 @@ ul.pagination li {
   padding: 0 1em;
 }
 
+*.footnotes ol {
+  	font-size: 0.7rem;
+    display: block;
+    list-style-type: decimal;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
+a[href^="#fn:"], a[href^="#fnref:"] {
+  text-decoration: none;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+a[href^="#fn:"]:before{ content: '[' }
+a[href^="#fn:"]:after{ content: ']' }

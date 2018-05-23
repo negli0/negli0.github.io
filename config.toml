@@ -11,7 +11,7 @@ enableEmoji = true
 pygmentsCodeFences = true
 hasCJKLanguage = true 
 googleAnalytics = "UA-118652153-1"
-
+FootnoteReturnLinkContents = "↑"
 
 
 [author]
