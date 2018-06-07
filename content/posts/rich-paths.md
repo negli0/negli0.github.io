@@ -1,6 +1,6 @@
 ---
 title: "Intruducing Enhanced Communication Paths over Layer-4 (Multipath)"
-date: 2018-05-21T01:24:15+09:00
+date: 2018-06-07T01:24:15+09:00
 tags: [ "layer-4", "multipath" ]
 categories: [ "研究紹介" ]
 description: "OSI参照モデルのL4以上における高機能通信路のモデル（今回はマルチパス）を紹介します"
