@@ -13,6 +13,16 @@
   </url>
   
   <url>
+    <loc>https://negli0.github.io/posts/rich-paths/</loc>
+    <lastmod>2018-05-21T01:24:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://negli0.github.io/posts/struggle-hugo/</loc>
+    <lastmod>2018-05-09T00:32:25+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://negli0.github.io/posts/start-hugo/</loc>
     <lastmod>2018-04-29T00:24:46+09:00</lastmod>
   </url>
@@ -24,25 +34,49 @@
   
   <url>
     <loc>https://negli0.github.io/tags/hugo/</loc>
-    <lastmod>2018-04-29T00:24:46+09:00</lastmod>
+    <lastmod>2018-05-09T00:32:25+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://negli0.github.io/tags/layer-4/</loc>
+    <lastmod>2018-05-21T01:24:15+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://negli0.github.io/tags/multipath/</loc>
+    <lastmod>2018-05-21T01:24:15+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://negli0.github.io/posts/</loc>
-    <lastmod>2018-04-29T00:24:46+09:00</lastmod>
+    <lastmod>2018-05-21T01:24:15+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://negli0.github.io/tags/</loc>
-    <lastmod>2018-04-29T00:24:46+09:00</lastmod>
+    <lastmod>2018-05-09T00:32:25+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://negli0.github.io/categories/web/</loc>
     <lastmod>2018-04-29T00:24:46+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://negli0.github.io/categories/%E6%82%AA%E6%88%A6%E8%8B%A6%E9%97%98%E8%A8%98/</loc>
+    <lastmod>2018-05-09T00:32:25+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://negli0.github.io/categories/%E7%A0%94%E7%A9%B6%E7%B4%B9%E4%BB%8B/</loc>
+    <lastmod>2018-05-21T01:24:15+09:00</lastmod>
     <priority>0</priority>
   </url>
   
