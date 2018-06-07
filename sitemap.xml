@@ -35,7 +35,6 @@
   <url>
     <loc>https://negli0.github.io/tags/hugo/</loc>
     <lastmod>2018-05-09T00:32:25+09:00</lastmod>
-<<<<<<< HEAD
     <priority>0</priority>
   </url>
   
@@ -48,18 +47,12 @@
   <url>
     <loc>https://negli0.github.io/tags/multipath/</loc>
     <lastmod>2018-05-21T01:24:15+09:00</lastmod>
-=======
->>>>>>> f4cbf4325393227b1ffba633f20542944e3aaad0
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://negli0.github.io/posts/</loc>
-<<<<<<< HEAD
     <lastmod>2018-05-21T01:24:15+09:00</lastmod>
-=======
-    <lastmod>2018-05-09T00:32:25+09:00</lastmod>
->>>>>>> f4cbf4325393227b1ffba633f20542944e3aaad0
     <priority>0</priority>
   </url>
   
@@ -81,13 +74,10 @@
     <priority>0</priority>
   </url>
   
-<<<<<<< HEAD
   <url>
     <loc>https://negli0.github.io/categories/%E7%A0%94%E7%A9%B6%E7%B4%B9%E4%BB%8B/</loc>
     <lastmod>2018-05-21T01:24:15+09:00</lastmod>
     <priority>0</priority>
   </url>
   
-=======
->>>>>>> f4cbf4325393227b1ffba633f20542944e3aaad0
 </urlset>
