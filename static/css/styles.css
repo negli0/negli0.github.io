@@ -389,5 +389,6 @@ a[href^="#fn:"], a[href^="#fnref:"] {
   font-family: monospace;
   font-size: 0.9rem;
 }
+
 a[href^="#fn:"]:before{ content: '[' }
 a[href^="#fn:"]:after{ content: ']' }
