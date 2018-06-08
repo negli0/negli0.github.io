@@ -332,8 +332,8 @@ MPQUIC では以下の新たな Frame を用いて Path を操作します．
 
 | Frame 名 | 説明 |
 |---|---|
-|ADD\_ADDRESS Frame| ホストのすべてのアドレスを交換|
-|PATH Frame| ホスト global な視点で Active な Path の性能を確認|
+|ADD\_ADDRESS | ホストのすべてのアドレスを交換|
+|PATH | ホスト global な視点で Active な Path の性能を確認|
 
 ADD\_ADDRESS Frame は SCTP のアドレスリスト交換や MPTCP の ADD\_ADDR 
 シンボルに相当します．これにより各ホストで Path のエンドポイントを共有できます．
