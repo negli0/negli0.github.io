@@ -13,20 +13,23 @@
 インターネットが発展するにつれて，アプリケーションが多様化してきました．
 多様化したアプリケーションはネットワークに高機能性を要 …" />
 
-  <meta name="generator" content="Hugo 0.35" />
+  <meta name="generator" content="Hugo 0.42.1" />
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
   <link rel="stylesheet" type="text/css" href="https://negli0.github.io/css/styles.css" />
 
 <script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-118652153-1', 'auto');
-ga('send', 'pageview');
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-118652153-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
 
 
@@ -172,7 +175,7 @@ ga('send', 'pageview');
 <li>通常のTCP/UDPでは提供が困難な機能を持つ Layer-4（OSI参照モデル）以上の通信路</li>
 </ul>
 
-<p>のことを高機能通信路（Enhanced Communication Paths / Highly Functional Communication Paths）<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>
+<p>のことを高機能通信路（Enhanced Communication Paths / Highly Functional Communication Paths）<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>
 と呼ぶことにします．特に断りがない限り，階層はOSI参照モデルにおけるものを指します．つまり Layer-4（L4）
 という記述は OSI 参照モデルのトランスポート層を指し，L7と言ったら OSI 参照モデルの
 アプリケーション層を指します．</p>
@@ -208,7 +211,7 @@ ga('send', 'pageview');
 <h5 id="余談-プロトコルと階層構造における位置付け">余談：プロトコルと階層構造における位置付け</h5>
 
 <p>ここで &ldquo;OSI参照モデル&rdquo; と明記している理由は，プロトコルとその位置付けに絶対は無いからです．
-そのため，XXというプロトコルは OSI参照モデルでいうと第N層だよね，TCP/IP プロトコルスイート<sup class="footnote-ref" id="fnref:tcpip"><a rel="footnote" href="#fn:tcpip">2</a></sup> でいうと第M層だよね，
+そのため，XXというプロトコルは OSI参照モデルでいうと第N層だよね，TCP/IP プロトコルスイート<sup class="footnote-ref" id="fnref:tcpip"><a href="#fn:tcpip">2</a></sup> でいうと第M層だよね，
 というような言い方が個人的には適切かと思います．大抵の場合は開発者や文書の著者が第X層に位置すると言います，
 IETFに関しては，以下のような記述が Wikipedia にありますね．（一次ソースが発見できませんでしたが）</p>
 
@@ -238,8 +241,8 @@ IETFに関しては，以下のような記述が Wikipedia にありますね�
 帯域集約(Bandwidth Aggregation)： 複数の通信路を束ねてスループットを高める
 </code></pre>
 
-<p>L4 以上のマルチパス通信路として代表的なものに Stream Control Transmission Protocol（SCTP）<sup class="footnote-ref" id="fnref:sctp"><a rel="footnote" href="#fn:sctp">3</a></sup>
-と Multipath TCP（MPTCP）<sup class="footnote-ref" id="fnref:mptcp"><a rel="footnote" href="#fn:mptcp">4</a></sup>，最近では Multipath QUIC（MPQUIC）<sup class="footnote-ref" id="fnref:mpquic"><a rel="footnote" href="#fn:mpquic">5</a></sup> があります．
+<p>L4 以上のマルチパス通信路として代表的なものに Stream Control Transmission Protocol（SCTP）<sup class="footnote-ref" id="fnref:sctp"><a href="#fn:sctp">3</a></sup>
+と Multipath TCP（MPTCP）<sup class="footnote-ref" id="fnref:mptcp"><a href="#fn:mptcp">4</a></sup>，最近では Multipath QUIC（MPQUIC）<sup class="footnote-ref" id="fnref:mpquic"><a href="#fn:mpquic">5</a></sup> があります．
 この3つを紹介します．</p>
 
 <h4 id="stream-control-transmission-protocol-sctp">Stream Control Transmission Protocol (SCTP)</h4>
@@ -316,7 +319,7 @@ Path に切り替えて通信を継続します（failover といいます）．
 <h5 id="帯域集約">帯域集約</h5>
 
 <p>標準的な SCTP には帯域集約は存在しませんが，Concurrent
-Multipath Transfer（CMT）<sup class="footnote-ref" id="fnref:cmt-sctp"><a rel="footnote" href="#fn:cmt-sctp">6</a></sup> という拡張が存在します．CMT-SCTP では，複数の
+Multipath Transfer（CMT）<sup class="footnote-ref" id="fnref:cmt-sctp"><a href="#fn:cmt-sctp">6</a></sup> という拡張が存在します．CMT-SCTP では，複数の
 Path が存在する状況で同時に（simultaneously）それらを使用します．</p>
 
 <p>少し話が逸れますが，マルチパス通信，特に帯域集約を効率的に実施するのは意外と難しいです．
@@ -324,7 +327,7 @@ Path が存在する状況で同時に（simultaneously）それらを使用し�
 
 <h4 id="multipath-tcp-mptcp">Multipath TCP (MPTCP)</h4>
 
-<p>MPTCP<sup class="footnote-ref" id="fnref:mptcp"><a rel="footnote" href="#fn:mptcp">4</a></sup> は TCP コネクションを L4 内で多重化して資源利用率を高め，冗長性を高めることを目的とします．
+<p>MPTCP<sup class="footnote-ref" id="fnref:mptcp"><a href="#fn:mptcp">4</a></sup> は TCP コネクションを L4 内で多重化して資源利用率を高め，冗長性を高めることを目的とします．
 
 <figure class="center">
     
@@ -356,13 +359,13 @@ Path が存在する状況で同時に（simultaneously）それらを使用し�
 
 また図4に示すように，上位層からは通常のソケットAPIで TCP のように操作ができ，
 下位層（L3）では subflow，つまり通常の TCP コネクションとして見えます．MPTCP は，
-特別な操作を抜き<sup class="footnote-ref" id="fnref:conf-mptcp"><a rel="footnote" href="#fn:conf-mptcp">7</a></sup> に上位層に TCP を束ねた通信路を提供します．</p>
+特別な操作を抜き<sup class="footnote-ref" id="fnref:conf-mptcp"><a href="#fn:conf-mptcp">7</a></sup> に上位層に TCP を束ねた通信路を提供します．</p>
 
 <p>TCP とアプリケーションの間に位置するので L5（L6？）のようにみえるかもしれませんが，
 MPTCP は 通常の TCP の動作する領域を出ない範囲で機能していると見えます．このことから
 MPTCP は L4 に位置するものとして解釈しています．</p>
 
-<p>Linux MPTCP Project<sup class="footnote-ref" id="fnref:mptcp-official"><a rel="footnote" href="#fn:mptcp-official">8</a></sup> のページによれば，MPTCP では以下の設定を変更することで
+<p>Linux MPTCP Project<sup class="footnote-ref" id="fnref:mptcp-official"><a href="#fn:mptcp-official">8</a></sup> のページによれば，MPTCP では以下の設定を変更することで
 Path の扱い方を決めることができます．今回は詳細を省きますが，詳しい人は設定値の名前からなんとなく動作が把握できると思います．</p>
 
 <pre><code>path-manager: default, fullmesh, ndiffports, binder から選択
@@ -391,16 +394,16 @@ SCTP と異なり，標準の MPTCP は上位層からはシングルパス TCP 
 を指定した送信はできません．このため，HoL Blocking も発生します．</p>
 
 <p>記事を書くためにいろいろ調べていたら，MPTCP 用にソケット API
-を拡張するといった論文<sup class="footnote-ref" id="fnref:enhanced-mptcp"><a rel="footnote" href="#fn:enhanced-mptcp">9</a></sup> を見つけました．この論文では subflow を扱える API を設計，実装しています．</p>
+を拡張するといった論文<sup class="footnote-ref" id="fnref:enhanced-mptcp"><a href="#fn:enhanced-mptcp">9</a></sup> を見つけました．この論文では subflow を扱える API を設計，実装しています．</p>
 
 <p>MPTCP のパススケジューリングのアルゴリズムに関する研究はよく目にします．</p>
 
 <h3 id="multipath-quic-mpquic">Multipath QUIC (MPQUIC)</h3>
 
-<p>MPQUIC は，2018年5月現在 IETF で標準化が進められている<sup class="footnote-ref" id="fnref:ietf-mpquic"><a rel="footnote" href="#fn:ietf-mpquic">10</a></sup>比較的新しいプロトコルです．
+<p>MPQUIC は，2018年5月現在 IETF で標準化が進められている<sup class="footnote-ref" id="fnref:ietf-mpquic"><a href="#fn:ietf-mpquic">10</a></sup>比較的新しいプロトコルです．
 2017年には，ネットワーク系の一流国際会議である ACM CoNEXT 2017 で MPQUIC
-に関する論文<sup class="footnote-ref" id="fnref:mpquic"><a rel="footnote" href="#fn:mpquic">5</a></sup> が発表されました．ラストオーサーは先程紹介した MPTCP の拡張
-API に関する論文<sup class="footnote-ref" id="fnref:enhanced-mptcp"><a rel="footnote" href="#fn:enhanced-mptcp">9</a></sup> の方と同じですね．</p>
+に関する論文<sup class="footnote-ref" id="fnref:mpquic"><a href="#fn:mpquic">5</a></sup> が発表されました．ラストオーサーは先程紹介した MPTCP の拡張
+API に関する論文<sup class="footnote-ref" id="fnref:enhanced-mptcp"><a href="#fn:enhanced-mptcp">9</a></sup> の方と同じですね．</p>
 
 <p>(2018/06/09 追記)<br />
 QUIC の標準化に携わっている Oku Kazuho さんから，QUIC
@@ -447,11 +450,11 @@ Google Chrome からこの URL（ <a href="chrome://net-internals">chrome://net-
 
 <p>このように非常に高機能です．
 論文に関しては，2017年，ネットワーク系のトップカンファレンスである ACM
-SIGCOMM で発表された論文<sup class="footnote-ref" id="fnref:sigcomm-quic"><a rel="footnote" href="#fn:sigcomm-quic">11</a></sup> がおそらく初めてだと思われます．</p>
+SIGCOMM で発表された論文<sup class="footnote-ref" id="fnref:sigcomm-quic"><a href="#fn:sigcomm-quic">11</a></sup> がおそらく初めてだと思われます．</p>
 
 <p>この論文，著者の順番がアルファベット順になっていることに何か意図があるんでしょうかね．</p>
 
-<p>論文中ではインターネットトラフィックの 7% が QUIC によるものと推定する<sup class="footnote-ref" id="fnref:sigcomm-quic"><a rel="footnote" href="#fn:sigcomm-quic">11</a></sup>とあります．
+<p>論文中ではインターネットトラフィックの 7% が QUIC によるものと推定する<sup class="footnote-ref" id="fnref:sigcomm-quic"><a href="#fn:sigcomm-quic">11</a></sup>とあります．
 下記ツイートのように，QUIC のトラフィックシェアも上がってきているようで本当にすごいです．
 こんな複雑なプロトコルがインターネット規模でスケールして動作していることに驚愕です．
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">The number of QUIC-capable IPs and support for sets of certain QUIC versions has grown since its release over 5 years ago. Read more about the reach of <a href="https://twitter.com/hashtag/QUIC?src=hash&amp;ref_src=twsrc%5Etfw">#QUIC</a> on the Internet <a href="https://t.co/65IGbH5SWx">https://t.co/65IGbH5SWx</a> <a href="https://t.co/oXiSeiptfr">pic.twitter.com/oXiSeiptfr</a></p>&mdash; APNIC (@apnic) <a href="https://twitter.com/apnic/status/996378414754947073?ref_src=twsrc%5Etfw">May 15, 2018</a></blockquote>
@@ -483,7 +486,7 @@ SIGCOMM で発表された論文<sup class="footnote-ref" id="fnref:sigcomm-quic
 <font size="2"> <a href="https://datatracker.ietf.org/meeting/98/materials/slides-98-edu-sessf-quic-tutorial/">https://datatracker.ietf.org/meeting/98/materials/slides-98-edu-sessf-quic-tutorial/</a> より引用</font></p>
 
 <p>一般に QUIC はトランスポート層プロトコルと言われています．はじめは UDP sublayer みたいな位置付けかと
-思っていましたが，図6 のように UDP の上位で動作します．そして一部アプリケーション機能を提供します<sup class="footnote-ref" id="fnref:sigcomm-quic"><a rel="footnote" href="#fn:sigcomm-quic">11</a></sup>．</p>
+思っていましたが，図6 のように UDP の上位で動作します．そして一部アプリケーション機能を提供します<sup class="footnote-ref" id="fnref:sigcomm-quic"><a href="#fn:sigcomm-quic">11</a></sup>．</p>
 
 <p>ここで私の良くない病気が出ます．</p>
 
@@ -496,15 +499,15 @@ SIGCOMM で発表された論文<sup class="footnote-ref" id="fnref:sigcomm-quic
 意味ではトランスポート層プロトコルだと思いますが，一部アプリケーション機能も持っているため
 L7 とも捉えることができると思います．個人的には L4 の機能を持った L7 がしっくり来ます．</p>
 
-<p>これに関して，MPQUIC の論文<sup class="footnote-ref" id="fnref:mpquic"><a rel="footnote" href="#fn:mpquic">5</a></sup> には以下のように書かれています．</p>
+<p>これに関して，MPQUIC の論文<sup class="footnote-ref" id="fnref:mpquic"><a href="#fn:mpquic">5</a></sup> には以下のように書かれています．</p>
 
 <blockquote>
 <p>QUIC is a recent proposal initiated by Google and embraced by many others that <mark>collapses the functions of the classical HTTP/2, TLS and TCP protocols into a single application layer protocol</mark> that runs over UDP.</p>
 </blockquote>
 
-<p><font size="2">参考文献<sup class="footnote-ref" id="fnref:mpquic"><a rel="footnote" href="#fn:mpquic">5</a></sup> より抜粋</font></p>
+<p><font size="2">参考文献<sup class="footnote-ref" id="fnref:mpquic"><a href="#fn:mpquic">5</a></sup> より抜粋</font></p>
 
-<p>QUIC の論文<sup class="footnote-ref" id="fnref:sigcomm-quic"><a rel="footnote" href="#fn:sigcomm-quic">11</a></sup> では &ldquo;Transport Layer Protocol&rdquo; と言われています（どこに位置づくの）．
+<p>QUIC の論文<sup class="footnote-ref" id="fnref:sigcomm-quic"><a href="#fn:sigcomm-quic">11</a></sup> では &ldquo;Transport Layer Protocol&rdquo; と言われています（どこに位置づくの）．
 あと，しばしば SPDY(L7) とか HTTP/2(L7)
 とかと同列で書かれたりしているのを見るとやっぱり L7 では？という気分になります．
 元論文が &ldquo;Transport Layer Protocol&rdquo; だと言う以上，これからは HTTP/2 on QUIC とか，SPDY on TCP とか，
@@ -613,11 +616,11 @@ QUIC パケットは，暗号化されていないヘッダ，暗号化された
 <p>RTT 推定は Bufferbloat 問題の解決に役立ちます．Bufferbloat 問題は，実際には輻輳が発生していないのに
 両エンドの輻輳制御アルゴリズムの性能を落とします．単純な仕組みですが，PN
 が単調増加することのメリットは大きいように思えます．論文にも MPTCP
-と比較してロスリカバリに長けていると書かれています<sup class="footnote-ref" id="fnref:mpquic"><a rel="footnote" href="#fn:mpquic">5</a></sup>．</p>
+と比較してロスリカバリに長けていると書かれています<sup class="footnote-ref" id="fnref:mpquic"><a href="#fn:mpquic">5</a></sup>．</p>
 
 <p>また，シングルパスの TCP，QUIC では輻輳制御に CUBIC を用いています．
-論文中では，MPTCP，MPQUIC には OLIA<sup class="footnote-ref" id="fnref:olia"><a rel="footnote" href="#fn:olia">12</a></sup> というスキームを用いています．CUBIC
-は，マルチパスプロコトルの下では unfair な挙動をすることが知られています<sup class="footnote-ref" id="fnref:unfair-cubic"><a rel="footnote" href="#fn:unfair-cubic">13</a></sup>．</p>
+論文中では，MPTCP，MPQUIC には OLIA<sup class="footnote-ref" id="fnref:olia"><a href="#fn:olia">12</a></sup> というスキームを用いています．CUBIC
+は，マルチパスプロコトルの下では unfair な挙動をすることが知られています<sup class="footnote-ref" id="fnref:unfair-cubic"><a href="#fn:unfair-cubic">13</a></sup>．</p>
 
 <hr />
 
@@ -634,7 +637,7 @@ stream のデータ（アプリケーションペイロード）が復元され�
 Path Manager は Path の作成と削除を担います．QUIC のハンドシェイク終了後，
 両ホストでまずひとつの Path を開きます．あとは必要に応じて片方のホストが Path
 を開きます．Path は UDP 上で実現されるため，Path を activate
-するにはパケットをひとつ流すだけで済みます<sup class="footnote-ref" id="fnref:mpquic"><a rel="footnote" href="#fn:mpquic">5</a></sup>．一方で MPTCP
+するにはパケットをひとつ流すだけで済みます<sup class="footnote-ref" id="fnref:mpquic"><a href="#fn:mpquic">5</a></sup>．一方で MPTCP
 では Path は TCP で実現されるため，Path ごとに 3-way handshake が必要になります．</p>
 
 <p>MPQUIC では以下の新たな Frame を用いて Path を操作します．</p>
@@ -685,7 +688,7 @@ Blocking が発生しません．受信したら，stream 内で順番が揃っ�
 <p>個人的に MPQUICは SCTP と MPTCP にインスパイヤされていると思います．
 SCTP よりも現代的なアプリケーションの要求に応える仕組みになっており，MPTCP
 が下位層から TCP にみえるように MPQUIC は UDP に見えるのでセキュリティミドルボックスの突破に貢献します．
-MPQUIC の論文<sup class="footnote-ref" id="fnref:mpquic"><a rel="footnote" href="#fn:mpquic">5</a></sup> はショートペーパーなので，より詳細なものがフルペーパーで読めるのを楽しみにしています．</p>
+MPQUIC の論文<sup class="footnote-ref" id="fnref:mpquic"><a href="#fn:mpquic">5</a></sup> はショートペーパーなので，より詳細なものがフルペーパーで読めるのを楽しみにしています．</p>
 
 <h3 id="おわりに">おわりに</h3>
 
@@ -717,7 +720,7 @@ MPQUIC の論文<sup class="footnote-ref" id="fnref:mpquic"><a rel="footnote" hr
 <td align="center">転送指向</td>
 <td align="center">メッセージ</td>
 <td align="center">バイトストリーム</td>
-<td align="center">バイトストリーム<sup class="footnote-ref" id="fnref:sigcomm-quic"><a rel="footnote" href="#fn:sigcomm-quic">11</a></sup></td>
+<td align="center">バイトストリーム<sup class="footnote-ref" id="fnref:sigcomm-quic"><a href="#fn:sigcomm-quic">11</a></sup></td>
 </tr>
 
 <tr>
@@ -752,7 +755,7 @@ MPQUIC の論文<sup class="footnote-ref" id="fnref:mpquic"><a rel="footnote" hr
 <td align="center">階層</td>
 <td align="center">L4</td>
 <td align="center">L4 on TCP</td>
-<td align="center">L7 on UDP<sup class="footnote-ref" id="fnref:mpquic"><a rel="footnote" href="#fn:mpquic">5</a></sup></td>
+<td align="center">L7 on UDP<sup class="footnote-ref" id="fnref:mpquic"><a href="#fn:mpquic">5</a></sup></td>
 </tr>
 </tbody>
 </table>
@@ -773,7 +776,7 @@ MPQUIC の論文<sup class="footnote-ref" id="fnref:mpquic"><a rel="footnote" hr
  <a class="footnote-return" href="#fnref:mpquic">↑</a></li>
 <li id="fn:cmt-sctp">Prof. P. D. Amer, M. Becke, T. Dreibholz, N. Ekiz, J. Iyengar, P. Natarajan, R. R. Stewart, M. Tüxen, &ldquo;Load Sharing for the Stream Control Transmission Protocol (SCTP),&rdquo; <a href="https://www.ietf.org/id/draft-tuexen-tsvwg-sctp-multipath-15.txt">draft-tuexen-tsvwg-sctp-multipath-15.txt</a>, Jan. 2018.
  <a class="footnote-return" href="#fnref:cmt-sctp">↑</a></li>
-<li id="fn:conf-mptcp">src IP ごとにルーティングテーブルを設定したり，I/F を mptcp enabled にしたりする程度です．詳しくは <sup class="footnote-ref" id="fnref:mptcp-official"><a rel="footnote" href="#fn:mptcp-official">8</a></sup>を参照．
+<li id="fn:conf-mptcp">src IP ごとにルーティングテーブルを設定したり，I/F を mptcp enabled にしたりする程度です．詳しくは <sup class="footnote-ref" id="fnref:mptcp-official"><a href="#fn:mptcp-official">8</a></sup>を参照．
  <a class="footnote-return" href="#fnref:conf-mptcp">↑</a></li>
 <li id="fn:mptcp-official"><a href="https://multipath-tcp.org/pmwiki.php">MultiPath TCP - Linux Kernel implementation</a>
  <a class="footnote-return" href="#fnref:mptcp-official">↑</a></li>
@@ -806,6 +809,10 @@ MPQUIC の論文<sup class="footnote-ref" id="fnref:mpquic"><a rel="footnote" hr
             <a href="https://negli0.github.io/posts/struggle-hugo/"><i class="fa fa-chevron-circle-left"></i> GitHub Pages &#43; Hugo で躓いた話</a>
         </li>
         
+        
+        <li>
+            <a href="https://negli0.github.io/posts/talk-at-tcfm-meetup/">Talk at Turing Complete FM Meetup <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
         
     </ul>
 </section>
