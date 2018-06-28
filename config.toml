@@ -4,7 +4,7 @@ copyright = "Copyright &copy; 2018 - negli0"
 canonifyurls = true
 theme = "kiera"
 
-paginate = 3
+paginate = 20
 
 summaryLength = 30
 enableEmoji = true
