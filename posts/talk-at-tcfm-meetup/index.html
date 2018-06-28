@@ -269,12 +269,15 @@ End-to-End で提供するために階層を1つ追加しよう，みたいな�
 <p>「メモリにぺたっと貼り付けるとなんか動く」とか「適当なアドレスに関数ポインタを代入」とか，さらっとレベルの高いことをおっしゃっていました．
 私は低レイヤが特別得意なわけではないので精進するんだ&hellip;</p>
 
-<h4 id="nsasaki128-さん-無理数時計">nsasaki128 さん「無理数時計」</h4>
+<h4 id="nsasaki128-さん-無理数時計作ってみた">nsasaki128 さん「無理数時計作ってみた」</h4>
+
+<p>発表資料はこちら．
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/rveWKb3yYT1J1f" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/naokisasaki128/ss-72295815" title="無理数時計作ってみた" target="_blank">無理数時計作ってみた</a> </strong> from <strong><a href="//www.slideshare.net/naokisasaki128" target="_blank">Naoki Sasaki</a></strong> </div></p>
 
 <p>発表にあったハッカソンで開発された「無理数時計」は
 → <a href="https://hyurumi.github.io/MuriSuDokei/">こちら</a></p>
 
-<p>「時計→数字→無理数」でしょ，という発送でで無理数に現れる数値で時刻を
+<p>「時間→数字→無理数」でしょ，という発送でで無理数に現れる数値で時刻を
 表現するという大変ぶっとんだ代物（褒め言葉）でした．数学的に面白いことができるのはとてもうらやましい．数学やんなきゃ．</p>
 
 <p>普通に実装したのでは文字列探索の計算量が大きくて使いものにならなかったそうです．
@@ -299,10 +302,21 @@ End-to-End で提供するために階層を1つ追加しよう，みたいな�
 
 <p>現在 LKL のビルドは通っている状態で， BitVisor への統合だけは完了しているそうです．BitVisor のビルドシステムに LKL を組み込むのが大変そうだとか．</p>
 
-<h4 id="python-の-gc-の話-申し訳ありません-発表者情報を控えていませんでした-情報求む">Python の GC の話 (申し訳ありません，発表者情報を控えていませんでした．[情報求む])</h4>
+<h4 id="inada-naoki-さん-compact-pygc-head">Inada Naoki さん「Compact PyGC_Head」</h4>
 
-<p>Python の GC がどのように実装されてるのかの話から，それを改善した話．
+<p>発表資料はこちら
+
+
+<script async class="speakerdeck-embed" data-id="b77d551e19fe4d839d4a39dc924eddb8" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+</p>
+
+<p>Python の GC がどのように実装されてるのかの話から，ヘッダ部分の使用メモリ量を改善する話．
 私が GC の話に全く詳しくないのでコメントできない&hellip;つらい&hellip;</p>
+
+<p>32bit システムと 64bit システムとではポインタサイズが違い，参照カウントに必要な
+3bit が 32bit システムでは用意できない，さてどうしようと．Rui さんが 「世の中 64
+bit が当たり前になってきているので 32bit を切り捨てるというのもあるのでは？」と
+コメントしていました．</p>
 
 <p>Rui さんが「GC のバグは全部つらいバグ」って言っていたのが印象的でした．</p>
 
@@ -311,7 +325,12 @@ End-to-End で提供するために階層を1つ追加しよう，みたいな�
 <p>発表資料は→<a href="http://keens.github.io/slide/gcto1bit/">こちら</a></p>
 
 <p>連続して GC の話です．またしても技術的な話が全くわからずつらい&hellip;
-κeen さんが発表中に Rui さんに「これって TCFM で話されていましたよね？」と聞いているのが面白かったです．いい雰囲気でした．</p>
+オブジェクトのフィールドをポインタと値に分けて格納し，ポインタをオブジェクトポインタの
+前に，値をオブジェクトポインタの後にそれぞれ置くと物理で 1bit も使わずに
+情報を保持できる双方向レイアウトの話がありましたが，これ他のところでも使えそうだ
+と思いました．そこまで情報量を削減する必要がある場面が他にあるかは私にはわからないですが&hellip;</p>
+
+<p>κeen さんが発表中に Rui さんに「これって TCFM で話されていましたよね？」と聞いているのが面白かったです．いい雰囲気でした．</p>
 
 <h3 id="パネルディスカッション">パネルディスカッション</h3>
 
