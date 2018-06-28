@@ -119,7 +119,7 @@ Linux Kernel Library (LKL) を BitVisor に移植するというプロジェク�
 発表資料はこちら．
 {{< speakerdeck ae844998599b4cdaa563edd541ff22ee >}}
 
-LKL はコンパイルすると liblkl.so のようなものが生成され，Linux カーネルをライブラリとして扱えるプロジェクトです．
+LKL はコンパイルすると `liblkl.so` のようなものが生成され，Linux カーネルをライブラリとして扱えるプロジェクトです．
 モチベーションは「面白そうだから」．libc のような便利なものが無い環境で
 動作させるので，まずは timer, thread, semaphore, mutex, file read/write が必要．
 
