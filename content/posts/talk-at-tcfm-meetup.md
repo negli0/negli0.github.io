@@ -101,9 +101,6 @@ Rui さんと直接お話できました．「日本の大学生はもっとCS�
 
 #### nsasaki128 さん「無理数時計作ってみた」
 
-発表資料はこちら．
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/rveWKb3yYT1J1f" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/naokisasaki128/ss-72295815" title="無理数時計作ってみた" target="_blank">無理数時計作ってみた</a> </strong> from <strong><a href="//www.slideshare.net/naokisasaki128" target="_blank">Naoki Sasaki</a></strong> </div>
-
 発表にあったハッカソンで開発された「無理数時計」は
 → [こちら](https://hyurumi.github.io/MuriSuDokei/)
 
