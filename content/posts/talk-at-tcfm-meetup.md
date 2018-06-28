@@ -99,12 +99,15 @@ Rui さんと直接お話できました．「日本の大学生はもっとCS�
 「メモリにぺたっと貼り付けるとなんか動く」とか「適当なアドレスに関数ポインタを代入」とか，さらっとレベルの高いことをおっしゃっていました．
 私は低レイヤが特別得意なわけではないので精進するんだ...
 
-#### nsasaki128 さん「無理数時計」
+#### nsasaki128 さん「無理数時計作ってみた」
+
+発表資料はこちら．
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/rveWKb3yYT1J1f" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/naokisasaki128/ss-72295815" title="無理数時計作ってみた" target="_blank">無理数時計作ってみた</a> </strong> from <strong><a href="//www.slideshare.net/naokisasaki128" target="_blank">Naoki Sasaki</a></strong> </div>
 
 発表にあったハッカソンで開発された「無理数時計」は
 → [こちら](https://hyurumi.github.io/MuriSuDokei/)
 
-「時計→数字→無理数」でしょ，という発送でで無理数に現れる数値で時刻を
+「時間→数字→無理数」でしょ，という発送でで無理数に現れる数値で時刻を
 表現するという大変ぶっとんだ代物（褒め言葉）でした．数学的に面白いことができるのはとてもうらやましい．数学やんなきゃ．
 
 普通に実装したのでは文字列探索の計算量が大きくて使いものにならなかったそうです．
