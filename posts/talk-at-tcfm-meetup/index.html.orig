@@ -1,0 +1,408 @@
+<!doctype html>
+
+<html lang="en">
+
+<head><title>Talk at Turing Complete FM Meetup - Around The Computer</title>
+	<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Hiroki Watanabe" />
+  <meta name="description" content="
+
+Turing Complete FM とは
+
+
+Turing Complete FM
+
+
+Rui Ueyama さんによるプログラミング …" />
+
+  <meta name="generator" content="Hugo 0.42.1" />
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="https://negli0.github.io/css/styles.css" />
+
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-118652153-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@__nelio__" />
+	<meta property="og:url" content="https://negli0.github.io/posts/talk-at-tcfm-meetup/" />
+	<meta property="og:title" content="Talk at Turing Complete FM Meetup - Around The Computer"/>
+	<meta property="og:description" content="
+
+Turing Complete FM とは
+
+
+Turing Complete FM
+
+
+Rui Ueyama さんによるプログラミング …"/>
+	<meta property="og:image" content="https://negli0.github.io/img/logo.jpg" />
+</head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="https://negli0.github.io/">Around The Computer</a>
+            </h1>
+
+      <ul id="social-media">
+        
+        <li><a href="https://twitter.com/__nelio__"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+          
+        <li><a href="https://github.com/negli0"><i class="fa fa-github fa-lg" aria-hidden="true"></i></a></li>
+           
+      </ul>
+      
+      <p><em>A Technical Blog about Computer Science</em></p>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+        <li>
+            <a class="" href="https://negli0.github.io/">
+                <i class="fa-li fa  fa-lg"></i><span></span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="https://negli0.github.io/posts/">
+                <i class="fa-li fa  fa-lg"></i><span>Posts</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="https://negli0.github.io/categories/">
+                <i class="fa-li fa  fa-lg"></i><span>Categories</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="https://negli0.github.io/tags/">
+                <i class="fa-li fa  fa-lg"></i><span>Tags</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="https://negli0.github.io/about/">
+                <i class="fa-li fa  fa-lg"></i><span>About</span>
+            </a>
+        </li>
+        
+    </ul>
+</nav>
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>Talk at Turing Complete FM Meetup</h1>
+
+    
+        <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2018-06-26T17:46:54&#43;09:00">Jun 26, 2018</time>
+        </li>
+        
+        
+        <li>
+            Categories: 
+            <em>
+                
+                    
+                    <a href="https://negli0.github.io/categories/talk/">talk</a>
+                
+            </em>
+        </li>
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="https://negli0.github.io/tags/layer-4/">#layer-4</a>
+                
+                    , 
+                    <a href="https://negli0.github.io/tags/dtn/">#DTN</a>
+                
+            </em>
+        </li>
+        
+
+        <li>7 min read</li>
+    </ul>
+</aside>
+    
+
+    
+
+<h2 id="turing-complete-fm-とは">Turing Complete FM とは</h2>
+
+<ul>
+<li><a href="https://turingcomplete.fm">Turing Complete FM</a></li>
+</ul>
+
+<p><a href="https://twitter.com/rui314">Rui Ueyama</a> さんによるプログラミングについてのポッドキャストです．
+毎回ゲストを招いて，プログラミングに関するあれこれを Rui
+さんとゲストが喋っていく形式になっています．</p>
+
+<p>ほとんどの回が高度すぎるので，半分理解できたらまあいいほうです．
+よくわかんないけど，すごそう，面白そうという気持ちは大事にしたいです．</p>
+
+<p>もうちょっというと，自分が知らなかった話を楽しそうに話されているとなんだか
+「ぐぬぬ，面白さがわからん！勉強だ！！」となるのでなんか知らんが頑張ろうという気になります．</p>
+
+<h2 id="tcfm-meetup">TCFM Meetup</h2>
+
+<h4 id="参加応募の殺到">参加応募の殺到</h4>
+
+<p>Rui さんの「TCFM，ミートアップ的なことしてもいいかも？」というツイートがきっかけで
+開催が決定しました．</p>
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">今月24日からの週、一週間日本行くんですけど <a href="https://twitter.com/hashtag/tcfm?src=hash&amp;ref_src=twsrc%5Etfw">#tcfm</a> ミートアップ的なのしてもいいかも？</p>&mdash; Rui Ueyama (@rui314) <a href="https://twitter.com/rui314/status/1007255390025740289?ref_src=twsrc%5Etfw">June 14, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>そしてあれよあれよという間に応募が殺到し，当日は
+110 人が来場することになりました．募集開始が <sup>6</sup>&frasl;<sub>21</sub> でミートアップ当日が <sup>6</sup>&frasl;<sub>25</sub>
+という短い募集期間だったにもかかわらずこれだけの人が集まるとは&hellip;</p>
+
+<p>実際のポッドキャスト視聴者は一体何人なんでしょうか．</p>
+
+<h4 id="lt-枠への応募">LT 枠への応募</h4>
+
+<p>募集のページを開いたら LT 枠があって，学生は学生で応募できるようになっていました．
+TCFM ポッドキャストを聞く人は，なにか技術的に得意なことを持っている人がほとんどだと
+思うので，そういった人たちの前で発表するのは結構勇気がいりそうですよね．</p>
+
+<p>私はといえば「やっべ，こんなん怖いじゃん（応募ボタンぽち〜）」のような感じで気づいたら
+応募していました．</p>
+
+<p>多分大きく理由は2つあって，</p>
+
+<ol>
+<li>無名の研究者(私)がすごいエンジニア達の前で発表できる機会は極めて貴重</li>
+<li>そのようなすごい人達に自分の話を聞いてもらいたい</li>
+</ol>
+
+<p>という気持ちが恐れに勝ったのだと思います．</p>
+
+<p>で，結果的に発表して大正解だったので，衝動に身を任せて本当に良かった！
+勢い大事！</p>
+
+<h4 id="発表内容">発表内容</h4>
+
+<p>私が発表したのは他の発表者と異なり，少々アカデミア寄りの内容です．L4 End-to-End
+が限界な一方，ミドルボックスを取り除くのは現実的ではないので，高機能通信路を
+End-to-End で提供するために階層を1つ追加しよう，みたいな話です．</p>
+
+<p>発表資料はコレです．</p>
+
+
+
+<script async class="speakerdeck-embed" data-id="4252dfd6913246d3aa571607e79eb93a" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+
+<p>本当は前日から実験を回していて，当日はとれたての実験データを公開するつもりだった
+のですが，思いの外手こずりデータ収集に失敗しました．</p>
+
+<p>発表は 8 分だったのですが，8 分で何かを伝えるのは非常に難しいことがわかりました．
+当日喋ってない内容はそのうちブログのエントリで出せたらなと思います．</p>
+
+<p>TCFM ポッドキャストでは今の所ネットワークの内容にあまりフォーカスされないので，
+自分の発表がウケるか非常に不安でした．</p>
+
+<p>あと，事前に Rui さんに資料を共有し忘れていて，Dropbox の URL
+を自分で直打ちする自体を招いてしまいました．スムーズな進行の妨げになることは
+避けたいです，失礼いたしました．</p>
+
+<h5 id="url-直打ち">URL 直打ち</h5>
+
+<p>Dropbox の URL を直打ちしたら一発で通ったのがややウケした．</p>
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">dropboxのURL一発入力すごい <a href="https://twitter.com/hashtag/tcfm?src=hash&amp;ref_src=twsrc%5Etfw">#tcfm</a></p>&mdash; みすど(22歳 男性 千代田区美人OL) (@MysticDoll) <a href="https://twitter.com/MysticDoll/status/1011202225123651585?ref_src=twsrc%5Etfw">June 25, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<h4 id="発表後と懇親会">発表後と懇親会</h4>
+
+<p>時系列が前後しますが，発表は結構好評で，懇親会でたくさん話しかけてもらいました．
+ネットワーク系の方々とアカデミアの発表の場以外で話せるのは楽しかったです．
+<mark>発表はしてみるものだなと思いました．</mark></p>
+
+<p>Rui さんと直接お話できました．「日本の大学生はもっとCSを詰め込む勉強をしたほうがいい」
+とおっしゃっていたのが印象的でした．これはアメリカのトップ校に通われている方の言葉だなと．</p>
+
+<h3 id="その他の-lt-枠">その他の LT 枠</h3>
+
+<p>非常に濃かったです．</p>
+
+<h4 id="shinh-さん-カジュアルに実行時リンク-ロードする">shinh さん「カジュアルに実行時リンク&amp;ロードする」</h4>
+
+<p>スライドは→<a href="http://shinh.skr.jp/slide/dynload/000.html">こちら</a></p>
+
+<p>難しそうに思えるが，ちょっとした実験をするときに有用なことがある．適当に事例を紹介します．といった話．</p>
+
+<p>(コメントできない&hellip;スライド読んで勉強します&hellip;)</p>
+
+<p>「メモリにぺたっと貼り付けるとなんか動く」とか「適当なアドレスに関数ポインタを代入」とか，さらっとレベルの高いことをおっしゃっていました．
+私は低レイヤが特別得意なわけではないので精進するんだ&hellip;</p>
+
+<h4 id="nsasaki128-さん-無理数時計作ってみた">nsasaki128 さん「無理数時計作ってみた」</h4>
+
+<p>発表資料はこちら．
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/rveWKb3yYT1J1f" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/naokisasaki128/ss-72295815" title="無理数時計作ってみた" target="_blank">無理数時計作ってみた</a> </strong> from <strong><a href="//www.slideshare.net/naokisasaki128" target="_blank">Naoki Sasaki</a></strong> </div></p>
+
+<p>発表にあったハッカソンで開発された「無理数時計」は
+→ <a href="https://hyurumi.github.io/MuriSuDokei/">こちら</a></p>
+
+<p>「時間→数字→無理数」でしょ，という発送でで無理数に現れる数値で時刻を
+表現するという大変ぶっとんだ代物（褒め言葉）でした．数学的に面白いことができるのはとてもうらやましい．数学やんなきゃ．</p>
+
+<p>普通に実装したのでは文字列探索の計算量が大きくて使いものにならなかったそうです．
+そこで，このプログラムに特化したアルゴリズムを設計して期待値を数学的に算出します．その後アルゴリズムを実装して計算量を削減，期待値に近い実行時間を示した，という発表でした．</p>
+
+<p>すばらしいなと思ったのは，XXというアルゴリズムはどの程度の計算量の削減が望めるのかを数学的に検証してから実装している点です．
+この手順は私も見習いたいと思いました．</p>
+
+<h4 id="retrage01-さん-wip-porting-lkl-to-bitvisor">retrage01 さん「[WIP] Porting LKL to BitVisor」</h4>
+
+<p>Linux Kernel Library (LKL) を BitVisor に移植するというプロジェクト．</p>
+
+<p>発表資料はこちら．
+
+
+<script async class="speakerdeck-embed" data-id="ae844998599b4cdaa563edd541ff22ee" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+</p>
+
+<p>LKL はコンパイルすると liblkl.so のようなものが生成され，Linux カーネルをライブラリとして扱えるプロジェクトです．
+モチベーションは「面白そうだから」．libc のような便利なものが無い環境で
+動作させるので，まずは timer, thread, semaphore, mutex, file read/write が必要．</p>
+
+<p>現在 LKL のビルドは通っている状態で， BitVisor への統合だけは完了しているそうです．BitVisor のビルドシステムに LKL を組み込むのが大変そうだとか．</p>
+
+<h4 id="inada-naoki-さん-compact-pygc-head">Inada Naoki さん「Compact PyGC_Head」</h4>
+<<<<<<< HEAD
+
+<p>発表資料はこちら
+
+
+=======
+
+<p>発表資料はこちら
+
+
+>>>>>>> e5a7f9ba53d2195ed3b753502eeb62d6d4fbffad
+<script async class="speakerdeck-embed" data-id="b77d551e19fe4d839d4a39dc924eddb8" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+</p>
+
+<p>Python の GC がどのように実装されてるのかの話から，ヘッダ部分の使用メモリ量を改善する話．
+私が GC の話に全く詳しくないのでコメントできない&hellip;つらい&hellip;</p>
+
+<p>32bit システムと 64bit システムとではポインタサイズが違い，参照カウントに必要な
+3bit が 32bit システムでは用意できない，さてどうしようと．Rui さんが 「世の中 64
+bit が当たり前になってきているので 32bit を切り捨てるというのもあるのでは？」と
+コメントしていました．</p>
+
+<p>Rui さんが「GC のバグは全部つらいバグ」って言っていたのが印象的でした．</p>
+
+<h4 id="κeen-さん-gc-と-1bitの話">κeen さん「GC と 1bitの話」</h4>
+
+<p>発表資料は→<a href="http://keens.github.io/slide/gcto1bit/">こちら</a></p>
+
+<p>連続して GC の話です．またしても技術的な話が全くわからずつらい&hellip;
+オブジェクトのフィールドをポインタと値に分けて格納し，ポインタをオブジェクトポインタの
+前に，値をオブジェクトポインタの後にそれぞれ置くと物理で 1bit も使わずに
+情報を保持できる双方向レイアウトの話がありましたが，これ他のところでも使えそうだ
+と思いました．そこまで情報量を削減する必要がある場面が他にあるかは私にはわからないですが&hellip;</p>
+
+<p>κeen さんが発表中に Rui さんに「これって TCFM で話されていましたよね？」と聞いているのが面白かったです．いい雰囲気でした．</p>
+
+<h3 id="パネルディスカッション">パネルディスカッション</h3>
+
+<p>パネルディスカッションは出演者へ質問ができるコーナーで，インタラクティブに
+進みました．</p>
+
+<p>togetter でいい感じにまとめられています．</p>
+
+<ul>
+<li><a href="https://togetter.com/li/1241054">Turing Complete FMミートアップ ツイートまとめ 2018/06/25開催 #tcfm</a></li>
+</ul>
+
+<p>印象的だったものを書きます．</p>
+
+<h5 id="csの勉強はどうやってやるのか">CSの勉強はどうやってやるのか？</h5>
+
+<p>本を読むというのが王道っぽいです．Rui さんは一冊読むのに非常に時間を掛けるのだとか．さらにるくすさんは分厚い本も通しで読むらしく，るくすさんが多方面に詳しいことと辻褄が合う，ということをおっしゃっていました．
+hikalium さんは技術書だけではなく小説も読むということで，読む速度が身についていることが幸いしているともおっしゃっていました．</p>
+
+<h5 id="僕が面白いと思うものはみなさんも面白いと思う">僕が面白いと思うものはみなさんも面白いと思う</h5>
+
+<p>Ruiさんの発言です．
+コンテンツをどうやって決めているのかという文脈だったと思います．
+番組プロデューサーとしての感性は信じていいものだとおっしゃっていました．</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p>CS分野1つをとってもまだまだ私の知らないことはいっぱいあるのだな〜と．
+あと，勢いで発表して本当によかった．Rui さんをはじめ，関係者のみなさま，ありがとうございました．</p>
+
+<p>機会があればまた発表したいな．</p>
+
+
+	<a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+	<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="https://negli0.github.io/posts/rich-paths/"><i class="fa fa-chevron-circle-left"></i> Intruducing Enhanced Communication Paths over Layer-4 (Multipath)</a>
+        </li>
+        
+        
+    </ul>
+</section>
+    
+
+
+
+
+
+</main>
+    <footer>
+        <h6>Copyright &copy; 2018 - negli0 | 
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://negli0.github.ioindex.xml">Subscribe</a></h6>
+    </footer>
+</div>
+<script src="https://negli0.github.io/js/scripts.js"></script>
+</body>
+
+</html>
