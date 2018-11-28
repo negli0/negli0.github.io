@@ -15,6 +15,11 @@ description: "About nelio"
 ([Teraoka & Kaneko Lab, Keio University](https://www.inl.ics.keio.ac.jp/))
 - [CV (English)](https://negli0.github.io/cv.pdf)
 - Mail: nelio *at* inl.ics.keio.ac.jp
+- Member
+	- IEEE
+	- ACM
+	- IPSJ
+	- WIDE Project
 
 ### Education
 - In Mar. 2016, he received the B.E degree in Information and Computer Science from Keio University.
@@ -23,6 +28,7 @@ description: "About nelio"
 
 ### Research Interests
 - Network Architecture
+  - Service Chaining, In-Network Computation
 - Protocol Stack
 - Edge Computing
 - SDN/NFV
@@ -40,7 +46,7 @@ description: "About nelio"
 #### Journal
 1. <u>Hiroki Watanabe</u>, Takao Kondo, Kunitake Kaneko and Fumio Teraoka, 
 	**"Inserting Layer-5 to Provide Applications with Richer Functions through Common API,"**
-	*IEICE Transactions on Communications*, Vol. E101-B, No.9 (will be published)
+	*IEICE Transactions on Communications*, Vol.E101-B, No.9, pp.1967-1981.
 
 #### International Conference
 1. <u>Hiroki Watanabe</u>, Takao Kondo, Kunitake Kaneko and Fumio Teraoka, 
