@@ -49,6 +49,10 @@ description: "About nelio"
 	Vancouver, BC, 2017, pp. 1-9. (Acceptance Rate: 27%)
 
 #### Domestic Conference / Workshop
+1. <u>渡邊 大記</u>, 近藤 賢郎, 寺岡 文男,
+	**"通信と計算の融合に向けたアプリケーション処理連接基盤,"**
+	*信学技報*, vol. 118, no. 326, IA2018-37, pp. 9-16, 2018年11月.
+
 1. 林 和輝, <u>渡邊 大記</u>, 近藤 賢郎, 寺岡 文男, 
 	**"ネットワークトポロジを考慮した実験用仮想ネットワーク自動構築機構,"**  
 	*信学技報*, vol. 117, no. 472, IA2017-73, pp. 37-42, 栃木, 2018 年 3 月. 
@@ -86,11 +90,12 @@ description: "About nelio"
    	*the 5th DMC Symposium*, Dec. 2015
 
 #### Awards
+1. **"Student Incentive Award"**, IEICE-IA, November, 2018
 1. **"Student Incentive Award"**, IEICE-IA, March, 2016
 
 #### Grants
-1. **"日本学生支援機構 留学生交流支援制度（短期派遣）"** (2013) -- 80,000 JPY
 1. **"KLL 前期博士課程助成金"** (2017) -- 110,000 JPY
+1. **"日本学生支援機構 留学生交流支援制度（短期派遣）"** (2013) -- 80,000 JPY
 
 ---
-(last update: Mar. 09 2018)
+(last update: Nov. 28 2018)
