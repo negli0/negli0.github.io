@@ -7,7 +7,7 @@ meta:  "false"
 description: "About nelio"
 ---
 
-## Hiroki Watanabe
+## Hiroki Watanabe (nelio)
 * * *
 
 ### Profile
@@ -15,11 +15,7 @@ description: "About nelio"
 ([Teraoka & Kaneko Lab, Keio University](https://www.inl.ics.keio.ac.jp/))
 - [CV (English)](https://negli0.github.io/cv.pdf)
 - Mail: nelio *at* inl.ics.keio.ac.jp
-- Member
-	- IEEE
-	- ACM
-	- IPSJ
-	- WIDE Project
+- Member of IEEE, ACM, IPSJ, and, WIDE Project
 
 ### Education
 - In Mar. 2016, he received the B.E degree in Information and Computer Science from Keio University.
