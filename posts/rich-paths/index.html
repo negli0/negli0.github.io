@@ -13,13 +13,13 @@
 インターネットが発展するにつれて，アプリケーションが多様化してきました．
 多様化したアプリケーションはネットワークに高機能性を要 …" />
 
-  <meta name="generator" content="Hugo 0.45.1" />
+  <meta name="generator" content="Hugo 0.54.0" />
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
   <link rel="stylesheet" type="text/css" href="https://negli0.github.io/css/styles.css" />
 
-<script>
+<script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -248,17 +248,10 @@ IETFに関しては，以下のような記述が Wikipedia にありますね�
 <h4 id="stream-control-transmission-protocol-sctp">Stream Control Transmission Protocol (SCTP)</h4>
 
 <p>高機能性の説明に入る前に，SCTP の基本的な考え方を説明します．図1にSCTPの通信の概念図を示します．
-
 <figure class="center">
-    
-        <img src="https://negli0.github.io/img/sctp-assoc.png" />
-    
-    
-    <figcaption>
-        <h4>図1. Communication Concept of SCTP</h4>
-        
-    </figcaption>
-    
+    <img src="https://negli0.github.io/img/sctp-assoc.png"/> <figcaption>
+            <h4>図1. Communication Concept of SCTP</h4>
+        </figcaption>
 </figure>
 </p>
 
@@ -291,17 +284,10 @@ SCTP のマルチストリーミングは Head-of-Line Blocking（HoL Blocking�
 
 <p>SCTP は，エンドホストが複数のエンドポイント（ほとんどの場合 IP アドレス）
 を持つマルチホーム環境をサポートします（図2）．
-
 <figure class="center">
-    
-        <img src="https://negli0.github.io/img/mh-sctp.png" />
-    
-    
-    <figcaption>
-        <h4>図2. Multi-homed SCTP</h4>
-        
-    </figcaption>
-    
+    <img src="https://negli0.github.io/img/mh-sctp.png"/> <figcaption>
+            <h4>図2. Multi-homed SCTP</h4>
+        </figcaption>
 </figure>
 
 SCTP には <b>Primary/Secondary Path</b> という概念があります．ひとつの Association には，複数の
@@ -328,33 +314,19 @@ Path が存在する状況で同時に（simultaneously）それらを使用し�
 <h4 id="multipath-tcp-mptcp">Multipath TCP (MPTCP)</h4>
 
 <p>MPTCP<sup class="footnote-ref" id="fnref:mptcp"><a href="#fn:mptcp">4</a></sup> は TCP コネクションを L4 内で多重化して資源利用率を高め，冗長性を高めることを目的とします．
-
 <figure class="center">
-    
-        <img src="https://negli0.github.io/img/mh-mptcp.png" />
-    
-    
-    <figcaption>
-        <h4>図3. MPTCP with 4 subflows (fullmesh)</h4>
-        
-    </figcaption>
-    
+    <img src="https://negli0.github.io/img/mh-mptcp.png"/> <figcaption>
+            <h4>図3. MPTCP with 4 subflows (fullmesh)</h4>
+        </figcaption>
 </figure>
 
 図3に示すように MPTCP では最大で ||src IP|| × ||dst IP|| 個の異なる経路の Path を
 保持します．この Path を subflow といいます．</p>
 
-<p>
-<figure class="center">
-    
-        <img src="https://negli0.github.io/img/mptcp.png" />
-    
-    
-    <figcaption>
-        <h4>図4. Structure of MPTCP</h4>
-        
-    </figcaption>
-    
+<p><figure class="center">
+    <img src="https://negli0.github.io/img/mptcp.png"/> <figcaption>
+            <h4>図4. Structure of MPTCP</h4>
+        </figcaption>
 </figure>
 
 また図4に示すように，上位層からは通常のソケットAPIで TCP のように操作ができ，
@@ -470,17 +442,10 @@ SIGCOMM で発表された論文<sup class="footnote-ref" id="fnref:sigcomm-quic
 
 <p>私の研究分野がネットワークアーキテクチャであるので，この視点で見てしまいがちです．
 図6 にプロトコルスタックにおける QUIC の位置付けを示します．
-
 <figure class="center">
-    
-        <img src="https://negli0.github.io/img/quic-stack.png" />
-    
-    
-    <figcaption>
-        <h4>図6. Protocol Stack (QUIC)</h4>
-        
-    </figcaption>
-    
+    <img src="https://negli0.github.io/img/quic-stack.png"/> <figcaption>
+            <h4>図6. Protocol Stack (QUIC)</h4>
+        </figcaption>
 </figure>
 
 <font size="2"> <a href="https://datatracker.ietf.org/meeting/98/materials/slides-98-edu-sessf-quic-tutorial/">https://datatracker.ietf.org/meeting/98/materials/slides-98-edu-sessf-quic-tutorial/</a> より引用</font></p>

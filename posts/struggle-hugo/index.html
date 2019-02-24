@@ -13,13 +13,13 @@
 前回エントリ(link)で GitHub Pages &#43; Hugo による HP
 開設の話をしました． …" />
 
-  <meta name="generator" content="Hugo 0.45.1" />
+  <meta name="generator" content="Hugo 0.54.0" />
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
   <link rel="stylesheet" type="text/css" href="https://negli0.github.io/css/styles.css" />
 
-<script>
+<script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -208,17 +208,10 @@ if (!doNotTrack) {
 
 <p>つまり，<code>master</code> に生成元のファイル群を push して公開ページ用のブランチを変更しようとしました．
 実際に公開ページ用のブランチを変更しようとするとグレーアウトされて変更できません．
-
 <figure class="center">
-    
-        <img src="https://negli0.github.io/img/github-pages.png" />
-    
-    
-    <figcaption>
-        <h4>図1． master branch から変更不可</h4>
-        
-    </figcaption>
-    
+    <img src="https://negli0.github.io/img/github-pages.png"/> <figcaption>
+            <h4>図1． master branch から変更不可</h4>
+        </figcaption>
 </figure>
 </p>
 
@@ -228,24 +221,24 @@ if (!doNotTrack) {
 
 <p>この仕様をきちんと把握していなかったのでした．Hugo で記事を公開するより前に
 ページのレイアウトを改造するとき，よくある手順は以下のとおりです．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ hugo new site ./site-name <span style="color:#75715e"># サイトを作成するファイル群の生成
-</span><span style="color:#75715e"></span>$ cd ./site-name            
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ hugo new site ./site-name <span style="color:#75715e"># サイトを作成するファイル群の生成</span>
+$ cd ./site-name            
 $ ls
 archetypes/  config.toml  content/  data/  layouts/  static/  themes/
 $ git init				
-$ git add . <span style="color:#f92672">&amp;&amp;</span>  git commit -m <span style="color:#e6db74">&#34;initial commit&#34;</span> # master に commit</code></pre></div>
+$ git add . <span style="color:#f92672">&amp;&amp;</span>  git commit -m <span style="color:#e6db74">&#34;initial commit&#34;</span> <span style="color:#75715e"># master に commit</span></code></pre></div>
 <p>サイトの設定はこれ以降 commit していけば保存されますが，ブランチを新たに作成していないので，<code>master</code> ブランチに <code>config.toml</code> のような設定ファイルを追加してしまいます．
 この状態で「レイアウトができた，記事書いて公開するぞ〜」と意気込んで push すると，<strong>めでたく図１のようになります</strong>．</p>
 
 <p>これを回避するには，なんでもいいので開発用ブランチでも切っておけば良かったわけです．
 手順は以下の通り．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ hugo new site ./site-name <span style="color:#75715e"># サイトを作成するファイル群の生成
-</span><span style="color:#75715e"></span>$ cd ./site-name            
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ hugo new site ./site-name <span style="color:#75715e"># サイトを作成するファイル群の生成</span>
+$ cd ./site-name            
 $ ls
 archetypes/  config.toml  content/  data/  layouts/  static/  themes/
 $ git init				
-$ git checkout -b dev		<span style="color:#75715e"># 開発用ブランチにチェックアウト
-</span><span style="color:#75715e"></span>$ git add . <span style="color:#f92672">&amp;&amp;</span> git commit -m <span style="color:#e6db74">&#34;initial commit&#34;</span> # dev に commit</code></pre></div>
+$ git checkout -b dev		<span style="color:#75715e"># 開発用ブランチにチェックアウト</span>
+$ git add . <span style="color:#f92672">&amp;&amp;</span> git commit -m <span style="color:#e6db74">&#34;initial commit&#34;</span> <span style="color:#75715e"># dev に commit</span></code></pre></div>
 <h3 id="3-同一リポジトリ上で-public-以下だけ-master-ブランチで扱う">3. 同一リポジトリ上で <code>public/</code> 以下だけ <code>master</code> ブランチで扱う</h3>
 
 <p>Hugo を使う上で，<code>config.toml</code> などの設定ファイル群の commit 先として考えられるのは以下の 2 つです．</p>

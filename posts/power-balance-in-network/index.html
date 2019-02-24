@@ -1,0 +1,489 @@
+<!doctype html>
+
+<html lang="en">
+
+<head><title>Power Balance in the WEB - Around The Computer</title>
+	<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Hiroki Watanabe" />
+  <meta name="description" content="
+
+はじめに
+
+ご存知の通り現在の WEB および WEB 周辺技術には HTTPS が多く使用されます．
+某国のでっかいファイヤーウォール …" />
+
+  <meta name="generator" content="Hugo 0.54.0" />
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="https://negli0.github.io/css/styles.css" />
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-118652153-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@__nelio__" />
+	<meta property="og:url" content="https://negli0.github.io/posts/power-balance-in-network/" />
+	<meta property="og:title" content="Power Balance in the WEB - Around The Computer"/>
+	<meta property="og:description" content="
+
+はじめに
+
+ご存知の通り現在の WEB および WEB 周辺技術には HTTPS が多く使用されます．
+某国のでっかいファイヤーウォール …"/>
+	<meta property="og:image" content="https://negli0.github.io/img/logo.jpg" />
+</head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="https://negli0.github.io/">Around The Computer</a>
+            </h1>
+
+      <ul id="social-media">
+        
+        <li><a href="https://twitter.com/__nelio__"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+          
+        <li><a href="https://github.com/negli0"><i class="fa fa-github fa-lg" aria-hidden="true"></i></a></li>
+           
+      </ul>
+      
+      <p><em>A Technical Blog about Computer Science</em></p>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+        <li>
+            <a class="" href="https://negli0.github.io/">
+                <i class="fa-li fa  fa-lg"></i><span></span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="https://negli0.github.io/posts/">
+                <i class="fa-li fa  fa-lg"></i><span>Posts</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="https://negli0.github.io/categories/">
+                <i class="fa-li fa  fa-lg"></i><span>Categories</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="https://negli0.github.io/tags/">
+                <i class="fa-li fa  fa-lg"></i><span>Tags</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="https://negli0.github.io/about/">
+                <i class="fa-li fa  fa-lg"></i><span>About</span>
+            </a>
+        </li>
+        
+    </ul>
+</nav>
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>Power Balance in the WEB</h1>
+
+    
+        <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2019-02-24T18:21:44&#43;09:00">Feb 24, 2019</time>
+        </li>
+        
+        
+        <li>
+            Categories: 
+            <em>
+                
+                    
+                    <a href="https://negli0.github.io/categories/%E9%9B%91%E8%A8%98/">雑記</a>
+                
+            </em>
+        </li>
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="https://negli0.github.io/tags/web/">#web</a>
+                
+                    , 
+                    <a href="https://negli0.github.io/tags/network/">#network</a>
+                
+                    , 
+                    <a href="https://negli0.github.io/tags/https/">#https</a>
+                
+            </em>
+        </li>
+        
+
+        <li>9 min read</li>
+    </ul>
+</aside>
+    
+
+    
+
+<h3 id="はじめに">はじめに</h3>
+
+<p>ご存知の通り現在の WEB および WEB 周辺技術には HTTPS が多く使用されます．
+某国のでっかいファイヤーウォールの件や
+SNI を利用した某国のトラフィック遮断の件を見たり，
+WEB の動向をのんびり追ったりしていて思うことがちらほらあるわけです．
+私の研究は WEB とはあまり関係ないのですが，実用を考えたときの
+インターネット上のデファクトスタンダードが WEB に存在すると
+感じます．WEB の世界の「あたりまえ」を意識することは大切だと思いながら，
+最近感じたことを書きます．</p>
+
+<h3 id="現在の-web-になるまでの大まかな流れ">現在の WEB になるまでの大まかな流れ</h3>
+
+<p>私の話で登場するのは，ざっくりと</p>
+
+<ul>
+<li><strong>サービス事業者</strong>
+
+<ul>
+<li>コンテンツ事業者とも言えます</li>
+<li>大きいところだと Google, Akamai, Facebook など
+
+<ul>
+<li>いわゆるハイパージャイアント</li>
+</ul></li>
+</ul></li>
+<li><strong>ネットワーク</strong>
+
+<ul>
+<li>モバイルキャリア</li>
+<li>ブロードバンドネットワーク</li>
+</ul></li>
+</ul>
+
+<p>の2者です．今回はこの2者に焦点を当てます．</p>
+
+<p>まずは あきみちさん
+（<a href="https://twitter.com/geekpage">Twitter: @geekpage</a>）の 2009 年（！）
+のこの記事を読んでください．</p>
+
+<ul>
+<li><a href="http://www.geekpage.jp/blog/?id=2009/10/20/1">インターネットの形を変えて行くGoogle,Facebook,Akamai&hellip;: Geekなページ</a></li>
+</ul>
+
+<p>ここから私の言いたいことを要約すると，
+<strong>ハイパージャイアント（コンテンツ事業者）の台頭で ISP の収入が減ったという変化</strong>
+です．特に注目したいのは記事内の次の文です．</p>
+
+<blockquote>
+<p>コンテンツを管理するだけではなく、ネットワークも自律的に自分で運用管理することによって、巨大な存在がより巨大になって行く様子を今まさに皆が目にしている感じなのかも知れません。</p>
+</blockquote>
+
+<ol>
+<li>商用 ISP のおかげでインターネットが普及</li>
+<li>インターネットが普及したおかげでコンテンツ事業者が力をつけ始める</li>
+<li>力をつけたコンテンツ事業者が独自ネットワークを持つ</li>
+<li>コンテンツ事業者と peer を張ったほうがネットワークオペレーションのコストが下がる</li>
+<li>トラフィックを集めやすくなったコンテンツ事業者がさらに力をつける</li>
+</ol>
+
+<p>実際はもっと複雑なんでしょうが，概ねこんな感じのことが起こっているという
+ことでしょうか．例えば，一昔前は ISP からメールアドレスを貰っていたと
+今は WEB ベースのメール（Gmailなど）が猛威を奮っているわけです．</p>
+
+<h3 id="次の方向性">次の方向性</h3>
+
+<p>先の記事が書かれたのが 2009 年で私がこのエントリを書いているのが
+2019 年です．研究の傍ら観測可能な範囲で，ここ数年でどのような変化が
+起こっているかと言うと，</p>
+
+<p><strong>コンテンツ事業者側</strong></p>
+
+<ul>
+<li>サービス利用者のために超低遅延を目指す
+
+<ul>
+<li>CDN 増強，QUIC の導入</li>
+<li>クラウドのリージョン増加</li>
+</ul></li>
+<li>情報セキュリティの観点から TLS ベースの通信を強く推奨
+
+<ul>
+<li>HTTP → HTTPS → HTTP over QUIC (HTTP/3) の流れ</li>
+<li>Everything over HTTPS（さらにそういう流れが進む？）
+
+<ul>
+<li>メール，動画配信などは既に over HTTPS</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p><strong>ネットワーク側</strong></p>
+
+<ul>
+<li>SDN/NFV や Service Chaining など，汎用マシン/汎用技術に基づく新しいトラフィックの操作に注力
+
+<ul>
+<li>OpenFlow<sup class="footnote-ref" id="fnref:openflow"><a href="#fn:openflow">1</a></sup> → P4<sup class="footnote-ref" id="fnref:Data-Plane-Programmability"><a href="#fn:Data-Plane-Programmability">0</a></sup></li>
+<li>IPv6 Segment Routing (SRv6)<sup class="footnote-ref" id="fnref:srv6"><a href="#fn:srv6">2</a></sup></li>
+<li>Service Function Chaining (SFC)<sup class="footnote-ref" id="fnref:sfc"><a href="#fn:sfc">3</a></sup></li>
+</ul></li>
+<li>オペレーションの自動化
+
+<ul>
+<li>運用コスト削減</li>
+</ul></li>
+</ul>
+
+<p>こんな感じです．他にも進んでいく方向性が現れている部分があると思います．
+私はコンテンツ事業者でもネットワークオペレータでも無いので，
+実際と違うことがあれば（あるとおもう&hellip;）ごめんなさい．
+ここからだけではネットワークオペレータ側がどうやって先の変化の
+盛り返しを図っているのか私にはちょっとわかりません．
+例えば，今後の ISP 業務はどう変わっていくのでしょうか．</p>
+
+<h3 id="パワーバランス">パワーバランス</h3>
+
+<p>ここが本題になります．先の通り，ネットワークオペレータ側は運用コストや
+設備コストを削減するために<strong>「低コストで賢いトラフィック操作」</strong>
+を頑張っている印象です．
+一方でコンテンツ事業者（エンド）側は<strong>「低遅延や高セキュリティ」</strong>
+を頑張っている
+印象です．話題の QUIC（Quick UDP Internet Connection）<sup class="footnote-ref" id="fnref:quic-ietf"><a href="#fn:quic-ietf">4</a></sup>
+というプロトコルですが，
+登場した背景および取っている手法は次の2点で概ね同意がいただけるかと
+思います．</p>
+
+<ul>
+<li><strong>低遅延 → over UDP 化</strong>
+
+<ul>
+<li>ネットワークオペレータ側のミドルボックスの影響を回避</li>
+<li>TCP ベースにおいて課題だった Head of Line Blocking を回避</li>
+</ul></li>
+<li><strong>高セキュリティ → TLS 必須</strong>
+
+<ul>
+<li>QUIC ヘッダの一部を除くほぼ全ての UDP ペイロードを暗号化</li>
+</ul></li>
+</ul>
+
+<h6 id="余談ですが-over-udp-は要素技術ではなく-あくまでも結果として選ばれた手段-だと思いますが-ip-直上で動作するように設計上プロトコル番号を持ってほしかったというのが私の本音です-そのうえで現在のミドルボックス-の都合上-現実的な解として-over-udp-採用した-と言える-s-そうすれば-quic-はトランスポートだって言って全員黙るでしょうに-ぉ-s">余談ですが，over UDP は要素技術ではなく，あくまでも結果として選ばれた手段 だと思いますが， IP 直上で動作するように設計上プロトコル番号を持ってほしかったというのが私の本音です．そのうえで現在のミドルボックス の都合上，現実的な解として over UDP 採用した，と言える． <s>そうすれば QUIC はトランスポートだって言って全員黙るでしょうに（ぉ）</s></h6>
+
+<p>現在の主な QUIC の用途としては HTTPS の下のトランスポートですが，
+IETF QUIC では用途を HTTPS に限っていないようです．
+つまりポート番号は 443 以外でも設計上 OK みたいです．</p>
+
+<p>では，ネットワークオペレータが何に基づいてパケット操作をしているかと
+いえば， それは
+<strong>5 tuple （src IP, dst IP, src Port, dst Port, Protocol No.）</strong>
+でしょう．</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">ポート</th>
+<th align="center">サービス</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">22</td>
+<td align="center">SSH</td>
+</tr>
+
+<tr>
+<td align="center">53</td>
+<td align="center">DNS</td>
+</tr>
+
+<tr>
+<td align="center">80</td>
+<td align="center">HTTP</td>
+</tr>
+
+<tr>
+<td align="center">443</td>
+<td align="center">HTTPS</td>
+</tr>
+</tbody>
+</table>
+
+<p>狭義のポート番号はノード内の通信端点の識別子ですが，
+ポート80 なら HTTP，443 なら HTTPS
+というふうに， いわゆる Well Known ポートはサービスと対応しており，広義
+ではサービスの識別子とも言えます．
+ご存知の通り，ブロードバンドもモバイルも，ポート 80，443 のリクエストが
+大半を占めています．IIJ から出ている Internet Infrastructure
+Review<sup class="footnote-ref" id="fnref:iir40"><a href="#fn:iir40">5</a></sup> を読むと面白いと思います．</p>
+
+<p>WEB 上サービスが多様化して全部 HTTPS 上に集約されていくのは，時代の流れも
+あって止められないでしょう．が，<strong>周辺技術までも over HTTPS 化するのは
+それでいいんか？と思います．</strong> アプリケーションペイロードを暗号化する
+のは賛成です．
+例えば DNS over HTTPS<sup class="footnote-ref" id="fnref:doh"><a href="#fn:doh">6</a></sup> ですが，機密性を考慮するなら over TLS（over QUIC?）
+で良いと思うのです．
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">ネットワークオペレータが5-tuple を有意に扱える状態でかつ中立を貫くのがバランスの良い世界だと思っていたのだが、世の中そうではないのかもしれん。私はコンテンツ事業者でもネットワークオペレータでもないけども、そのバランスを保つのは大事な気がするのだが。</p>&mdash; ねり (@__nelio__) <a href="https://twitter.com/__nelio__/status/1097277192168300544?ref_src=twsrc%5Etfw">February 17, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+私はコンテンツ事業者でもネットワークオペレータでも
+ないのですが，
+<mark>Twitter で垂れ流したとおり，
+私はこの辺のバランスがとても大事だと思っていますが，そう思う人は少ないのでしょうか&hellip;？</mark></p>
+
+<p>QUIC ではほとんどの制御パケットすら観測不可能である一方，
+Spin Bit について議論されるなど，オペレーションとの落とし所を探るような
+議論も見えます．UDP ポート番号は見えるし．
+ところがなんでもかんでも over HTTPS が進むと 5 tuple
+の意味がなくなるのですが&hellip;
+ポート番号はもはや機能していないというならば，それは果たして良い
+（健全な）状態なの？と思ってしまいます．
+<mark>実際に NoC 業務 や SoC
+業務をやっている方はどう思っているのだろう．</mark></p>
+
+<h6 id="またまた余談ですが-そもそも名前解決のトラストモデルが-tls-に基づくなら-dhcp-で降ってくるレゾルバをどうやって信頼するのとなってしまうわけで-とするならブラウザにレゾルバのアドレス-8-8-8-8-とか-を決め打ちするんですかね">またまた余談ですが，そもそも名前解決のトラストモデルが TLS に基づくなら DHCP で降ってくるレゾルバをどうやって信頼するのとなってしまうわけで．とするならブラウザにレゾルバのアドレス（8.8.8.8 とか）を決め打ちするんですかね&hellip;</h6>
+
+<h3 id="インターネットの発達と-end-to-end-原理の今後">インターネットの発達と End-to-End 原理の今後</h3>
+
+<p>改めて語るべくもないと思いますが，インターネットが現在ほどの規模に
+発展できたのは IP というプロトコルがステートレスで複雑ではなかった
+（シンプルだった）からというのは大きいポイントだと思われます．
+IP で古くから言われている End-to-End 原理に則り，ネットワーク側は
+いわゆるダム（dumb）ネットワークであり，機能は通信のエンド（両端）
+で実装されるものでした．ところが，身近なところで言えば NAT/NAPT は
+この原理を破るものであり，End-to-End 原理はもはや機能しているのか
+もわかりません．学術な立場でさえも，元々の意味での End-to-End 原理
+に重きを置くものかどうか，私にはよくわかりません．
+もちろんネットワーク中立性という観点からは，通信は End-to−End 原理が
+基本で，その中ではネットワーク側は dumb で解釈されるべきだと思います．</p>
+
+<p>つまるところ，私は End-to-End 原理の解釈を今の時代に合うように
+もう一度考え直したいのです．</p>
+
+<p>個人的な意見を重ねますが，インターネットの発展の基本である
+シンプルさは大事なのだけれど，シンプルさをなるべく維持しつつも
+ネットワーク側も賢くなって（not-dumb）いくと良いなと思います．
+SFC 然り，SRv6 然り，ネットワーク側が賢くなることは，
+技術の発展でしばしば見られる「抽象度があがる」ことだと思います．
+L2 の上に L3，L4 と抽象度の高い機能が
+積み上がったように．そして SFC も SRv6 も，コスト削減に効くと思いますが，
+新たな価値を創造する方向にも進んだらなお素晴らしいなと思います．
+そういうのがネットワーク側の新しい業務（価値）になっていくんじゃない
+のかなあ．
+そのためにも，というわけではないのですが，End-to-End 原理とは
+なんだったのか，改めてちょっと考えたいのです．</p>
+
+<p>ともあれコンテンツ事業者もネットワークも両方ガポガポ儲かってほしい．</p>
+
+<h4 id="その他">その他</h4>
+
+<p>早いとこ MEC（Mobile Edge Computing<sup class="footnote-ref" id="fnref:mec-mobile"><a href="#fn:mec-mobile">7</a></sup>;
+Multi-access Edge Computing<sup class="footnote-ref" id="fnref:mec-access"><a href="#fn:mec-access">8</a></sup>）
+やんないと，この分野もクラウド事業者がリージョン増やしたりして
+ネットワークエッジに計算機いっぱい置いちゃいそう（もう置いてる？）．
+あとそろそろ IoT もトップダウンで技術レベルに落として議論したいですよね．
+雲とセンサとスマホがでかい矢印でつながったポンチ絵描いてるだけだと
+なにも進まないし．インターネット ≠ WEB でしょうし，WEB 以外の
+インターネットの使い方を探したいです
+（探している人おったら友達になりたい）．
+新しいアーキテクチャといえば NDN（Named Data Networking）<sup class="footnote-ref" id="fnref:ndn"><a href="#fn:ndn">9</a></sup>が
+パッと浮かぶんですが，今どういう状況なんでしょうかね？
+商用稼働までに時間がかかると思いますが，CDN 業務奪っちゃわないかと
+思うんですが（そうではない？）．</p>
+
+<h3 id="さいごに">さいごに</h3>
+
+<p>WEB だけでも社会インフラになってきているわけで，それらを堅牢化していく
+のはそういうものかなと思います（しかたないね）．とはいえネットワーク側と
+エンド側がバランスよく，より賢く（高機能に）なっていく世界ががとても
+すばらしいなとも思っています．</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:openflow">Nick McKeown, Tom Anderson, Hari Balakrishnan, Guru Parulkar, Larry Peterson, Jennifer Rexford, Scott Shenker, and Jonathan Turner. 2008. OpenFlow: enabling innovation in campus networks. SIGCOMM Comput. Commun. Rev. 38, 2 (March 2008), 69-74.
+ <a class="footnote-return" href="#fnref:openflow">↑</a></li>
+<li id="fn:srv6"><a href="https://datatracker.ietf.org/doc/draft-filsfils-spring-srv6-network-programming/">IETF Datatracker | draft-filsfils-spring-srv6-network-programming-07 - SRv6 Network Programming</a>
+ <a class="footnote-return" href="#fnref:srv6">↑</a></li>
+<li id="fn:sfc"><a href="https://datatracker.ietf.org/wg/sfc/about/">IETF Datatracker | Service Function Chaining (sfc)</a>
+ <a class="footnote-return" href="#fnref:sfc">↑</a></li>
+<li id="fn:quic-ietf"><a href="https://datatracker.ietf.org/wg/quic/documents/">IETF Datatracker | QUIC (quic)</a>
+ <a class="footnote-return" href="#fnref:quic-ietf">↑</a></li>
+<li id="fn:iir40"><a href="https://www.iij.ad.jp/dev/report/iir/pdf/iir_vol40_report.pdf">Internet Infrastructure Review Vol.40 - 定期観測レポート</a>
+ <a class="footnote-return" href="#fnref:iir40">↑</a></li>
+<li id="fn:doh"><a href="https://datatracker.ietf.org/doc/rfc8484/">IETF Datatracker | RFC 8484 - DNS Queries over HTTPS (DoH)</a>
+ <a class="footnote-return" href="#fnref:doh">↑</a></li>
+<li id="fn:mec-mobile">Yun Chao Hu, Milan Patel, Dario Sabella, Nurit Sprecher, and Valerie Young. Mobile Edge Computing A key technology towards 5G. ETSI White Paper 11, September 2015. Also available at <a href="http://www.etsi.org/images/files/ETSIWhitePapers/etsi_wp11_mec_a_key_technology_towards_5g.pdf">here</a>
+ <a class="footnote-return" href="#fnref:mec-mobile">↑</a></li>
+<li id="fn:mec-access">Alex Reznik, Rohit Arora, Mark Cannon, Luca Cominardi, Walter Featherstone, Rui Frazao, Fabio Giust, Sami Kekki, Alice Li, Dario Sabella, Charles Turyagyenda, and Zhou Zheng. Develop- ing Software for Multi-Access Edge Computing. ETSI White Paper 20, September 2017. Also available at <a href="https://www.etsi.org/images/files/ETSIWhitePapers/etsi_wp20_MEC_SoftwareDevelopment_FINAL.pdf">here</a>
+ <a class="footnote-return" href="#fnref:mec-access">↑</a></li>
+<li id="fn:ndn"><a href="https://named-data.net">Named Data Networking (NDN) - A Future Internet Architecture</a>
+ <a class="footnote-return" href="#fnref:ndn">↑</a></li>
+</ol>
+</div>
+
+
+	<a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+	<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="https://negli0.github.io/posts/talk-at-tcfm-meetup/"><i class="fa fa-chevron-circle-left"></i> Talk at Turing Complete FM Meetup</a>
+        </li>
+        
+        
+    </ul>
+</section>
+    
+
+
+
+
+
+</main>
+    <footer>
+        <h6>Copyright &copy; 2018 - negli0 | 
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://negli0.github.ioindex.xml">Subscribe</a></h6>
+    </footer>
+</div>
+<script src="https://negli0.github.io/js/scripts.js"></script>
+</body>
+
+</html>
