@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Network on Around The Computer</title>
-    <link>https://negli0.github.io/tags/network/</link>
-    <description>Recent content in Network on Around The Computer</description>
+    <title>Engineering on Around The Computer</title>
+    <link>https://negli0.github.io/categories/engineering/</link>
+    <description>Recent content in Engineering on Around The Computer</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright &amp;copy; 2018 - negli0</copyright>
     <lastBuildDate>Thu, 18 Apr 2019 19:26:19 +0900</lastBuildDate>
     
-	<atom:link href="https://negli0.github.io/tags/network/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://negli0.github.io/categories/engineering/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://negli0.github.io/posts/graduate-8th-cybozu-labs-youth/</guid>
       <description>サイボウズ・ラボユーズを卒業した 少々時間が経過しましたが，3</description>
-    </item>
-    
-    <item>
-      <title>Power Balance in the WEB</title>
-      <link>https://negli0.github.io/posts/power-balance-in-network/</link>
-      <pubDate>Sun, 24 Feb 2019 18:21:44 +0900</pubDate>
-      
-      <guid>https://negli0.github.io/posts/power-balance-in-network/</guid>
-      <description>はじめに ご存知の通り現在の WEB および WEB 周辺技術には HTTPS が多く使用</description>
     </item>
     
   </channel>

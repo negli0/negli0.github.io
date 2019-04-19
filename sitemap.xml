@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>https://negli0.github.io/posts/graduate-8th-cybozu-labs-youth/</loc>
+    <lastmod>2019-04-18T19:26:19+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://negli0.github.io/posts/power-balance-in-network/</loc>
     <lastmod>2019-02-24T18:21:44+09:00</lastmod>
   </url>
@@ -53,6 +58,12 @@
   </url>
   
   <url>
+    <loc>https://negli0.github.io/categories/engineering/</loc>
+    <lastmod>2019-04-18T19:26:19+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://negli0.github.io/tags/https/</loc>
     <lastmod>2019-02-24T18:21:44+09:00</lastmod>
     <priority>0</priority>
@@ -78,13 +89,19 @@
   
   <url>
     <loc>https://negli0.github.io/tags/network/</loc>
-    <lastmod>2019-02-24T18:21:44+09:00</lastmod>
+    <lastmod>2019-04-18T19:26:19+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://negli0.github.io/posts/</loc>
-    <lastmod>2019-02-24T18:21:44+09:00</lastmod>
+    <lastmod>2019-04-18T19:26:19+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://negli0.github.io/tags/protocol/</loc>
+    <lastmod>2019-04-18T19:26:19+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -101,14 +118,14 @@
   </url>
   
   <url>
-    <loc>https://negli0.github.io/categories/web/</loc>
-    <lastmod>2018-04-29T00:24:46+09:00</lastmod>
+    <loc>https://negli0.github.io/tags/web/</loc>
+    <lastmod>2019-02-24T18:21:44+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://negli0.github.io/tags/web/</loc>
-    <lastmod>2019-02-24T18:21:44+09:00</lastmod>
+    <loc>https://negli0.github.io/categories/web/</loc>
+    <lastmod>2018-04-29T00:24:46+09:00</lastmod>
     <priority>0</priority>
   </url>
   
