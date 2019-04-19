@@ -102,6 +102,7 @@ x86 向け JIT アセンブラである [Xbyak](https://github.com/herumi/xbyak)
 - `strace` や `trace-cmd` などのトレーサを使って関数呼び出しを追いかける
   - 関数名からソースコードにおける該当箇所を探してふむふむする
   - 他にも C/C++ でコーディングするうえでの便利なツールを紹介してもらう
+
 {{< slideshare "f6yT7qVq9R96tF" >}}
 
 - NIC デバイスドライバの勉強をした
