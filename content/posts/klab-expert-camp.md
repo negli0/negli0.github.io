@@ -90,7 +90,9 @@ Twitter でもつぶやきましたが，参加者のみなさんの集中力が
 に気付かされることもしばしばあり，非常に勉強になりました．
 
 
-今回の様子が気になる方は Twitter で [#KLabExpertCamp](https://twitter.com/search?q=KLabExpertCamp&src=typed_query&f=live)
+今回の様子が気になる方は Twitter で 
+[#KLabExpertCamp](https://twitter.com/hashtag/KLabExpertCamp?src=hashtag_click&f=live)
+[#プロトコルスタック自作](https://twitter.com/hashtag/プロトコルスタック自作?src=hashtag_click)
 のハッシュタグを追っていただけると良いと思います．
 
 
