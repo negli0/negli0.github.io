@@ -309,6 +309,18 @@ P4Runtime は gRPC を採用しています．gRPC のインターフェイス�
 C-Plane アプリ（コントローラ）を作れますし，NETCONF/YANG （xmlRPC）
 のポートも生やせそうですね．</p>
 
+<h4 id="10-29-追記">10 /29 追記</h4>
+
+<p>ebiken さんにご指摘いただきましたが，上記では「Stratum がなければマルチプラットフォームで
+P4 をデプロイできない」のような文脈に取れてしまいます．ご指摘の通りこれは<strong>私の勘違い</strong>でした
+（すみません）．
+また，Stratum の大きな特徴はは &ldquo;統一的に&rdquo; プラットフォームを扱える点と，P4 言語
+で規定される部分 &ldquo;以外の&rdquo; 共通インターフェイスも提供される点です．
+例えば LINK UP/DOWN は P4 の範囲外ですが Stratum では gNMI/gNOI として提供されます．
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">はい。それに加えP4言語で規定される部分 &quot;以外&quot; の共通インターフェースが提供されるのが大きな特徴です。たとえばLINK Up/DownなどはP4言語の範疇外です。NTT武井さんの資料 Slide 10 の P4Runtime がP4言語で提供されるインターフェースで、gNMI/gNOIはStratum提供です。<a href="https://t.co/kxDYs3t8b2">https://t.co/kxDYs3t8b2</a> <a href="https://t.co/hdKx4ZZGzC">pic.twitter.com/hdKx4ZZGzC</a></p>&mdash; Kentaro Ebisawa (@ebiken) <a href="https://twitter.com/ebiken/status/1188809420156702721?ref_src=twsrc%5Etfw">October 28, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</p>
+
 <h3 id="fully-programmable-のつらさと品質保証">‘fully-programmable’ のつらさと品質保証</h3>
 
 <p>P4 を使えば完全に D-Plane をフルスクラッチ可能です．つまり，IP routing や
@@ -365,7 +377,7 @@ SLA と一口に言っても色々あるので，NTP でも保証ができるレ
 
 <p>INT 以外のユースケースは後述の IRTF COIN RG でも議論がされています．</p>
 
-<h5 id="研究の観点">研究の観点</h5>
+<h3 id="研究の観点">研究の観点</h3>
 
 <p>研究と言っても P4 の応用研究です．P4 自体の研究は私はちっとも詳しくありません．</p>
 
