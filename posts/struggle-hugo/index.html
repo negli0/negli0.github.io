@@ -6,14 +6,11 @@
 	<meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="author" content="Hiroki Watanabe" />
-  <meta name="description" content="
-
-うまくいかなかった話をしたい
-
+  <meta name="description" content="うまくいかなかった話をしたい
 前回エントリ(link)で GitHub Pages &#43; Hugo による HP
 開設の話をしました． …" />
 
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.70.0" />
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
@@ -37,10 +34,7 @@ if (!doNotTrack) {
 	<meta name="twitter:site" content="@__nelio__" />
 	<meta property="og:url" content="https://negli0.github.io/posts/struggle-hugo/" />
 	<meta property="og:title" content="GitHub Pages &#43; Hugo で躓いた話 - Around The Computer"/>
-	<meta property="og:description" content="
-
-うまくいかなかった話をしたい
-
+	<meta property="og:description" content="うまくいかなかった話をしたい
 前回エントリ(link)で GitHub Pages &#43; Hugo による HP
 開設の話をしました． …"/>
 	<meta property="og:image" content="https://negli0.github.io/img/logo.jpg" />
@@ -146,66 +140,43 @@ if (!doNotTrack) {
 </aside>
     
 
-    
-
-<h2 id="うまくいかなかった話をしたい">うまくいかなかった話をしたい</h2>
-
+    <h2 id="うまくいかなかった話をしたい">うまくいかなかった話をしたい</h2>
 <p><a href="https://negli0.github.io/posts/start-hugo/">前回エントリ(link)</a>で <em>GitHub Pages + Hugo</em> による HP
 開設の話をしました．</p>
-
 <p>私は OSS を自分で設定したり動かしたりすることは好きなのですが，ドキュメント内の目的箇所
 を特定するまでに時間がかかったり，大前提な部分を読み飛ばしたりなどのうっかりをやりがちです．</p>
-
 <blockquote>
 <p>このエントリは，私が GitHub Pages と Hugo を使って HP を開設するまでに躓いたことたちを供養するためのものです．</p>
 </blockquote>
-
-<p>私は<b><em>できるひとたちの途中でうまくいかなかった話</em></b>
+<p>私は<!-- raw HTML omitted --><em>できるひとたちの途中でうまくいかなかった話</em><!-- raw HTML omitted -->
 みたいなものに興味があるので，自分もなるべくそれらを残すようにしようと思っています．どんな人もしょうもないことで詰まったりするんだって話が聞けるとなんだかホッとするじゃないですか．俺ツエー話とは別で失敗エントリがあってもいいと思うんです．</p>
-
 <h3 id="1-function-default-not-defined">1. function &ldquo;default&rdquo; not defined</h3>
-
 <pre><code> function &quot;default&quot; not defined
-</code></pre>
-
-<p>ローカル環境でサイトを生成して手元で確認するときに <code>hugo -wD server</code> を実行しますが，その際に Hugo が吐く go のエラーです．
+</code></pre><p>ローカル環境でサイトを生成して手元で確認するときに <code>hugo -wD server</code> を実行しますが，その際に Hugo が吐く go のエラーです．
 <a href="https://gohugo.io/functions/default/">ドキュメント</a>を読むとわかるんですが，Hugo には <code>default</code> という function が用意されています．
 用意されているのに未定義だと怒られるということはおそらく当時パッケージマネージャで入れた Hugo のバージョンが低かったのでしょう．GitHub から Hugo の最新版をクローンして使ってみたら解決されました．</p>
-
 <h4 id="a1-最新版の-hugo-を使用する">A1. 最新版の Hugo を使用する</h4>
-
-<hr />
-
+<hr>
 <p><code>default</code> の使い方は以下のように，<code>Params.seo_title</code> に値が設定されていない場合はデフォルトである <code>.Title</code> が title タグに使われるというふうです．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang">&lt;<span style="color:#a6e22e">title</span>&gt;{{ .<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">seo_title</span> | <span style="color:#66d9ef">default</span> .<span style="color:#a6e22e">Title</span> }}&lt;<span style="color:#f92672">/</span><span style="color:#a6e22e">title</span>&gt;</code></pre></div>
-<p>他のサイトジェネレータでも同じことだと思いますが，Hugo はサイトやページのタイトルやタグなどを <code>Value</code> として設定します．
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang">&lt;<span style="color:#a6e22e">title</span>&gt;{{ .<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">seo_title</span> | <span style="color:#66d9ef">default</span> .<span style="color:#a6e22e">Title</span> }}&lt;<span style="color:#f92672">/</span><span style="color:#a6e22e">title</span>&gt;
+</code></pre></div><p>他のサイトジェネレータでも同じことだと思いますが，Hugo はサイトやページのタイトルやタグなどを <code>Value</code> として設定します．
 ユーザが設定するサイトの baseurl やタイトルなどは <code>config.toml</code> に設定します．</p>
-
 <p>また，テーマ側の layout 以下とトップディレクトリの <code>layout/</code> 以下に同名ファイル（e.g., <code>header.html</code>）が存在する場合はトップディレクトリの <code>layout/</code> のファイルが優先（オーバーライド）されます．これを利用して既存テーマを改造することができます．</p>
-
-<h3 id="2-公開ページ用のブランチを-gh-pages-にしたい-できない">2. 公開ページ用のブランチを <code>gh-pages</code> にしたい（できない！）</h3>
-
+<h3 id="2-公開ページ用のブランチを-gh-pages-にしたいできない">2. 公開ページ用のブランチを <code>gh-pages</code> にしたい（できない！）</h3>
 <p>研究室の HP でも Hugo を使っています．HP のソース（Hugo 的には <code>public/</code> 以下）は <code>gh-pages</code> というブランチで，そのソースを生成するためのファイル群は <code>master</code> ブランチで，同一のレポジトリで管理しています．記事を書いて <code>master</code> に push すると CircleCI によってサイトが生成され，それを <code>gh-pages</code> に push してくれてページが更新されます．</p>
-
 <p>同様に，自分のサイトでもこのようなブランチの分離をしたくなりました．</p>
-
 <p>私の作業の流れは Hugo Document の Quick Start と Host on GitHub に基づいています．</p>
-
 <ul>
 <li><a href="https://gohugo.io/getting-started/quick-start/">Quick Start | Hugo</a></li>
 <li><a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Host on Github | Hugo</a></li>
 </ul>
-
 <p>ユーザに紐づく GitHub Pages のリポジトリに関して重要なのは以下の2点です．</p>
-
 <ol>
 <li>リポジトリ名は <code>&lt;USERNAME&gt;.github.io</code></li>
-<li><mark>公開ページ用のブランチは <code>master</code></mark></li>
+<li><!-- raw HTML omitted -->公開ページ用のブランチは <code>master</code><!-- raw HTML omitted --></li>
 </ol>
-
 <p>2 でハマりました．ドキュメントにしっかり書いてあるのに読み飛ばしたのでしょう．
 研究室 HP と同様に <code>gh-pages</code> ブランチを公開ページ用に使用できると<strong>勝手に思い込んで</strong>いました．</p>
-
 <p>つまり，<code>master</code> に生成元のファイル群を push して公開ページ用のブランチを変更しようとしました．
 実際に公開ページ用のブランチを変更しようとするとグレーアウトされて変更できません．
 <figure class="center">
@@ -214,11 +185,8 @@ if (!doNotTrack) {
         </figcaption>
 </figure>
 </p>
-
-<h4 id="a2-ページ公開用には-username-github-io-の-mark-master-ブランチ-mark-を使う">A2. ページ公開用には <code>&lt;username&gt;.github.io</code> の <mark><code>master</code> ブランチ</mark>を使う</h4>
-
-<hr />
-
+<h4 id="a2-ページ公開用には-usernamegithubio-の-markmaster-ブランチmarkを使う">A2. ページ公開用には <code>&lt;username&gt;.github.io</code> の <!-- raw HTML omitted --><code>master</code> ブランチ<!-- raw HTML omitted -->を使う</h4>
+<hr>
 <p>この仕様をきちんと把握していなかったのでした．Hugo で記事を公開するより前に
 ページのレイアウトを改造するとき，よくある手順は以下のとおりです．</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ hugo new site ./site-name <span style="color:#75715e"># サイトを作成するファイル群の生成</span>
@@ -226,10 +194,9 @@ $ cd ./site-name
 $ ls
 archetypes/  config.toml  content/  data/  layouts/  static/  themes/
 $ git init				
-$ git add . <span style="color:#f92672">&amp;&amp;</span>  git commit -m <span style="color:#e6db74">&#34;initial commit&#34;</span> <span style="color:#75715e"># master に commit</span></code></pre></div>
-<p>サイトの設定はこれ以降 commit していけば保存されますが，ブランチを新たに作成していないので，<code>master</code> ブランチに <code>config.toml</code> のような設定ファイルを追加してしまいます．
+$ git add . <span style="color:#f92672">&amp;&amp;</span>  git commit -m <span style="color:#e6db74">&#34;initial commit&#34;</span> <span style="color:#75715e"># master に commit</span>
+</code></pre></div><p>サイトの設定はこれ以降 commit していけば保存されますが，ブランチを新たに作成していないので，<code>master</code> ブランチに <code>config.toml</code> のような設定ファイルを追加してしまいます．
 この状態で「レイアウトができた，記事書いて公開するぞ〜」と意気込んで push すると，<strong>めでたく図１のようになります</strong>．</p>
-
 <p>これを回避するには，なんでもいいので開発用ブランチでも切っておけば良かったわけです．
 手順は以下の通り．</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ hugo new site ./site-name <span style="color:#75715e"># サイトを作成するファイル群の生成</span>
@@ -238,57 +205,39 @@ $ ls
 archetypes/  config.toml  content/  data/  layouts/  static/  themes/
 $ git init				
 $ git checkout -b dev		<span style="color:#75715e"># 開発用ブランチにチェックアウト</span>
-$ git add . <span style="color:#f92672">&amp;&amp;</span> git commit -m <span style="color:#e6db74">&#34;initial commit&#34;</span> <span style="color:#75715e"># dev に commit</span></code></pre></div>
-<h3 id="3-同一リポジトリ上で-public-以下だけ-master-ブランチで扱う">3. 同一リポジトリ上で <code>public/</code> 以下だけ <code>master</code> ブランチで扱う</h3>
-
+$ git add . <span style="color:#f92672">&amp;&amp;</span> git commit -m <span style="color:#e6db74">&#34;initial commit&#34;</span> <span style="color:#75715e"># dev に commit</span>
+</code></pre></div><h3 id="3-同一リポジトリ上で-public-以下だけ-master-ブランチで扱う">3. 同一リポジトリ上で <code>public/</code> 以下だけ <code>master</code> ブランチで扱う</h3>
 <p>Hugo を使う上で，<code>config.toml</code> などの設定ファイル群の commit 先として考えられるのは以下の 2 つです．</p>
-
 <ol>
-<li><mark>ページ公開用と同一リポジトリの <code>master</code> 以外のブランチ</mark></li>
+<li><!-- raw HTML omitted -->ページ公開用と同一リポジトリの <code>master</code> 以外のブランチ<!-- raw HTML omitted --></li>
 <li>ページ公開用と別のリポジトリ</li>
 </ol>
-
 <p>Hugo 公式では１を採用しており，Git の機能である <code>git submodule</code> で実現しています．
 私も Hugo 公式のやり方に従いました．</p>
-
 <h4 id="a3-git-submodule-で-public-以下を別プロジェクトとして管理できる">A3. Git Submodule で public/ 以下を別プロジェクトとして管理できる</h4>
-
-<hr />
-
+<hr>
 <h4 id="git-submodule-とは">git submodule とは</h4>
-
-<p>一旦話が Git submodule に逸れます．<br />
+<p>一旦話が Git submodule に逸れます．<br>
 使用目的は公式ドキュメントから引用します．（公式最強）</p>
-
 <blockquote>
-<p>あるプロジェクトで作業をしているときに、プロジェクト内で別のプロジェクトを使わなければならなくなることがよくあります。サードパーティが開発しているライブラリや、自身が別途開発していて複数の親プロジェクトから利用しているライブラリなどがそれにあたります。こういったときに出てくるのが<strong>「ふたつのプロジェクトはそれぞれ別のものとして管理したい。だけど、一方を他方の一部としても使いたい」という問題</strong>です。</p>
+<p>あるプロジェクトで作業をしているときに、プロジェクト内で別のプロジェクトを使わなければならなくなることがよくあります。サードパーティが開発しているライブラリや、自身が別途開発していて複数の親プロジェクトから利用しているライブラリなどがそれにあたります。こういったときに出てくるのが**「ふたつのプロジェクトはそれぞれ別のものとして管理したい。だけど、一方を他方の一部としても使いたい」という問題**です。</p>
 </blockquote>
-
-<p><a href="https://git-scm.com/book/ja/v1/Git-のさまざまなツール-サブモジュール">Git - サブモジュール</a> より</p>
-
+<p><a href="https://git-scm.com/book/ja/v1/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E3%82%B5%E3%83%96%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB">Git - サブモジュール</a> より</p>
 <p>Hugo + GitHub Pages の場合を考えると，</p>
-
 <ol>
 <li>設定ファイルや記事の元となる md ファイル</li>
 <li><code>punlic/</code> 以下</li>
 <li><code>themes/</code> 以下</li>
 </ol>
-
 <p>をそれぞれ別のプロジェクトとして管理したいわけです．実際，ほとんどの Hugo のテーマが GitHub で管理されているので，自サイトのテーマは submodle で管理するのが自然です．</p>
-
 <p>submodule の詳細については先の公式ドキュメントを，実際の操作や簡単な使い方はこちらの Qiita エントリがわかりやすいです．</p>
-
 <ul>
 <li><a href="https://qiita.com/sotarok/items/0d525e568a6088f6f6bb">Git submodule の基礎 - Qiita</a></li>
 <li><a href="https://qiita.com/kinpira/items/3309eb2e5a9a422199e9">Git submoduleの押さえておきたい理解ポイントのまとめ - Qiita</a></li>
 </ul>
-
-<hr />
-
+<hr>
 <p>今回のような Hugo + GitHub Pages の場合，<code>public/</code> 以下をプロジェクトとして <code>&lt;username&gt;/&lt;username&gt;.github.io</code> の <code>master</code> ブランチに commit していけば良いわけです．</p>
-
 <h3 id="結論">結論</h3>
-
 <p>公式ドキュメントが最強なので思慮深く読むべし．
 個人ユーザの場合，ページ公開用には <code>master</code> ブランチしか許可されてないことをきちんと把握しておくべきでした．</p>
 
@@ -323,7 +272,7 @@ $ git add . <span style="color:#f92672">&amp;&amp;</span> git commit -m <span st
 
 </main>
     <footer>
-        <h6>Copyright &copy; 2018 - negli0 | 
+        <h6>Copyright © 2018 - negli0 | 
             Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
             <a href="https://negli0.github.ioindex.xml">Subscribe</a> | <a href="https://negli0.github.io/privacy_policy">Privacy Policy</a></h6>
     </footer>

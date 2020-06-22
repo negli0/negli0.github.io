@@ -6,14 +6,11 @@
 	<meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="author" content="Hiroki Watanabe" />
-  <meta name="description" content="
-
-Hello, Ph.D Cource
-
+  <meta name="description" content="Hello, Ph.D Cource
 こんにちは，nelio です．
-後期博士課程に進学したので，自分の名前で売っていくことがこれまで …" />
+後期博士課程に進学したので，自分の名前で売っていくことがこれまで以上に …" />
 
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.70.0" />
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
@@ -37,12 +34,9 @@ if (!doNotTrack) {
 	<meta name="twitter:site" content="@__nelio__" />
 	<meta property="og:url" content="https://negli0.github.io/posts/start-hugo/" />
 	<meta property="og:title" content="Network × Research なブログを目指す - Around The Computer"/>
-	<meta property="og:description" content="
-
-Hello, Ph.D Cource
-
+	<meta property="og:description" content="Hello, Ph.D Cource
 こんにちは，nelio です．
-後期博士課程に進学したので，自分の名前で売っていくことがこれまで …"/>
+後期博士課程に進学したので，自分の名前で売っていくことがこれまで以上に …"/>
 	<meta property="og:image" content="https://negli0.github.io/img/logo.jpg" />
 </head>
 
@@ -146,85 +140,54 @@ Hello, Ph.D Cource
 </aside>
     
 
-    
-
-<h2 id="hello-ph-d-cource">Hello, Ph.D Cource</h2>
-
-<p>こんにちは，nelio です．<br />
+    <h2 id="hello-phd-cource">Hello, Ph.D Cource</h2>
+<p>こんにちは，nelio です．<br>
 後期博士課程に進学したので，自分の名前で売っていくことがこれまで以上に重要な気がします．</p>
-
 <p>ということで研究の合間を縫ってやっとのことで HP を作りました．</p>
-
-<h2 id="hugo-github-pages-で-hp-作成">Hugo + GitHub Pages で HP 作成</h2>
-
+<h2 id="hugo--github-pages-で-hp-作成">Hugo + GitHub Pages で HP 作成</h2>
 <p>世の中は便利かつ多様で，自分のアウトプットを披露できる場がいろいろありますね．
 CS 分野で R&amp;D（特に R）をしている身なので，以前から自分の研究の話とか実験の話とかを
 外に出したら面白いんじゃないかと思っていました．<em>Hugo +  GitHub Pages</em> を選択した
 決め手は次のとおりです．</p>
-
 <ol>
 <li><strong>クラウドホストしたい（できれば無料で）</strong></li>
 <li><strong>極力コンテンツだけ書きたい</strong></li>
 <li><strong>CLI ベースで書きたい</strong></li>
 <li><strong>ちょっとしたカスタマイズ性がある</strong></li>
 </ol>
-
 <p>以下，順次説明します．</p>
-
-<h4 id="1-クラウドホストしたい-できれば無料で">1. クラウドホストしたい（できれば無料で）</h4>
-
+<h4 id="1-クラウドホストしたいできれば無料で">1. クラウドホストしたい（できれば無料で）</h4>
 <p>メンテナンスにあまり手間と費用を掛けたくなかったことが大きな理由です．
 私の所属する研究室では，以前はオンプレで WEB ページを運営していました．あたりまえですがサービス
 そのものだけでなく，システム側の運営保守も必要です．ネットワークが専門なので
 インフラの運用保守技術も身につけておく必要はあるのですが，結局はやる人間が限られて，それで摩耗して研究がおろそかになるというのは本末転倒です．<del>（引き継ぎが下手なだけでは）</del></p>
-
 <p>結局研究室の HP は GitHub Pages にてサービスだけメンテナンスしようということになりました．
 そこで一度経験したこともあって自分の HP も GitHub Pages にホストしたくなりました．
 ドメインもデフォルトで困らないのでそのままです．</p>
-
 <h4 id="2-極力コンテンツだけ書きたい">2. 極力コンテンツだけ書きたい</h4>
-
 <p>フロントエンドに疎いので，デザインとかは既存のものをちょちょっと触ってかゆいところに手が届くようにすれば十分でした．
 フロントエンドは移り変わりが激しい印象があって，今必死で覚えてもすぐに次のいいモノが出てきそうです．
 フロントエンドをガッツリやる気力も出なかったので，GitHub Pages と相性のいいサイトジェネレータを使えると嬉しかった．</p>
-
 <p><a href="https://jekyllrb-ja.github.io">Jekyll</a> でも良かったんですが，Golang のほうが親しいのと，研究室 HP でも使っているので <a href="https://gohugo.io">Hugo</a> にしました.</p>
-
 <h4 id="3-cli-ベースで書きたい">3. CLI ベースで書きたい</h4>
-
 <p>CLI というより，普段使っているエディタ（nvim）を使うほうが書きやすいかなという判断です．このあたりは GitHub Pages を使うと決めた理由の一部でもあります．時間がないときはコンテンツの下書きだけして <code>dev branch</code> に push しておき，完成したら <code>master branch</code> に反映するやりかたをしています．</p>
-
 <h4 id="4-ちょっとしたカスタマイズ性がある">4. ちょっとしたカスタマイズ性がある</h4>
-
 <p>これが地味に重要でした．おそらく私のように</p>
-
 <blockquote>
 <p>イチからデザインを考えるのは難しいが，気に入ったテーマを自分好みに改造はしたい</p>
 </blockquote>
-
 <p>みたいな人は多いんじゃないでしょうか．私は <a href="https://themes.gohugo.io/hugo-kiera/">Kiera</a> というテーマを選択しました．
 派手すぎず質素すぎないところが GOOD です．これに SNS シェアボタンや HTML の <code>meta tag</code> をいじったり，記事にカテゴリーやタグをつけられるようにしました．あとは関連記事を表示したり Google Analytics と連携させたりツイートを埋め込んだりしたいです．</p>
-
 <p>テーマ自体も GitHub で管理されているので <code>git submodule</code> 機能を使って更新を確認します．</p>
-
-<hr />
-
-<h2 id="目標-ネットワーク-リサーチな話を面白く書く">目標：ネットワーク ✕ リサーチな話を面白く書く</h2>
-
+<hr>
+<h2 id="目標ネットワーク--リサーチな話を面白く書く">目標：ネットワーク ✕ リサーチな話を面白く書く</h2>
 <h3 id="世の中おもしろいエンジニアリングブログはいっぱいある">世の中おもしろいエンジニアリングブログはいっぱいある</h3>
-
 <p>この HP は，私が日々のインプットを「せっかくだから見えるところに置こう」という名目で開始しました．内容は IT 系のエンジニアリングの話がほとんどだと思いますが，ぶっちゃけすでに面白いブログはいっぱいありますよね．それに今の私にはエンジニアとして出せるものは少なく，純粋なエンジニアリング話を私が書く意味はあまりなさそうだなとか長いこと思っていました．</p>
-
-<h3 id="ネットワーク-リサーチな記事">ネットワーク × リサーチな記事</h3>
-
+<h3 id="ネットワーク--リサーチな記事">ネットワーク × リサーチな記事</h3>
 <p>ではどうするのかといえば，エンジニアリングではなく<strong>リサーチ寄り</strong>の話題を多めに書いてみようかなと思います．ネット上でよく目にする <code>XXX</code> を作りました！みたいな開発系エントリ，読んでて楽しいですよね．一方で私も研究者なのでリサーチな話を気軽に見たいんですが，あまりアカデミアな話って日本語記事で見ないんですよね．</p>
-
 <p>加えてアカデミアかはさておき，高レイヤでサービスなアプリケーションの話はよく見かけます．人口が多いことに比例して目に入る機会が多いことに起因しているのでしょうか．一方で低レイヤでカーネルなシステムの話は最近流行っているのか，しばしば Twitter でも見かけます．ところが<strong>ネットワークそのもの</strong>な話ってあまり見ないんですよね．（システム内のチューニングとか実装寄りな話はたまに見かけます）</p>
-
-<p>ということで，自身の専門がネットワークでしかもアカデミックな研究をしているので，自分の研究だけではなくぶっとんだ論文とか研究とかを紹介したいです．まずはちょっとだけ期待してください．修士課程から数えると3年目ですが，<strong><mark>研究の世界がこんなにも自由だ！</mark></strong>ということを伝えられたらいいな．</p>
-
+<p>ということで，自身の専門がネットワークでしかもアカデミックな研究をしているので，自分の研究だけではなくぶっとんだ論文とか研究とかを紹介したいです．まずはちょっとだけ期待してください．修士課程から数えると3年目ですが，<strong><!-- raw HTML omitted -->研究の世界がこんなにも自由だ！<!-- raw HTML omitted --></strong>ということを伝えられたらいいな．</p>
 <h3 id="一番伝えたいこと">一番伝えたいこと</h3>
-
 <p>この HP がきっかけでネットワークが面白いと思ってくれる人が増えたら最高です．（あわよくばリサーチャー仲間に！）</p>
 
 
@@ -254,7 +217,7 @@ CS 分野で R&amp;D（特に R）をしている身なので，以前から自�
 
 </main>
     <footer>
-        <h6>Copyright &copy; 2018 - negli0 | 
+        <h6>Copyright © 2018 - negli0 | 
             Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
             <a href="https://negli0.github.ioindex.xml">Subscribe</a> | <a href="https://negli0.github.io/privacy_policy">Privacy Policy</a></h6>
     </footer>
