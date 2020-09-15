@@ -24,9 +24,9 @@ description: "About nelio"
 
 ### Research Interests
 - Network Architecture
-  - Service Chaining, In-Network Computation
 - Protocol Stack
-- Edge Computing
+- Edge Computing Platform
+- IoT Platform
 - SDN/NFV
 - Routing
 
@@ -34,7 +34,7 @@ description: "About nelio"
 - [exlay](https://github.com/exlay): highly layer-independent protocol stack
 
 ### Skills
-- Application development using C/Python/Go
+- Application development using C/Go
 - Network operation (routers, L2/L3 switches, servers, etc.)
 
 ### Employment
@@ -70,6 +70,10 @@ description: "About nelio"
 
 #### Domestic 
 #### Conference / Workshop
+1. <u>長井悠毅</u>, 渡邊大記, 近藤賢郎, 寺岡文男,
+       **“ベンダ非依存性を実現する実験用仮想ネットワーク自動構築機構LiONの拡張”**, 
+	   *信学技報*, vol. 120, no. 162, NS2020-47, pp. 33-38, 2020年9月.
+
 1. <u>佐藤 友範</u>, 渡邊 大記, 林 和輝, 近藤 賢郎, 寺岡 文男, 
 	**“5Gコアネットワーク向けアプリケーション処理連接基盤”**, 
 	*研究報告マルチメディア通信と分散処理 (DPS)*, Vol. 2019-DPS-180, no. 18, pp. 1 - 8, 2019 年 9 月.
@@ -145,6 +149,8 @@ description: "About nelio"
 1. **"Student Incentive Award"**, IEICE-IA, March, 2016
 
 #### Grants
+1. **"KLL 後期博士課程研究助成金"** (2020) -- 300,000 JPY
+1. **"公益財団法人天野工業技術研究所奨学金"** (2020) -- 1,000,000 JPY
 1. **"KLL 後期博士課程研究助成金"** (2019) -- 300,000 JPY
 1. **"公益財団法人天野工業技術研究所奨学金"** (2019) -- 1,000,000 JPY
 1. **"慶應義塾大学大学院「研究のすゝめ奨学金」"** (2018) -- 700,000 JPY
