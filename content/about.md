@@ -70,7 +70,11 @@ description: "About nelio"
 
 #### Domestic 
 #### Conference / Workshop
-1. <u>長井悠毅</u>, 渡邊大記, 近藤賢郎, 寺岡文男,
+1. <u>渡邊 大記</u>, 寺岡 文男,
+       **“高機能通信を提供する Layer-5 における Disruption Tolerant Networking の実現”**, 
+	   *信学技報*, vol. 120, no. 356, IA2020-31, pp. 1-8, 2021年1月. 
+
+1. <u>長井 悠毅</u>, 渡邊 大記, 近藤 賢郎, 寺岡 文男,
        **“ベンダ非依存性を実現する実験用仮想ネットワーク自動構築機構LiONの拡張”**, 
 	   *信学技報*, vol. 120, no. 162, NS2020-47, pp. 33-38, 2020年9月.
 
@@ -145,6 +149,7 @@ description: "About nelio"
    	*the 5th DMC Symposium*, Dec. 2015
 
 #### Awards
+1. **"Student Incentive Award"**, IEICE-IA, January, 2021
 1. **"Student Incentive Award"**, IEICE-IA, November, 2018
 1. **"Student Incentive Award"**, IEICE-IA, March, 2016
 
