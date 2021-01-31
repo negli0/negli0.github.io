@@ -1,20 +1,514 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>multipath on Around The Computer</title>
-    <link>https://negli0.github.io/tags/multipath/</link>
-    <description>Recent content in multipath on Around The Computer</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright &amp;copy; 2018 - negli0</copyright>
-    <lastBuildDate>Thu, 07 Jun 2018 01:24:15 +0900</lastBuildDate><atom:link href="https://negli0.github.io/tags/multipath/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Intruducing Enhanced Communication Paths over Layer-4 (Multipath)</title>
-      <link>https://negli0.github.io/posts/rich-paths/</link>
-      <pubDate>Thu, 07 Jun 2018 01:24:15 +0900</pubDate>
-      
-      <guid>https://negli0.github.io/posts/rich-paths/</guid>
-      <description>概要 インターネットが発展するにつれて，アプリケーションが多様</description>
-    </item>
-    
-  </channel>
-</rss>
+
+   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+     <channel>
+       <title>multipath on Around The Computer</title>
+       <link>https://negli0.github.io/tags/multipath/</link>
+       <description>Recent content in multipath on Around The Computer</description>
+       <generator>Hugo -- gohugo.io</generator>
+       <copyright>Copyright &amp;copy; 2018 - negli0</copyright>
+       <lastBuildDate>Thu, 07 Jun 2018 01:24:15 +0900</lastBuildDate>
+       
+           <atom:link href="https://negli0.github.io/tags/multipath/index.xml" rel="self" type="application/rss+xml" />
+       
+       
+       <item>
+         <title>Intruducing Enhanced Communication Paths over Layer-4 (Multipath)</title>
+         <link>https://negli0.github.io/posts/rich-paths/</link>
+         <pubDate>Thu, 07 Jun 2018 01:24:15 +0900</pubDate>
+         
+         <guid>https://negli0.github.io/posts/rich-paths/</guid>
+         <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;インターネットが発展するにつれて，アプリケーションが多様化してきました．
+多様化したアプリケーションはネットワークに&lt;strong&gt;高機能性&lt;/strong&gt;を要求します．
+本記事で述べる「高機能性」とは，マルチパス，耐遅延性ネットワーク，ミドルボックスを
+用いた通信路のようなものを指します．&lt;!-- raw HTML omitted --&gt;本記事の目的は，こうした高機能な通信路のモデル
+を具体例を用いながら紹介し，通信路のモデルの整理をする&lt;!-- raw HTML omitted --&gt;ことにあります．&lt;/p&gt;
+&lt;p&gt;研究紹介のカテゴリにしておきながら，今回はあまり踏み込んだ話はしません．
+前提知識はあまり必要としませんが，TCP/IP の基本的な仕組みを知っていると尚良いと思います．&lt;/p&gt;
+&lt;h4 id=&#34;おことわり&#34;&gt;おことわり&lt;/h4&gt;
+&lt;p&gt;本当はマルチパス以外も書きたかったのですが，長くなりすぎるので今回はマルチパスだけです．
+（マルチパスだけでも長い&amp;hellip;）&lt;/p&gt;
+&lt;h2 id=&#34;高機能通信路&#34;&gt;高機能通信路&lt;/h2&gt;
+&lt;p&gt;本記事では，&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通常のTCP/UDPでは提供が困難な機能を持つ Layer-4（OSI参照モデル）以上の通信路&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;のことを高機能通信路（Enhanced Communication Paths / Highly Functional Communication Paths）&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;
+と呼ぶことにします．特に断りがない限り，階層はOSI参照モデルにおけるものを指します．つまり Layer-4（L4）
+という記述は OSI 参照モデルのトランスポート層を指し，L7と言ったら OSI 参照モデルの
+アプリケーション層を指します．&lt;/p&gt;
+&lt;p&gt;高機能通信路のモデルとして紹介するのは以下の3つです．&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;マルチパス&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;耐遅延性ネットワーク（Delay/Disruption Tolerant Networking; DTN）&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ミドルボックスを用いた通信路（ミドルボックス通信路）&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;それぞれ通信路の使い手（多くの場合上位プロトコル，つまりL7）に以下のような高機能性を提供します．&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;マルチパス&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;DTN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;ミドルボックス通信路&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;耐障害性，帯域集約&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;対遅延性，対間欠性&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;中継地，ポリシ適用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h5 id=&#34;余談プロトコルと階層構造における位置付け&#34;&gt;余談：プロトコルと階層構造における位置付け&lt;/h5&gt;
+&lt;p&gt;ここで &amp;ldquo;OSI参照モデル&amp;rdquo; と明記している理由は，プロトコルとその位置付けに絶対は無いからです．
+そのため，XXというプロトコルは OSI参照モデルでいうと第N層だよね，TCP/IP プロトコルスイート&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; でいうと第M層だよね，
+というような言い方が個人的には適切かと思います．大抵の場合は開発者や文書の著者が第X層に位置すると言います，
+IETFに関しては，以下のような記述が Wikipedia にありますね．（一次ソースが発見できませんでしたが）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;IETFは7層からなるOSI参照モデルに従うような試みはせず、また標準化過程 (Standards Track) にあるプロトコル仕様やその他の構造上の文書をOSI参照モデルに対して参照する事もしない。&amp;hellip;（中略）&amp;hellip;  IETFは再三にわたりインターネット・プロトコルと構造の開発はOSI参照モデルに準拠する事は意図しないという事を述べている。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E3%83%BB%E3%83%97%E3%83%AD%E3%83%88%E3%82%B3%E3%83%AB%E3%83%BB%E3%82%B9%E3%82%A4%E3%83%BC%E3%83%88&#34;&gt;インターネット・プロトコル・スイート - Wikipedia&lt;/a&gt; より（2018/06/07 時点で確認）&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;階層化の目的や思想ついてはまた別のエントリで書くとます．
+ここではタネンバウム先生の本から階層化の目的について引用させていただきます．&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;時間とともにネットワークは大きくなり，新しい設計が出現して既存のネットワークと接続する必要性が生じる。 我々は，変化を支援するために用いられる重要な構造手法，すなわち問題全体を分割し，実装の詳細を隠すプロトコル階層化（protocol layering）を先に述べた。他にも多くの戦略がある。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://www.amazon.co.jp/%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF-%E7%AC%AC5%E7%89%88-%E3%82%A2%E3%83%B3%E3%83%89%E3%83%AA%E3%83%A5%E3%83%BC%E3%83%BBS%E3%83%BB%E3%82%BF%E3%83%8D%E3%83%B3%E3%83%90%E3%82%A6%E3%83%A0-ebook/dp/B076HJDZHQ/ref=sr_1_1?ie=UTF8&amp;amp;qid=1528368745&amp;amp;sr=8-1&amp;amp;keywords=%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF&#34;&gt;アンドリュー・S・タネンバウム; デイビッド・S・ウエザロール. コンピュータネットワーク 第5版&lt;/a&gt; (Kindle の位置No.1176-1179). 日経BP社. Kindle 版. &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;マルチパス&#34;&gt;マルチパス&lt;/h3&gt;
+&lt;p&gt;一般的にマルチパス通信路は，使い手が複数の通信路を扱える通信路のことです．
+上位層（L7）に提供されるのは帯域集約と耐障害性です．&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;耐障害性(Failt Tolerance)： 通信路のうちのひとつが遮断されても通信を継続する
+帯域集約(Bandwidth Aggregation)： 複数の通信路を束ねてスループットを高める
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;L4 以上のマルチパス通信路として代表的なものに Stream Control Transmission Protocol（SCTP）&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;
+と Multipath TCP（MPTCP）&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;，最近では Multipath QUIC（MPQUIC）&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt; があります．
+この3つを紹介します．&lt;/p&gt;
+&lt;h4 id=&#34;stream-control-transmission-protocol-sctp&#34;&gt;Stream Control Transmission Protocol (SCTP)&lt;/h4&gt;
+&lt;p&gt;高機能性の説明に入る前に，SCTP の基本的な考え方を説明します．図1にSCTPの通信の概念図を示します．
+&lt;figure class=&#34;center&#34;&gt;
+    &lt;img src=&#34;https://negli0.github.io/img/sctp-assoc.png&#34;/&gt; &lt;figcaption&gt;
+            &lt;h4&gt;図1. Communication Concept of SCTP&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Association：SCTP の通信路の単位．ひとつ以上の stream から構成される．&lt;/li&gt;
+&lt;li&gt;stream：Association 内の独立した論理的なチャネル．&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;SCTP では，Association という単位で相手（Peer）と通信路を確立します．Association 確立時に，
+この Association 内で使用したい stream の数と使用可能な IP アドレスのリストを交換し合います．
+エンドホストはひとつ以上の IP アドレスを持っていればひとつのポート番号で SCTP Association を確立できます．
+stream は Association に独立して属するだけで，実際に通信路を確立するわけではありません．&lt;/p&gt;
+&lt;p&gt;SCTP では，TCP とは異なりメッセージ単位でデータを扱います．
+上位層は，用途に応じて stream を指定できます．例えば，制御メッセージを stream 0 に，
+画像データを stream 1 に，それぞれ指定して送受信できます．
+このように，ひとつの通信路の中に小さい通信路がいくつも存在するかのような通信をマルチストリームと呼びます．
+SCTP のマルチストリーミングは Head-of-Line Blocking（HoL Blocking）が発生しない点でも優れています．&lt;/p&gt;
+&lt;p&gt;WebRTC の DataChannel には ユーザ空間で SCTP (over UDP) が採用されています．
+このような記述を見つけましたし，将来的には QUIC に置き換わるのでしょう．&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;SCTP is used in WebRTC for the implementation and delivery of the Data Channel. Google is experimenting with the QUIC protocol as a future replacement to SCTP.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://webrtcglossary.com/sctp/&#34;&gt;SCTP - WebRTC Glossary&lt;/a&gt; より (2018/06/07 時点で確認)&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;h5 id=&#34;耐障害性&#34;&gt;耐障害性&lt;/h5&gt;
+&lt;p&gt;SCTP は，エンドホストが複数のエンドポイント（ほとんどの場合 IP アドレス）
+を持つマルチホーム環境をサポートします（図2）．
+&lt;figure class=&#34;center&#34;&gt;
+    &lt;img src=&#34;https://negli0.github.io/img/mh-sctp.png&#34;/&gt; &lt;figcaption&gt;
+            &lt;h4&gt;図2. Multi-homed SCTP&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+SCTP には &lt;!-- raw HTML omitted --&gt;Primary/Secondary Path&lt;!-- raw HTML omitted --&gt; という概念があります．ひとつの Association には，複数の
+IP アドレスを紐付かせることができます．
+両エンドホストは Association 確立時に使用可能な IP アドレスのリストを交換しているので，互いの
+IP アドレスからの疎通性を確認できます．これにより，Association 内に IP
+アドレスと紐づく通信路（Path）を認識できます．標準的な SCTP では，複数の Path
+が存在する場合，ひとつを Primary Path としてデータ転送に使用し，残りを Secondary Path
+として待機させます．
+SCTP では，Path ごとに定期的に Heartbeat をやり取りして障害を検知します．&lt;/p&gt;
+&lt;p&gt;マルチホームな SCTP では，Primary Path に障害が発生した場合，上位層に透過的に Secondary
+Path に切り替えて通信を継続します（failover といいます）．これが SCTP の耐障害性です．&lt;/p&gt;
+&lt;h5 id=&#34;帯域集約&#34;&gt;帯域集約&lt;/h5&gt;
+&lt;p&gt;標準的な SCTP には帯域集約は存在しませんが，Concurrent
+Multipath Transfer（CMT）&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt; という拡張が存在します．CMT-SCTP では，複数の
+Path が存在する状況で同時に（simultaneously）それらを使用します．&lt;/p&gt;
+&lt;p&gt;少し話が逸れますが，マルチパス通信，特に帯域集約を効率的に実施するのは意外と難しいです．
+一般的に，パス間の輻輳制御や再送などがシングルパスのそれよりも複雑になります．&lt;/p&gt;
+&lt;h4 id=&#34;multipath-tcp-mptcp&#34;&gt;Multipath TCP (MPTCP)&lt;/h4&gt;
+&lt;p&gt;MPTCP&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt; は TCP コネクションを L4 内で多重化して資源利用率を高め，冗長性を高めることを目的とします．
+&lt;figure class=&#34;center&#34;&gt;
+    &lt;img src=&#34;https://negli0.github.io/img/mh-mptcp.png&#34;/&gt; &lt;figcaption&gt;
+            &lt;h4&gt;図3. MPTCP with 4 subflows (fullmesh)&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+図3に示すように MPTCP では最大で ||src IP|| × ||dst IP|| 個の異なる経路の Path を
+保持します．この Path を subflow といいます．&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;center&#34;&gt;
+    &lt;img src=&#34;https://negli0.github.io/img/mptcp.png&#34;/&gt; &lt;figcaption&gt;
+            &lt;h4&gt;図4. Structure of MPTCP&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+また図4に示すように，上位層からは通常のソケットAPIで TCP のように操作ができ，
+下位層（L3）では subflow，つまり通常の TCP コネクションとして見えます．MPTCP は，
+特別な操作を抜き&lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt; に上位層に TCP を束ねた通信路を提供します．&lt;/p&gt;
+&lt;p&gt;TCP とアプリケーションの間に位置するので L5（L6？）のようにみえるかもしれませんが，
+MPTCP は 通常の TCP の動作する領域を出ない範囲で機能していると見えます．このことから
+MPTCP は L4 に位置するものとして解釈しています．&lt;/p&gt;
+&lt;p&gt;Linux MPTCP Project&lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt; のページによれば，MPTCP では以下の設定を変更することで
+Path の扱い方を決めることができます．今回は詳細を省きますが，詳しい人は設定値の名前からなんとなく動作が把握できると思います．&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;path-manager: default, fullmesh, ndiffports, binder から選択
+scheduler: default, roundrobin, redundant から選択
+&lt;/code&gt;&lt;/pre&gt;&lt;h5 id=&#34;耐障害性-1&#34;&gt;耐障害性&lt;/h5&gt;
+&lt;p&gt;MPTCP では，Path は subflow という概念（実体は TCP コネクション）で存在します．
+MPTCP コネクション内のすべての subflow が切断された場合に，MPTCPコネクションが切断されます．
+また，scheduler を redundant に設定すると，すべての subflow が同じデータを運ぶ
+（冗長）ようになります．いずれかの subflow からデータが届けば良いので，重複したデータは
+MPTCP で破棄します．
+これらが MPTCP の耐障害性です．&lt;/p&gt;
+&lt;p&gt;スケジューラは，Retransmission TimeOut (RTO) に直面したパスは潜在的にダウンした（potentially failed）
+とみなして別のパスを使うようになっているようです．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/multipath-tcp/mptcp/pull/70&#34;&gt;mptcp: sched: Improve active/backup subflow selection&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;帯域集約-1&#34;&gt;帯域集約&lt;/h5&gt;
+&lt;p&gt;MPTCP では，scheduler の設定に従って subflow を同時に使って帯域集約をします．
+例えば roundrobin の場合は subflow を一回ずつ変えながらデータを送信します．
+subflow ごとに輻輳制御が働くので，MPTCP 全体で効率的に輻輳制御をするのは複雑になります．
+SCTP と異なり，標準の MPTCP は上位層からはシングルパス TCP として見えるので，subflow
+を指定した送信はできません．このため，HoL Blocking も発生します．&lt;/p&gt;
+&lt;p&gt;記事を書くためにいろいろ調べていたら，MPTCP 用にソケット API
+を拡張するといった論文&lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt; を見つけました．この論文では subflow を扱える API を設計，実装しています．&lt;/p&gt;
+&lt;p&gt;MPTCP のパススケジューリングのアルゴリズムに関する研究はよく目にします．&lt;/p&gt;
+&lt;h3 id=&#34;multipath-quic-mpquic&#34;&gt;Multipath QUIC (MPQUIC)&lt;/h3&gt;
+&lt;p&gt;MPQUIC は，2018年5月現在 IETF で標準化が進められている&lt;sup id=&#34;fnref:10&#34;&gt;&lt;a href=&#34;#fn:10&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;10&lt;/a&gt;&lt;/sup&gt;比較的新しいプロトコルです．
+2017年には，ネットワーク系の一流国際会議である ACM CoNEXT 2017 で MPQUIC
+に関する論文&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt; が発表されました．ラストオーサーは先程紹介した MPTCP の拡張
+API に関する論文&lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt; の方と同じですね．&lt;/p&gt;
+&lt;p&gt;(2018/06/09 追記)&lt;br&gt;
+QUIC の標準化に携わっている Oku Kazuho さんから，QUIC
+のマルチパス化は「まだ」取り組まれていないとコメントをいただきました．失礼いたしました．
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;良記事。なお、IETFではQUICはトランスポート層の取組として位置づけられていて、のマルチパス化には「まだ」取り組んでいません / “Intruducing Enhanced Communication Paths over …” &lt;a href=&#34;https://t.co/ESxL97mzXd&#34;&gt;https://t.co/ESxL97mzXd&lt;/a&gt;&lt;/p&gt;&amp;mdash; Kazuho Oku (@kazuho) &lt;a href=&#34;https://twitter.com/kazuho/status/1005379838608211968?ref_src=twsrc%5Etfw&#34;&gt;June 9, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+正確な情報ありがとうございます．（追記終わり）&lt;/p&gt;
+&lt;h4 id=&#34;quic-quick-udp-internet-connections&#34;&gt;QUIC (Quick UDP Internet Connections)&lt;/h4&gt;
+&lt;p&gt;MPQUIC の説明をするために QUIC の説明をします．
+注目度の高さからか，大変勉強になる記事が多いです，ありがとうございます．
+以下の記事を参考に，かい摘んで説明します．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://postd.cc/googles-quic-protocol-moving-web-tcp-udp/&#34;&gt;GoogleのQUICプロトコル：TCPからUDPへWebを移行する | POSTD&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;QUIC は元々 Google 社が考案した connection-oriented なプロトコルで，HTTP のメッセージを高速に安全に転送することを目的としています．
+2014 年以降，Chrome で試験的に使用されています．また，IETF でも標準化が進められており，
+前者を gQUIC 後者を iQUIC と呼ぶこともあります．お互い要素を取り込み合ったりしているのですが，
+細かい部分では仕様が異なるようです．
+Google Chrome からこの URL（ &lt;a href=&#34;chrome://net-internals&#34;&gt;chrome://net-internals&lt;/a&gt;）を叩くと QUIC や HTTP/2 のセッション情報がモニタリングできます．&lt;/p&gt;
+&lt;p&gt;私はあまり標準化を追っていないので標準化に関する詳しい話はできません．
+標準化に関しては，以下の記事が大変参考になりました，ありがとうございます．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/flano_yuki/items/251a350b4f8a31de47f5&#34;&gt;QUICの現状確認をしたい（2018/1）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://asnokaze.hatenablog.com/entry/2018/02/06/004539&#34;&gt;QUICの現状確認をしたい 2018 /2 (MTU, Migration, Packet Number Encryptionなど) - ASnoKaze blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以下に QUIC の主な特徴を示します．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;UDP の上位で動作&lt;/strong&gt;：通信路確立時間の短縮&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TCP のような輻輳制御アルゴリズムを提供&lt;/strong&gt;：公平性の確保&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;セッション管理&lt;/strong&gt;：L3 ハンドオーバ時の遅延削減&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ペイロードだけではなく制御情報もほとんど暗号化可能&lt;/strong&gt;：情報保護&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前方誤り訂正（Forward Error Correction; FEC）付与&lt;/strong&gt;：再送抑制&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ユーザ空間実装&lt;/strong&gt;：開発，デプロイの高速化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;このように非常に高機能です．
+論文に関しては，2017年，ネットワーク系のトップカンファレンスである ACM
+SIGCOMM で発表された論文&lt;sup id=&#34;fnref:11&#34;&gt;&lt;a href=&#34;#fn:11&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;11&lt;/a&gt;&lt;/sup&gt; がおそらく初めてだと思われます．&lt;/p&gt;
+&lt;p&gt;この論文，著者の順番がアルファベット順になっていることに何か意図があるんでしょうかね．&lt;/p&gt;
+&lt;p&gt;論文中ではインターネットトラフィックの 7% が QUIC によるものと推定する&lt;sup id=&#34;fnref:11&#34;&gt;&lt;a href=&#34;#fn:11&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;11&lt;/a&gt;&lt;/sup&gt;とあります．
+下記ツイートのように，QUIC のトラフィックシェアも上がってきているようで本当にすごいです．
+こんな複雑なプロトコルがインターネット規模でスケールして動作していることに驚愕です．
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;The number of QUIC-capable IPs and support for sets of certain QUIC versions has grown since its release over 5 years ago. Read more about the reach of &lt;a href=&#34;https://twitter.com/hashtag/QUIC?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#QUIC&lt;/a&gt; on the Internet &lt;a href=&#34;https://t.co/65IGbH5SWx&#34;&gt;https://t.co/65IGbH5SWx&lt;/a&gt; &lt;a href=&#34;https://t.co/oXiSeiptfr&#34;&gt;pic.twitter.com/oXiSeiptfr&lt;/a&gt;&lt;/p&gt;&amp;mdash; APNIC (@apnic) &lt;a href=&#34;https://twitter.com/apnic/status/996378414754947073?ref_src=twsrc%5Etfw&#34;&gt;May 15, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;近年のQUICのトラフィックに関する分析。&lt;br&gt;- Akamaiが公式にQUICのrolloutをアナウンスする一週間前からIPv4ホストのQUICサポート: 急激に増加&lt;br&gt;- 今までQUICのトラフィックシェア: Googleが支配→Akamaiがこれを変えるかも？&lt;br&gt;- 大学のuplink: QUICのトラフィックが増えている(WIDE MAWIが分析協力) &lt;a href=&#34;https://t.co/ARwJWhnf7g&#34;&gt;https://t.co/ARwJWhnf7g&lt;/a&gt;&lt;/p&gt;&amp;mdash; ao (@6_break) &lt;a href=&#34;https://twitter.com/6_break/status/996384026540752896?ref_src=twsrc%5Etfw&#34;&gt;May 15, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;ところでみなさん，DCCP って覚えていますか？&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;h5 id=&#34;quic-の位置付け&#34;&gt;QUIC の位置付け&lt;/h5&gt;
+&lt;p&gt;私の研究分野がネットワークアーキテクチャであるので，この視点で見てしまいがちです．
+図6 にプロトコルスタックにおける QUIC の位置付けを示します．
+&lt;figure class=&#34;center&#34;&gt;
+    &lt;img src=&#34;https://negli0.github.io/img/quic-stack.png&#34;/&gt; &lt;figcaption&gt;
+            &lt;h4&gt;図6. Protocol Stack (QUIC)&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;!-- raw HTML omitted --&gt; &lt;a href=&#34;https://datatracker.ietf.org/meeting/98/materials/slides-98-edu-sessf-quic-tutorial/&#34;&gt;https://datatracker.ietf.org/meeting/98/materials/slides-98-edu-sessf-quic-tutorial/&lt;/a&gt; より引用&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;一般に QUIC はトランスポート層プロトコルと言われています．はじめは UDP sublayer みたいな位置付けかと
+思っていましたが，図6 のように UDP の上位で動作します．そして一部アプリケーション機能を提供します&lt;sup id=&#34;fnref:11&#34;&gt;&lt;a href=&#34;#fn:11&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;11&lt;/a&gt;&lt;/sup&gt;．&lt;/p&gt;
+&lt;p&gt;ここで私の良くない病気が出ます．&lt;/p&gt;
+&lt;p&gt;アプリケーション（HTTP？）機能を一部提供するのにトランスポート層プロトコルと言われてしまうと，
+例えば OSI 参照モデルでは第何層に位置するのか，私はよくわからなくなってしまうのです．
+こんなことを気にしてなんになるんだ&amp;hellip;？（でも気にする）
+厳密に第何層かなんて実際に開発したり使用したりする上ではあまり気にする必要ないんですけどね．&lt;/p&gt;
+&lt;p&gt;従来のトランスポート層プロトコルが担ってきたサービスをアプリケーションに提供しているという
+意味ではトランスポート層プロトコルだと思いますが，一部アプリケーション機能も持っているため
+L7 とも捉えることができると思います．個人的には L4 の機能を持った L7 がしっくり来ます．&lt;/p&gt;
+&lt;p&gt;これに関して，MPQUIC の論文&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt; には以下のように書かれています．&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;QUIC is a recent proposal initiated by Google and embraced by many others that &lt;!-- raw HTML omitted --&gt;collapses the functions of the classical HTTP/2, TLS and TCP protocols into a single application layer protocol&lt;!-- raw HTML omitted --&gt; that runs over UDP.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;参考文献&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt; より抜粋&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;QUIC の論文&lt;sup id=&#34;fnref:11&#34;&gt;&lt;a href=&#34;#fn:11&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;11&lt;/a&gt;&lt;/sup&gt; では &amp;ldquo;Transport Layer Protocol&amp;rdquo; と言われています（どこに位置づくの）．
+あと，しばしば SPDY(L7) とか HTTP/2(L7)
+とかと同列で書かれたりしているのを見るとやっぱり L7 では？という気分になります．
+元論文が &amp;ldquo;Transport Layer Protocol&amp;rdquo; だと言う以上，これからは HTTP/2 on QUIC とか，SPDY on TCP とか，
+HTTP/2 on TCP とかいう言い方をしたほうがいいのだろうか（この書き方が厳密に正しいのかすら不明だが)．&lt;/p&gt;
+&lt;p&gt;ところで L4=UDP で L7=QUIC+HTTP という解釈は？&lt;br&gt;
+セッション管理もあるし L4=UDP，L5=QUIC，L7=HTTP とか？？&lt;br&gt;
+いやいや他にｍ&lt;/p&gt;
+&lt;p&gt;(病気終わり)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;quic-のデータ転送&#34;&gt;QUIC のデータ転送&lt;/h4&gt;
+&lt;p&gt;MPQUIC の説明に必要な QUIC の仕様を述べます．
+QUIC パケットは，暗号化されていないヘッダ，暗号化された残りのヘッダ，及び Frame で構成されます．
+暗号化されないヘッダ部分は以下の3つ．&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;フィールド&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Type&lt;/td&gt;
+&lt;td&gt;Initial, Rety, Handshake, 0-RTT Protected 等の識別&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Connection ID (CID)&lt;/td&gt;
+&lt;td&gt;コネクションの識別子&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Packet Number (PN)&lt;/td&gt;
+&lt;td&gt;TCP でいうところのシーケンス番号&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;主な Frame の種類として&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Frame 名&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;STREAM&lt;/td&gt;
+&lt;td&gt;CID 内に stream を作成，ストリームのデータの運搬&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ACK&lt;/td&gt;
+&lt;td&gt;送信側にどのパケットが届いたのか通知&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CONNECTION_CLOSE&lt;/td&gt;
+&lt;td&gt;コネクションを終了することを相手に通知&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RST_STREAM&lt;/td&gt;
+&lt;td&gt;stream を突然終了&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;などがあります．
+アプリケーションペイロードは STREAM Frame の StreamData というフィールドに格納されます．
+輻輳検知などに用いる Round Trip Time 推定（RTT estimation）は，ACK Frame の ACK Delay
+フィールドを使用します．&lt;/p&gt;
+&lt;p&gt;論文を読みつつ，TCP と比較したときに最も興味深いのは，&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;!-- raw HTML omitted --&gt;常に PN が増加し続ける&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ことでした．これにより再送の曖昧さ（ambiguity of multiple retransmission）
+を回避できます．&lt;/p&gt;
+&lt;p&gt;簡単に説明します．&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;受信側が受信状況からあるパケットがロスをしたと判断 (単に到着が遅れているだけかもしれない)&lt;/li&gt;
+&lt;li&gt;受信側が再送要求&lt;/li&gt;
+&lt;li&gt;受信側が当該データを受信&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;3 の時点で，TCP はそのデータが「単に遅れて到着した」パケットなのか
+「再送要求して送られた」パケットなのか判断ができません．シーケンス番号が共通なので．
+一方 QUIC では PN が増加し続けるので，時系列が容易に把握できます．TCP
+よりも正確な RTT 推定が可能です．&lt;/p&gt;
+&lt;p&gt;RTT 推定は Bufferbloat 問題の解決に役立ちます．Bufferbloat 問題は，実際には輻輳が発生していないのに
+両エンドの輻輳制御アルゴリズムの性能を落とします．単純な仕組みですが，PN
+が単調増加することのメリットは大きいように思えます．論文にも MPTCP
+と比較してロスリカバリに長けていると書かれています&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;．&lt;/p&gt;
+&lt;p&gt;また，シングルパスの TCP，QUIC では輻輳制御に CUBIC を用いています．
+論文中では，MPTCP，MPQUIC には OLIA&lt;sup id=&#34;fnref:12&#34;&gt;&lt;a href=&#34;#fn:12&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;12&lt;/a&gt;&lt;/sup&gt; というスキームを用いています．CUBIC
+は，マルチパスプロコトルの下では unfair な挙動をすることが知られています&lt;sup id=&#34;fnref:13&#34;&gt;&lt;a href=&#34;#fn:13&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;13&lt;/a&gt;&lt;/sup&gt;．&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;mpquic-における-path&#34;&gt;MPQUIC における Path&lt;/h4&gt;
+&lt;p&gt;MPQUIC ではひとつのコネクション ID
+の中に Path という概念を追加してマルチパスを実現します．暗号化されないヘッダ部分に
+Path ID を含めることで Path を識別します．Path は IP アドレスにひも付きます．
+IPv4, IPv6 の dual-stack ホストの場合，それぞれで Path を持ちえます．
+STREAM Frame がどの Path（経路）を通っても関係なく受信側で
+stream のデータ（アプリケーションペイロード）が復元されます．&lt;/p&gt;
+&lt;p&gt;Path は Path Manager という部分で操作されます．
+Path Manager は Path の作成と削除を担います．QUIC のハンドシェイク終了後，
+両ホストでまずひとつの Path を開きます．あとは必要に応じて片方のホストが Path
+を開きます．Path は UDP 上で実現されるため，Path を activate
+するにはパケットをひとつ流すだけで済みます&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;．一方で MPTCP
+では Path は TCP で実現されるため，Path ごとに 3-way handshake が必要になります．&lt;/p&gt;
+&lt;p&gt;MPQUIC では以下の新たな Frame を用いて Path を操作します．&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Frame 名&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ADD_ADDRESS&lt;/td&gt;
+&lt;td&gt;ホストのすべてのアドレスを交換&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PATH&lt;/td&gt;
+&lt;td&gt;ホスト global な視点で Active な Path の性能を確認&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;ADD_ADDRESS Frame は SCTP のアドレスリスト交換や MPTCP の ADD_ADDR
+シンボルに相当します．これにより各ホストで Path のエンドポイントを共有できます．
+MPTCP の ADD_ADDR と異なり，Frame
+は暗号化されるためセキュリティミドルボックスの影響を受けません．&lt;/p&gt;
+&lt;p&gt;PATH Frame はホスト global な視点で Path の性能の統計情報を確認できます．&lt;/p&gt;
+&lt;h5 id=&#34;耐障害性-2&#34;&gt;耐障害性&lt;/h5&gt;
+&lt;p&gt;先述のように MPQUIC では PATH Frame を用いて Active な Path の性能を確認できます．
+これは RTT 推定や slow な Path，急激に性能が劣化した Path
+の検知に使用できます．これにより，複数インターフェイス（I/Fs) が存在するホスト
+（dual-homing host） 上で SCTP ライクな failover を実現します．&lt;/p&gt;
+&lt;h5 id=&#34;帯域集約-2&#34;&gt;帯域集約&lt;/h5&gt;
+&lt;p&gt;先述のように，QUIC は UDP 上で動作するので TCP マルチストリーミングで発生する HoL
+Blocking が発生しません．受信したら，stream 内で順番が揃っていれば上位層にパケットを渡せます．
+この点で非常にマルチパス通信との相性が良いです．
+ロスが発生した場合，MPTCP はミドルボックス対策で各パスに順番に再送しなくてはならないですが，MPQUIC
+では Frame を同一 Path に送る必要がない点も異なります．&lt;/p&gt;
+&lt;p&gt;個人的に MPQUICは SCTP と MPTCP にインスパイヤされていると思います．
+SCTP よりも現代的なアプリケーションの要求に応える仕組みになっており，MPTCP
+が下位層から TCP にみえるように MPQUIC は UDP に見えるのでセキュリティミドルボックスの突破に貢献します．
+MPQUIC の論文&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt; はショートペーパーなので，より詳細なものがフルペーパーで読めるのを楽しみにしています．&lt;/p&gt;
+&lt;h3 id=&#34;おわりに&#34;&gt;おわりに&lt;/h3&gt;
+&lt;p&gt;長くなりすぎました．&lt;/p&gt;
+&lt;p&gt;ですがひととおり読んでいただくと，マルチパス通信に共通なモデルとそれぞれの特徴が
+ざっくりと把握できるのではないかと思います．やっぱりマルチパスは D-plane が難しいですね．
+帯域を使い切るのは大変だ．&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;項目&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;SCTP&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;MPTCP&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;MPQUIC&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;コネクション&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;あり&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;あり&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;あり&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;転送指向&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;メッセージ&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;バイトストリーム&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;バイトストリーム&lt;sup id=&#34;fnref:11&#34;&gt;&lt;a href=&#34;#fn:11&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;11&lt;/a&gt;&lt;/sup&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;マルチストリーム&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;標準機能&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;要拡張機能&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;標準機能&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;帯域集約&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;要拡張機能&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;標準機能&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;標準機能&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;耐障害性&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;標準機能&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;標準機能&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;標準機能&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;マルチパス HoL Blocking&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;回避可能&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不可避&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;回避可能&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;階層&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;L4&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;L4 on TCP&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;L7 on UDP&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;こちらの意図を英訳すると Highly Functional Communication Paths になるのですが，直感的には Enhanced Communication Paths がわかりやすいです． &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;R. T. Braden, &amp;ldquo;Requirements for Internet Hosts - Communication Layers,&amp;rdquo; &lt;a href=&#34;https://tools.ietf.org/html/rfc1122&#34;&gt;RFC 1122&lt;/a&gt;, Oct. 1989. &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;R. R. Stewart, &amp;ldquo;Stream Control Transmission Protocol,&amp;rdquo; &lt;a href=&#34;https://tools.ietf.org/html/rfc4960&#34;&gt;RFC 4960&lt;/a&gt;, Sep. 2007. &lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;A. Ford, C. Raiciu, M. J. Handley, and O. Bonaventure, &amp;ldquo;TCP Extensions for Multipath Operation with Multiple Addresses,&amp;rdquo; &lt;a href=&#34;https://www.rfc-editor.org/rfc/rfc6824.txt&#34;&gt;RFC 6838&lt;/a&gt;, Jan. 2013. &lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Q. D. Coninck and O. Bonaventure, &amp;ldquo;Multipath QUIC: Design and Evaluation,&amp;rdquo; In Proc. of the 13th International Conference on Emerging Networking EXperiments and Technologies (CoNEXT&#39;17), pp. 160&amp;ndash;166, Incheon, Republic of Korea, Dec. 12&amp;ndash;15. 2017. &lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Prof. P. D. Amer, M. Becke, T. Dreibholz, N. Ekiz, J. Iyengar, P. Natarajan, R. R. Stewart, M. Tüxen, &amp;ldquo;Load Sharing for the Stream Control Transmission Protocol (SCTP),&amp;rdquo; &lt;a href=&#34;https://www.ietf.org/id/draft-tuexen-tsvwg-sctp-multipath-15.txt&#34;&gt;draft-tuexen-tsvwg-sctp-multipath-15.txt&lt;/a&gt;, Jan. 2018. &lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:7&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;src IP ごとにルーティングテーブルを設定したり，I/F を mptcp enabled にしたりする程度です．詳しくは &lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt;を参照． &lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:8&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://multipath-tcp.org/pmwiki.php&#34;&gt;MultiPath TCP - Linux Kernel implementation&lt;/a&gt; &lt;a href=&#34;#fnref:8&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:9&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;B. Hesmans and O. Bonaventure, &amp;ldquo;An Enhanced Socket API for Multipath TCP,&amp;rdquo; In Proc. of the 2016 Applied Networking Research Workshop (ANRR&#39;16), pp. 1&amp;ndash;6, Berlin, Germany, Jul. 16. 2016. &lt;a href=&#34;#fnref:9&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:10&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Q. D. Coninck and O. Bonaventure, &amp;ldquo;Multipath Extension for QUIC,&amp;rdquo; &lt;a href=&#34;https://tools.ietf.org/html/draft-deconinck-multipath-quic-00&#34;&gt;draft-deconinck-multipath-quic-00&lt;/a&gt;, Oct. 2017. &lt;a href=&#34;#fnref:10&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:11&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;A. Langley, A. Riddoch, A. Wilk, A. Vicente, C. Krasic, D. Zhang, F. Yang, F. Kouranov, I. Swett, J. Iyengar, J. Bailey, J. Dorfman, J. Roskind, J. Kulik, P. Westin, R. Tenneti, R. Shade, R. Hamilton, V. Vasiliev, W. Chang, and Z. Shi, &amp;ldquo;The QUIC Transport Protocol: Design and Internet-Scale Deployment,&amp;rdquo; In Proc. of the Conference of the ACM Special Interest Group on Data Communication (SIGCOMM &amp;lsquo;17), pp. 183&amp;ndash;196, Los Angeles, CA, USA, Aug. 21&amp;ndash;25. 2017. &lt;a href=&#34;#fnref:11&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:12&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;R. Khalili, N. Gast, M. Popovic, U. Upadhyay, and J. L. Boudec, &amp;ldquo;MPTCP is not pareto-optimal: performance issues and a possible solution.&amp;rdquo; In Proc. of the 8th International Conference on Emerging Networking EXperiments and Technologies (CoNEXT &amp;lsquo;12), pp. 1&amp;ndash;12, Nice, France, Dec. 10&amp;ndash;13, 2012. &lt;a href=&#34;#fnref:12&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:13&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;D. Wischik, C. Raiciu, A. Greenhalgh, and M. Handley. 2011. &amp;ldquo;Design, Implementation and Evaluation of Congestion Control for Multipath TCP,&amp;rdquo; In NSDI &amp;lsquo;11. &lt;a href=&#34;#fnref:13&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+       </item>
+       
+     </channel>
+   </rss>

@@ -1,20 +1,254 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>p4 on Around The Computer</title>
-    <link>https://negli0.github.io/tags/p4/</link>
-    <description>Recent content in p4 on Around The Computer</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright &amp;copy; 2018 - negli0</copyright>
-    <lastBuildDate>Mon, 28 Oct 2019 09:23:48 +0900</lastBuildDate><atom:link href="https://negli0.github.io/tags/p4/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>日本 P4 ユーザ会 2019 参加記（まとめや感想など）</title>
-      <link>https://negli0.github.io/posts/p4-user-jp/</link>
-      <pubDate>Mon, 28 Oct 2019 09:23:48 +0900</pubDate>
-      
-      <guid>https://negli0.github.io/posts/p4-user-jp/</guid>
-      <description>日本 P4 ユーザ会とは ホームページによれば，以下のとおりです． 日</description>
-    </item>
-    
-  </channel>
-</rss>
+
+   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+     <channel>
+       <title>p4 on Around The Computer</title>
+       <link>https://negli0.github.io/tags/p4/</link>
+       <description>Recent content in p4 on Around The Computer</description>
+       <generator>Hugo -- gohugo.io</generator>
+       <copyright>Copyright &amp;copy; 2018 - negli0</copyright>
+       <lastBuildDate>Mon, 28 Oct 2019 09:23:48 +0900</lastBuildDate>
+       
+           <atom:link href="https://negli0.github.io/tags/p4/index.xml" rel="self" type="application/rss+xml" />
+       
+       
+       <item>
+         <title>日本 P4 ユーザ会 2019 参加記（まとめや感想など）</title>
+         <link>https://negli0.github.io/posts/p4-user-jp/</link>
+         <pubDate>Mon, 28 Oct 2019 09:23:48 +0900</pubDate>
+         
+         <guid>https://negli0.github.io/posts/p4-user-jp/</guid>
+         <description>&lt;h2 id=&#34;日本-p4-ユーザ会とは&#34;&gt;日本 P4 ユーザ会とは&lt;/h2&gt;
+&lt;p&gt;ホームページによれば，以下のとおりです．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://p4users.org&#34;&gt;日本 P4 ユーザ会&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://p4.org&#34;&gt;P4 Lang&lt;/a&gt; について日本語で語るグループ．
+P4 関連のセミナー情報やカンファレンス情報及び技術情報を共有する．&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;インタラクティブな議論は Slack 上でされています．&lt;/p&gt;
+&lt;p&gt;10/11(Fri) に「&lt;a href=&#34;https://p4users.org/2019/07/16/event2019/&#34;&gt;日本 P4 ユーザ会 2019&lt;/a&gt;」
+が開催され，私にしては珍しく聴講のみのイベント参加をしてまいりました．
+一緒に行った友人との議論もあって知見が溜まった気がするので吐き出します．&lt;/p&gt;
+&lt;h5 id=&#34;本エントリでは-p4-についての詳細は省きます&#34;&gt;※本エントリでは P4 についての詳細は省きます&lt;/h5&gt;
+&lt;h3 id=&#34;p4-と私&#34;&gt;P4 と私&lt;/h3&gt;
+&lt;p&gt;存在自体は論文&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; を読んで知ってから久しいものですが，具体的に動かしたことはないです．
+Software Defined Network（SDN）の文脈で言われる，いわゆる &amp;ldquo;Data-Plane(D-Plane) Programmability&amp;rdquo;
+を実現するための Domain Specific Language（DSL）です．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.sigcomm.org/sites/default/files/ccr/papers/2014/July/0000000-0000004.pdf&#34;&gt;論文PDF&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;D-Plane Programmability といえば，私は 2017 年に某所で
+OpenFlow&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;（Controller は Ryu）， Docker， Open vSwitch を組み合わせて軽量な
+NFV box を作ってデプロイして面倒を見るという作業に参加していました．手前味噌
+ですが，運用成果をまとめた論文&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; を研究会に出してます．&lt;/p&gt;
+&lt;p&gt;OpenFlow&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; ではヘッダフィールドを規定してパケットプロセッシングする一方，
+P4 はビットストリームとしてパケットプロセッシングするのだな，ぐらいのイメージを
+持っていました．加えて P4 は技術的な特徴からエコシステムまで含めて，OpenFlow
+でうまく行かなかった部分を克服しようとしているように思っておりました．&lt;/p&gt;
+&lt;p&gt;ここから当日得た内容を私なりにまとめてみます．資料は HP 上で公開されています．
+P4 の基本的な仕組みについて触れた資料もあるため全部読めば知識は手に入ります．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://p4users.org/2019/07/16/event2019/&#34;&gt;【資料公開】日本 P4 ユーザ会 2019 開催のお知らせ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;-なお発表内容すべてには触れませんが特に意図はありません&#34;&gt;※ なお発表内容すべてには触れませんが特に意図はありません&lt;/h5&gt;
+&lt;hr&gt;
+&lt;p&gt;感想は以下のようにまとめられます．&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Stratum で P4 プログラムを扱いやすく&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;fully-programmable&amp;rsquo; のつらさと品質保証&lt;/li&gt;
+&lt;li&gt;INT 大流行&lt;/li&gt;
+&lt;li&gt;研究の観点&lt;/li&gt;
+&lt;li&gt;P4 に限らずエコシステムを回すことが大切&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;順番に書いていきます．&lt;/p&gt;
+&lt;h3 id=&#34;stratum-で-p4-プログラムを扱いやすく&#34;&gt;Stratum で P4 プログラムを扱いやすく&lt;/h3&gt;
+&lt;p&gt;実際に P4 を使ったある開発経験者から聞くところによると，Barefoot の SDK を
+直接使うのはけっこう辛いのだそう．加えて私のように手元でちょっとした実験をしたい
+人からするとわざわざ P4 対応の ASIC を購入するのはハードルが高いです．&lt;/p&gt;
+&lt;p&gt;Stratum は ONF や Google からオープンソースとして9月に公開された，いわゆる NOS です．
+P4 対応 ASIC だけでなく，FPGA や NPU，CPU も P4 の実行プラットフォーム
+として扱うことができます．P4 ネイティブ非対応のプラットフォームにも P4 プログラム
+をデプロイして使えるのは非常にありがたいです．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/stratum/stratum&#34;&gt;Stratum - Enabling the era of next-generation SDN&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;各プラットフォームごとの主なターゲットは以下のとおりです．&lt;/p&gt;
+&lt;h4 id=&#34;-ebiken-さんのスライド参照-pdfhttpsp4usersfileswordpresscom201910p4ug-japan-toyota-ebisawa-20191011pdf&#34;&gt;※ ebiken さんのスライド参照: &lt;a href=&#34;https://p4users.files.wordpress.com/2019/10/p4ug-japan-toyota-ebisawa-20191011.pdf&#34;&gt;PDF&lt;/a&gt;&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;プラットフォーム&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;ターゲット&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;処理性能&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;コンパイラ&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ASIC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Barefoot&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;xx Tbps&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;P4 Studio&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;FPGA&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Xilinx, Intel&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;xxx Gbps&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;P4-SDNet, Netcope NP4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;NPU&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Netronome&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;xx Gbps&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Agilio P4C SDK&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CPU&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;BMv2, eBPF&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;x Gbps&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;p4lang/p4c&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;P4 を手元でサクッと試すなら Stratum + BMv2 が良さそうです．
+&amp;ldquo;PoC 程度なら&amp;rdquo; 同じ P4 ファイルをマルチプラットフォームで使い回せます．
+それがP4の意義のひとつですからね．&lt;/p&gt;
+&lt;p&gt;ASIC は高スループットですが P4 で表現可能なことの他にできることが限られます．
+例えば最新の P4_16 の仕様では P4 には除算命令が無いらしいです．
+FPGA では，P4 で表現できないロジックは HDL でどうとでもなりますが，ロジックを変更
+するたびに合成が必要なので規模に寄ってはアジリティは低いのかもしれません．
+NPU ですが，私は使ったことがありません．おそらくだいぶソフトウェア寄りな表現が
+可能になると思います．価格もそこまで高くないそう(7万円とか)です．&lt;/p&gt;
+&lt;p&gt;Stratum とは別に，
+最近だと P4 で D-Plane ロジックを書いてコンパイルすると，それ専用の CLI も一緒に
+生成されるらしい(要出典)ので，C-Plane が CLI
+で良ければコントローラの開発コストも下がりそうですね．P4 の API を提供する
+P4Runtime は gRPC を採用しています．gRPC のインターフェイスに即していれば自由に
+C-Plane アプリ（コントローラ）を作れますし，NETCONF/YANG （xmlRPC）
+のポートも生やせそうですね．&lt;/p&gt;
+&lt;h4 id=&#34;10-29-追記&#34;&gt;10 /29 追記&lt;/h4&gt;
+&lt;p&gt;ebiken さんにご指摘いただきましたが，上記では「Stratum がなければマルチプラットフォームで
+P4 をデプロイできない」のような文脈に取れてしまいます．ご指摘の通りこれは&lt;strong&gt;私の勘違い&lt;/strong&gt;でした
+（すみません）．
+また，Stratum の大きな特徴はは &amp;ldquo;統一的に&amp;rdquo; プラットフォームを扱える点と，P4 言語
+で規定される部分 &amp;ldquo;以外の&amp;rdquo; 共通インターフェイスも提供される点です．
+例えば LINK UP/DOWN は P4 の範囲外ですが Stratum では gNMI/gNOI として提供されます．
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;はい。それに加えP4言語で規定される部分 &amp;quot;以外&amp;quot; の共通インターフェースが提供されるのが大きな特徴です。たとえばLINK Up/DownなどはP4言語の範疇外です。NTT武井さんの資料 Slide 10 の P4Runtime がP4言語で提供されるインターフェースで、gNMI/gNOIはStratum提供です。&lt;a href=&#34;https://t.co/kxDYs3t8b2&#34;&gt;https://t.co/kxDYs3t8b2&lt;/a&gt; &lt;a href=&#34;https://t.co/hdKx4ZZGzC&#34;&gt;pic.twitter.com/hdKx4ZZGzC&lt;/a&gt;&lt;/p&gt;&amp;mdash; Kentaro Ebisawa (@ebiken) &lt;a href=&#34;https://twitter.com/ebiken/status/1188809420156702721?ref_src=twsrc%5Etfw&#34;&gt;October 28, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;fully-programmable-のつらさと品質保証&#34;&gt;‘fully-programmable’ のつらさと品質保証&lt;/h3&gt;
+&lt;p&gt;P4 を使えば完全に D-Plane をフルスクラッチ可能です．つまり，IP routing や
+ACL や forwarding といったよく使う機能も自分で作る必要があります．もちろん
+サンプル P4 ファイルがいくつか提供されることもありますが．
+あと，P4 がキャリアなどで商用利用されることを想定すると品質保証が大切だと考えられます．&lt;/p&gt;
+&lt;p&gt;例えば最近では OSS のソフトウェアルータによる DC Networking が注目されていますが，
+オープンであるがゆえに開発と品質保証を両立するのは大変です．だからこそ
+Cisco や Juniper といったプラットフォームベンダは頑張っているわけですよね．
+プラットフォームベンダの方々は一番要件が厳しいところ（おそらくキャリア）向け
+を想定して開発をしているため，こうした方々の品質とユーザによる &amp;lsquo;fully-programmable&amp;rsquo; な
+P4 部分をどう両立するかが大事なわけです．&lt;/p&gt;
+&lt;p&gt;佐藤さん(Cisco)の資料の pp.18-21 に重要な図が載っています．&lt;/p&gt;
+&lt;h5 id=&#34;-佐藤さんのスライド参照-pdfhttpsp4usersfileswordpresscom201910ciscopdf&#34;&gt;※ 佐藤さんのスライド参照: &lt;a href=&#34;https://p4users.files.wordpress.com/2019/10/cisco.pdf&#34;&gt;PDF&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;かいつまんで説明すると，品質保証がされた基本的な P4 ロジックをプラットフォームベンダ
+（Cisco）が提供し，ユーザは独自で P4 ロジックを用意します．
+加えて，プラットフォームベンダが開発環境として Constraint Checker も提供し，両者に機能重複が
+無いかどうかチェックします．&lt;/p&gt;
+&lt;p&gt;これなら IOS のように品質保証された基本的なロジックと P4 のプログラマビリティ
+の両立が目指せます．この Checker が何をどこまでやってくれるかに期待がかかります．&lt;/p&gt;
+&lt;p&gt;Cisco がチップを Barefoot のようなチップベンダから購入する
+（＝自社製品向けにチップを内製しない）のも然り，ユーザ拡張のための
+Checker も提供してくれるというのも然り，本気で P4 を商用利用しに行こうという
+気合を感じます．Net One Systems（インテグレータ）からも会場で
+ブースが出されていたことも同様のことを感じさせます．&lt;/p&gt;
+&lt;h3 id=&#34;int-大流行&#34;&gt;INT 大流行&lt;/h3&gt;
+&lt;p&gt;P4 ロジックだからこそのユースケースですが，In‐band Network Telemetry (INT)
+を挙げる方がほとんどでした．その目的で面白かったのが，キャリアにおける SLA の
+可視化です．例えば，5G ネットワークを提供するテレコムキャリアが，5G で謳われる
+超低遅延，広帯域，同時多数接続といったサービスが本当に実現できているのか確認する
+のに期待されています．&lt;/p&gt;
+&lt;h5 id=&#34;武井さんntt研究所のスライド参照-pdfhttpsp4usersfileswordpresscom201910p4e383a6e383bce382b6e4bc9ae799bae8a1a8e8b387e69699ntte6ada6e4ba95pdf&#34;&gt;武井さん(NTT研究所)のスライド参照: &lt;a href=&#34;https://p4users.files.wordpress.com/2019/10/p4e383a6e383bce382b6e4bc9ae799bae8a1a8e8b387e69699ntte6ada6e4ba95.pdf&#34;&gt;PDF&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;INT では，INT のドメインに入るときにネットワーク機器が
+メタデータ（タイムスタンプとか）をパケットに追加し，
+ドメインから出るときに機器がメタデータを取り外してテレメトリサーバに計算結果
+（パケットがドメイン内にいた時間とか）を送信します．これにより，パケット単位の
+SLA 可視化が理論上は可能です．&lt;/p&gt;
+&lt;p&gt;課題は時刻同期にあります．IEEE 1588 で定義される PTP はサブマイクロ秒のオーダー
+で時刻同期ができますが，キャリアが持つような広域ネットワークへの適用は現状困難です．
+この規模だと NTP が候補になりますが，時刻同期がミリ秒オーダーにまで荒くなります．
+SLA と一口に言っても色々あるので，NTP でも保証ができるレベルであれば十分に実用が
+期待できる手法だと思います．&lt;/p&gt;
+&lt;p&gt;INT 以外のユースケースは後述の IRTF COIN RG でも議論がされています．&lt;/p&gt;
+&lt;h3 id=&#34;研究の観点&#34;&gt;研究の観点&lt;/h3&gt;
+&lt;p&gt;研究と言っても P4 の応用研究です．P4 自体の研究は私はちっとも詳しくありません．&lt;/p&gt;
+&lt;p&gt;IETF がインターネット周辺の技術の標準化を担う団体である一方，IRTF もう少し研究
+寄りの団体です．IRTF には Computing in the Network (COIN) という Research
+Group (RG）があります．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://trac.ietf.org/trac/irtf/wiki/coin&#34;&gt;Proposed IRTF Research Group: Computing in the Network (COIN)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;今回の発表では特に触れられていませんが，COIN においても P4 の活用が議論の対象
+になっています．
+焦点がよく当たるのは，一般的なアプリケーション処理をネットワーク内
+にどのように透過的に落とし込むかという点です．
+よく混同されますが，”In-Network Computing” と ”Network Computing” は別の概念です．
+というか私も人に言われるまで特に気にしていませんでした．&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;Cambridge の Noa 先生による In-Network Computing の定義．SmartNIC, programable ASIC とかですかね．ネットワーク内にホストを置く Network Computing とは異なると明記されています．&lt;a href=&#34;https://t.co/fyenZmHw3v&#34;&gt;https://t.co/fyenZmHw3v&lt;/a&gt;&lt;/p&gt;&amp;mdash; nelio (@nelishiba) &lt;a href=&#34;https://twitter.com/nelishiba/status/1173781090193920000?ref_src=twsrc%5Etfw&#34;&gt;September 17, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;In-Network Computing はデータをよりビットストリームとして扱っている一方で，
+Network Computing はデータをミドルウェアやプロトコルをベースに扱っていると考えて
+良いでしょう．&lt;/p&gt;
+&lt;p&gt;私が取り組んでる研究のひとつに，一般的なアプリケーション処理を地理的に
+分散した計算機にオフロードするというものがあります．当研究では
+5Gネットワークを想定して Network Computing 寄りの考え方を採用しています．
+国内研究会には論文&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt; を出している（手前味噌v2）ので良かったら読んでみてください．
+国際会議は目下取り組み中です（はよ出せ）．&lt;/p&gt;
+&lt;p&gt;仮に In-Network Computing な手法をアプリケーション処理に適用する場合は NPU ぐらいの
+柔軟性を設けたほうが良いでしょうね．使い方も D-Plane Programmability というよりは
+ヘテロジーニアスコンピューティングやオフローディングという文脈でしょうか．
+現状 P4 をアプリケーション処理一般に適用する試みはあまり見ないですね．&lt;/p&gt;
+&lt;p&gt;あと何でもかんでも Hardware Offloading するのも良くないですよね，ソフトウェアと
+違って刺さっていればデータが来なくても多少なりとも電力消費するので，ピークが
+立つときには有効な手段ですがアベレージが低いと HW でやる意味が薄いですよね．
+特にデータセンタは低消費電力に努めたいわけですし．&lt;/p&gt;
+&lt;h3 id=&#34;p4-に限らずエコシステムを回すことが大切&#34;&gt;P4 に限らずエコシステムを回すことが大切&lt;/h3&gt;
+&lt;p&gt;今回のイベントで，関わる人がみなで盛り上げるということの大切さを感じました．
+そもそもインターネットの世界はマルチステークホルダーで，それぞれの立場のひとが
+同じ方向を向けるというのは結構難しいのです．ネットワーク工学の研究をしていると
+特に感じます．パワーゲームに勝てば良いのかも
+しれませんが，私が目指すのは P4 のように多くの人が嬉しい技術です．&lt;/p&gt;
+&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+&lt;p&gt;とても濃厚な時間でした．台風接近中だと言うのに 150人近い参加者だったそうで，
+そこからも P4 の注目度が伺えます．
+あと一緒に参加した友人x2 が P4 に詳しすぎたのでお昼ご飯食べてるときも私の稚拙な
+解釈を聞いてくれました．おかげで何となく P4 を取り巻く世界（主に産業寄り）が
+見えました．私のようにネットワーク工学を専攻する学生は産業界の話に積極的に
+参加したほうが良いと思いました．Slack にも参加したのできちんと議論に参加して
+いきたい．&lt;/p&gt;
+&lt;p&gt;Stratum+BMv2 くらいさっさと動かしたいので APRESIA の桑田さんの資料を参考に
+がんばります．あと研究室に Netronome NPU があるのでそれも Stratum から
+触れるようにしたいですね．（研究とは直接関係ないのだけどね）&lt;/p&gt;
+&lt;h5 id=&#34;桑田さんの資料参照-pdfhttpsp4usersfileswordpresscom201910e697a5e69cacp4e383a6e383bce382b6e4bc9a2019_apresia_v04pdf&#34;&gt;桑田さんの資料参照: &lt;a href=&#34;https://p4users.files.wordpress.com/2019/10/e697a5e69cacp4e383a6e383bce382b6e4bc9a2019_apresia_v.0.4.pdf&#34;&gt;PDF&lt;/a&gt;&lt;/h5&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Pat Bosshart, Dan Daly, Glen Gibb, Martin Izzard, Nick McKeown, Jennifer Rexford, Cole Schlesinger, Dan Talayco, Amin Vahdat, George Varghese, and David Walker. 2014. P4: programming protocol-independent packet processors. SIGCOMM Comput. Commun. Rev. 44, 3 (July 2014), 87-95. DOI: &lt;a href=&#34;https://doi.org/10.1145/2656877.2656890&#34;&gt;https://doi.org/10.1145/2656877.2656890&lt;/a&gt; &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Nick McKeown, Tom Anderson, Hari Balakrishnan, Guru Parulkar, Larry Peterson, Jennifer Rexford, Scott Shenker, and Jonathan Turner. 2008. OpenFlow: enabling innovation in campus networks. SIGCOMM Comput. Commun. Rev. 38, 2 (March 2008), 69-74. DOI=http://dx.doi.org/10.1145/1355734.1355746 &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;早川 侑太朗, 渡邊 大記, 岡田 和也, &amp;ldquo;clnfv：コンテナを用いた軽量なNFVアーキテクチャ,&amp;rdquo; 信学技報, vol. 117, no. 303, NS2017-111, pp. 1-6, 2017年11月. &lt;a href=&#34;https://www.ieice.org/ken/paper/20171116tbzw/&#34;&gt;研究会ページ&lt;/a&gt; &lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;佐藤 友範, 渡邊 大記, 林 和輝, 近藤 賢郎, 寺岡 文男, “5Gコアネットワーク向けアプリケーション処理連接基盤”, 研究報告マルチメディア通信と分散処理 (DPS), Vol. 2019-DPS-180, no. 18, pp. 1 - 8, 2019 年 9 月. &lt;a href=&#34;https://ipsj.ixsq.nii.ac.jp/ej/?action=pages_view_main&amp;amp;active_action=repository_view_main_item_detail&amp;amp;item_id=199311&amp;amp;item_no=1&amp;amp;page_id=13&amp;amp;block_id=8&#34;&gt;論文リンク&lt;/a&gt; &lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+       </item>
+       
+     </channel>
+   </rss>

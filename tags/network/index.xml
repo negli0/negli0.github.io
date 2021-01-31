@@ -1,38 +1,637 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>network on Around The Computer</title>
-    <link>https://negli0.github.io/tags/network/</link>
-    <description>Recent content in network on Around The Computer</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright &amp;copy; 2018 - negli0</copyright>
-    <lastBuildDate>Mon, 02 Sep 2019 14:30:09 +0900</lastBuildDate><atom:link href="https://negli0.github.io/tags/network/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>KLab Expert Camp にチューターとして参加した</title>
-      <link>https://negli0.github.io/posts/klab-expert-camp/</link>
-      <pubDate>Mon, 02 Sep 2019 14:30:09 +0900</pubDate>
-      
-      <guid>https://negli0.github.io/posts/klab-expert-camp/</guid>
-      <description>概要 2019 年 8/26 ~ 8/29 に開催された 第1回 KLab Expert Camp にチューターとして参加</description>
-    </item>
-    
-    <item>
-      <title>Graduation from the 8th Cybozu Labs Youth</title>
-      <link>https://negli0.github.io/posts/graduate-8th-cybozu-labs-youth/</link>
-      <pubDate>Thu, 18 Apr 2019 19:26:19 +0900</pubDate>
-      
-      <guid>https://negli0.github.io/posts/graduate-8th-cybozu-labs-youth/</guid>
-      <description>サイボウズ・ラボユースを卒業した 少々時間が経過しましたが，3</description>
-    </item>
-    
-    <item>
-      <title>Power Balance in the WEB</title>
-      <link>https://negli0.github.io/posts/power-balance-in-network/</link>
-      <pubDate>Sun, 24 Feb 2019 18:21:44 +0900</pubDate>
-      
-      <guid>https://negli0.github.io/posts/power-balance-in-network/</guid>
-      <description>はじめに ご存知の通り現在の WEB および WEB 周辺技術には HTTPS が多く使用</description>
-    </item>
-    
-  </channel>
-</rss>
+
+   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+     <channel>
+       <title>network on Around The Computer</title>
+       <link>https://negli0.github.io/tags/network/</link>
+       <description>Recent content in network on Around The Computer</description>
+       <generator>Hugo -- gohugo.io</generator>
+       <copyright>Copyright &amp;copy; 2018 - negli0</copyright>
+       <lastBuildDate>Mon, 02 Sep 2019 14:30:09 +0900</lastBuildDate>
+       
+           <atom:link href="https://negli0.github.io/tags/network/index.xml" rel="self" type="application/rss+xml" />
+       
+       
+       <item>
+         <title>KLab Expert Camp にチューターとして参加した</title>
+         <link>https://negli0.github.io/posts/klab-expert-camp/</link>
+         <pubDate>Mon, 02 Sep 2019 14:30:09 +0900</pubDate>
+         
+         <guid>https://negli0.github.io/posts/klab-expert-camp/</guid>
+         <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;2019 年 8/26 ~ 8/29 に開催された 第1回 KLab Expert Camp にチューターとして参加
+させていただきました．テーマは「TCP/IPプロトコルスタック自作開発」です．
+KLab Expert Camp についてはこちらを御覧ください．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://pr.blog.klab.jp/archives/51712424.html&#34;&gt;技術系インターン特別版「KLab Expert Camp」を初開催！: KLab広報ブログ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;参加までの経緯&#34;&gt;参加までの経緯&lt;/h2&gt;
+&lt;p&gt;6月上旬に主催者である山本さんに Twitter で「めっちゃいいですね」とお伝えしたら
+「チューターお待ちしています」とのお返事をいただきました．(ほぼこれだけで決まっちゃった)&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;チューターお待ちしています🤗&lt;/p&gt;&amp;mdash; YAMAMOTO Masaya (@pandax381) &lt;a href=&#34;https://twitter.com/pandax381/status/1137027047589421058?ref_src=twsrc%5Etfw&#34;&gt;June 7, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;この KLab Expert Camp の告知は山本さんのツイートだけだし，
+それにテーマもニッチだし，まあ 4,5 人くらいは集まるでしょと思っていました．&lt;/p&gt;
+&lt;p&gt;後日打ち合わせで 15 人程度いると伝えられてマジかとなりました．（どこに生息してるんだ）&lt;/p&gt;
+&lt;h2 id=&#34;expert-camp-の内容&#34;&gt;Expert Camp の内容&lt;/h2&gt;
+&lt;p&gt;「TCP/IP プロトコルスタック自作開発」という大きなテーマがあり，申込時の希望に
+合わせて以下のコースに分かれて 4 日間ひたすら開発を進めます．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;(1) 基本コース：受講者全員が，用意された教材に沿って学習を進めていく&lt;/li&gt;
+&lt;li&gt;(2) 発展コース：個人毎に，発展的な課題にチャレンジする&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;基本コース&#34;&gt;基本コース&lt;/h3&gt;
+&lt;p&gt;基本コースでは，山本さんの開発している microps (マイクロピーエス) を題材にし，
+山本さんがプロトコルスタックとはなんぞやという話から，各 OS の実装，
+microps ではどう実装しているのか，という話を講義形式で進めます．ある程度
+まで講義が進んだら手を動かして自分で実装したり動作検証したりします．&lt;/p&gt;
+&lt;p&gt;microps はこちら．非常にきれいな実装です．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/pandax381/microps&#34;&gt;microps&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;発展コース&#34;&gt;発展コース&lt;/h3&gt;
+&lt;p&gt;発展コースでは，参加者の作りたいものを作ります．
+今回は 4 名からの希望で，各自以下の内容に取り組んでいらっしゃいました．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;L3 まで microps の写経をしながら改善 + L4 を再実装する&lt;/li&gt;
+&lt;li&gt;Rust で TCP のメカニズムと Socket-like な API を実装する&lt;/li&gt;
+&lt;li&gt;microps 上にルーティングプロトコルを乗せる&lt;/li&gt;
+&lt;li&gt;Rust で L2 ~ L4 をフルスクラッチする&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;みなさん偶然異なるテーマになって面白い．ちなみに私は主に発展コースの
+参加者からの質問に答えたり，質問に答えるための調べ物（あとハッシュタグつきで
+Tweet！）
+をしていました．&lt;/p&gt;
+&lt;h2 id=&#34;お役目-本題&#34;&gt;お役目 (本題)&lt;/h2&gt;
+&lt;p&gt;基本的に私のお役目は発展コースの方の質問に答えることなのですが，私は研究者
+の立場から参加者の方々になにか伝えられたらいいなと思っておりました．
+4日間みなさんが作っていくものがどういう研究につながっているのかとか，今の
+インターネットを取り巻く情勢（クラウド事業者や ISP）の話とか，なぜ IoT が進んで
+行かないのかとか，5G って何が変わるの？とか，クラウドに対するエッジとは？とか．&lt;/p&gt;
+&lt;p&gt;プロトコルスタックは1台のマシン上における比較的ミクロな世界なわけですが，
+それが大規模につながるとこんな世界が広がっているんだよ〜ということを伝えようと
+懇親会でたくさん喋っていました．参加者用 Slack の雑談チャネルにおもしろ論文を
+ブンブン投げたりもしました．将来有望な学生たちに種を蒔きまくっていました．
+全然時間足りなかったけど．&lt;/p&gt;
+&lt;p&gt;私がいる意味ってこういう話を楽しくして，研究おもすれ〜とか，インターネットの世界
+すげ〜とか思ってもらうことだと思ってたんですよね．なのでもし今回私の話が
+コンピュータネットワークやインターネットを専業にするぞというきっかけに（ほんの
+ちょっとでも）なってもらえたら嬉しいです．もしかしたら一緒にお仕事をするかも
+しれない．というか，別に専業にしなくてもいつかどこかで「あ〜 nelio
+ってやつがなんか言ってたなぁ」ぐらいに思ってもらえれば私はお役目を果たせたと思います．
+遅効性だね．&lt;/p&gt;
+&lt;h2 id=&#34;感想&#34;&gt;感想&lt;/h2&gt;
+&lt;p&gt;Twitter でもつぶやきましたが，参加者のみなさんの集中力が本当にすごかった．
+基本コースも発展コースもみんな黙〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜って
+ひたすら黒い画面と向き合ってプロトコルスタックかりかり作ってるんですね．&lt;/p&gt;
+&lt;p&gt;あと，みなさん言語化能力と現状把握能力に長けていて，質問が的確でした．
+とても質問に答えやすかったです．私が知らないことや盲点だったこと
+に気付かされることもしばしばあり，非常に勉強になりました．&lt;/p&gt;
+&lt;p&gt;今回の様子が気になる方は Twitter で
+&lt;a href=&#34;https://twitter.com/hashtag/KLabExpertCamp?src=hashtag_click&amp;amp;f=live&#34;&gt;#KLabExpertCamp&lt;/a&gt;
+&lt;a href=&#34;https://twitter.com/hashtag/%E3%83%97%E3%83%AD%E3%83%88%E3%82%B3%E3%83%AB%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E8%87%AA%E4%BD%9C?src=hashtag_click&#34;&gt;#プロトコルスタック自作&lt;/a&gt;
+のハッシュタグを追っていただけると良いと思います．&lt;/p&gt;
+&lt;p&gt;もし次回があればまた参加したいなと思えるほど素晴らしいイベントでした．&lt;/p&gt;
+&lt;p&gt;山本さんをはじめとする関係者の皆様，ありがとうございました．&lt;/p&gt;
+</description>
+       </item>
+       
+       <item>
+         <title>Graduation from the 8th Cybozu Labs Youth</title>
+         <link>https://negli0.github.io/posts/graduate-8th-cybozu-labs-youth/</link>
+         <pubDate>Thu, 18 Apr 2019 19:26:19 +0900</pubDate>
+         
+         <guid>https://negli0.github.io/posts/graduate-8th-cybozu-labs-youth/</guid>
+         <description>&lt;h2 id=&#34;サイボウズラボユースを卒業した&#34;&gt;サイボウズ・ラボユースを卒業した&lt;/h2&gt;
+&lt;p&gt;少々時間が経過しましたが，3/22 に開催された第8期サイボウズ・ラボユース成果発表会
+をもってラボユースを卒業したことを報告します．成果発表会の様子はこちらから見ることができます．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.cybozu.io/entry/2019/04/02/080000&#34;&gt;「第8期サイボウズ・ラボユース成果発表会」開催 - Cybozu Inside Out | サイボウズエンジニアのブログ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;すでに第9期 の募集も始まっています．通年募集で早いものがちです．
+非常に良い経験をさせてもらったので，当エントリが少しでも周知に貢献できればと思います．&lt;/p&gt;
+&lt;p&gt;募集のページはこちらです．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://labs.cybozu.co.jp/youth/requirements.html&#34;&gt;サイボウズ・ラボユース：募集要項&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;サイボウズラボユースとは&#34;&gt;サイボウズ・ラボユースとは&lt;/h3&gt;
+&lt;p&gt;募集要項のとおり，**個人のソフトウェア研究開発を会社が応援
+(奨励金，社員の密なメンタリング)**してくれる制度で，&lt;strong&gt;中卒以上の未就業者&lt;/strong&gt;を対象
+としています．在宅による遠隔地からの参加も考慮してくれますが，基本はオンサイト勤務です．&lt;/p&gt;
+&lt;p&gt;この制度は以下のような面白い特徴があります．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;企業の業務に直接かかわらなくて OK&lt;/li&gt;
+&lt;li&gt;著作権・特許権などの権利が開発者個人に帰属&lt;/li&gt;
+&lt;li&gt;研究成果を論文として公開して OK&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【必須条件】成果をオープンソースで公開する&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;企業の制度にもかかわらず成果物が業務に関係しないものでもよい，権利が開発者個人に
+帰属する，という点が他にはない魅力だと思います．&lt;/p&gt;
+&lt;h3 id=&#34;応募までの経緯&#34;&gt;応募までの経緯&lt;/h3&gt;
+&lt;p&gt;私が応募に至った経緯はおおむね次のとおりです．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;M2(当時) の途中で自分の実装力への危機感&lt;br&gt;
+私は基本的に研究に必要になったときに実装するタイプで，しかもこれまで PoC 実装
+くらいしかやってこなかった．別に苦手ではないが，「研究 → 実装」のパターンでは
+これまで通りのことしかできないのでは？博士課程ではなにか新しいことを取り入れる
+必要性を感じ始める．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/slankdev&#34;&gt;@slankdev&lt;/a&gt; 氏が Twitter で「ラボユース」とか言ってた気がした &lt;br&gt;
+ラボユースってなんだ？ → 過去の成果発表ページを眺める → 出そ&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;目的意識&#34;&gt;目的意識&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;実装ドリブンな研究: 「実装 → 研究」の練習&lt;/strong&gt;&lt;br&gt;
+作ったものにストーリーを与える（研究として位置づける）練習になると思いました．
+積み重ねれば，実装したことそれ自体が研究として価値を持つということができるように
+なります．私の目標は研究もエンジニアリングも高いレベルで両立する人間です．
+研究だけでもエンジニアリングだけでも目指す像にはたどり着けません．
+大変なんですけどね．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;お金がいただける&lt;/strong&gt;&lt;br&gt;
+お金がいただけるなら大学の研究の時間を少し削ってでもやるだろうという判断です．
+大学では単発で終わらないような大きめの世界観を描いた研究をしています．M2 から研究
+チームの親をやっていることもあり，大学の研究に優先的に割当てないと
+研究が空中分解しかねないためです．あとは今の研究がわりと好きなので．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;カーネルプログラミングしてみたい&lt;/strong&gt;&lt;br&gt;
+研究の性質や背景の都合上，私はこれまでユーザ空間にプロトコルを実装してきました．
+ご存知の通り Linux や FreeBSD などのプロトコルスタックはカーネル空間に実装
+されています．こういうきっかけがなければ博士課程の間にわざわざ時間を確保しない
+だろうなと思いました．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;一流の職業エンジニアの方法論に倣う&lt;/strong&gt;&lt;br&gt;
+大学の研究とは異なり，多くの企業のエンジニアは究極的に Practical であることを
+重要視すると思います．つまり，&lt;strong&gt;目に見える成果物の背後にはそれをその領域へと導いた
+数々の実践的なノウハウ（方法論）がある&lt;/strong&gt;はずだと思いました．問題となるコードの場所
+の当たりをつける，どこがボトルネックになっているのかすばやくざっくり計測する，
+コードを書くときに意識することなど．経験が豊富な企業のエンジニアからの密な指導
+というものは，私のように大学で我流でプログラムを書く人間としては喉から手が出る
+ほど欲しいものです．だって研究するようになるまでほとんど授業でしかコードを書いて
+こなかったんだもの（ついていくので手一杯だった）．&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;そんなこんなで申し込み，面接では自分の研究についていっぱい喋り，採用されました．
+始めは週2で通っていましたが，自分の体調や大学の研究との兼ね合いから週1に収束
+していきました．&lt;/p&gt;
+&lt;h4 id=&#34;exlay-階層独立性の高いプロトコルスタックフレームワーク&#34;&gt;exlay: 階層独立性の高いプロトコルスタックフレームワーク&lt;/h4&gt;
+&lt;p&gt;成果物です．動作原理などの詳細は別記事を後日書くとして，ここでは成果発表のスライドを挙げる
+にとどめます．メンターは光成さん（&lt;a href=&#34;https://twitter.com/herumi&#34;&gt;@herumi&lt;/a&gt;）です．
+&lt;a href=&#34;https://herumi.github.io/ango/&#34;&gt;『クラウドを支えるこれからの暗号技術』&lt;/a&gt; や
+x86 向け JIT アセンブラである &lt;a href=&#34;https://github.com/herumi/xbyak&#34;&gt;Xbyak&lt;/a&gt;で
+ご存知の方も多いかと思います．&lt;/p&gt;
+
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;fad0dd3e2cf84c08bca27e6e222b5237&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;共通のインターフェイスをもったプロトコル群を用意しておき，利用者が好きな順番で
+階層を積み上げるというプロトコルスタックができたら面白いな〜と思い，これを
+テーマにしました．&lt;/p&gt;
+&lt;h4 id=&#34;実際に何を作業したか&#34;&gt;実際に何を作業したか&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;カーネル空間に TCP Echo サーバをカーネルモジュールで作って自作クライアントとやり取りさせる&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ほかの方のメンターをやっている星野さん(&lt;a href=&#34;https://twitter.com/starpoz&#34;&gt;@starpoz&lt;/a&gt;)から workqueue とか completion とかのカーネル機能を紹介してもらい実際に使ってみる&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;__attribute__&lt;/code&gt; や &lt;code&gt;aligned (alignment)&lt;/code&gt; などの gcc の独自拡張を知る&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;strace&lt;/code&gt; や &lt;code&gt;trace-cmd&lt;/code&gt; などのトレーサを使って関数呼び出しを追いかける&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;関数名からソースコードにおける該当箇所を探してふむふむする&lt;/li&gt;
+&lt;li&gt;他にも C/C++ でコーディングするうえでの便利なツールを紹介してもらう&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/f6yT7qVq9R96tF&#34; 
+	width=&#34;595&#34; height=&#34;485&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; 
+	scrolling=&#34;no&#34; 
+	style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; 
+&lt;/iframe&gt; 
+
+
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;NIC デバイスドライバの勉強をした&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Packt から出ている &lt;a href=&#34;https://www.packtpub.com/networking-and-servers/linux-device-drivers-development&#34;&gt;Linux Device Driver Development&lt;/a&gt;
+という本の NIC デバドラの章を訳しながら読む．
+&lt;ul&gt;
+&lt;li&gt;Linux 4.x に対応している貴重な本です．&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NIC デバドラを書く上で Linux カーネルレベルの抽象化をどう扱うか学ぶ&lt;/li&gt;
+&lt;li&gt;特定のハードウェアのデータシートとかは読まないレベルの抽象度の話
+&lt;ul&gt;
+&lt;li&gt;何をしたいときどの関数を呼ぶとか，そういう&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;成果発表に向けてまずはユーザ空間で動くものを作る（とのご指導をいただく）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ロジックができてからカーネルで動かしてみる，でないと大変&lt;/li&gt;
+&lt;li&gt;ということでユーザ空間実装に変更&lt;/li&gt;
+&lt;li&gt;この時点でこの PoC ができれば OK かな，と思うようになる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;プロトコルを共有ライブラリとして扱うように設計した&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.oreilly.co.jp/books/4873112885/&#34;&gt;Binary Hacks ――ハッカー秘伝のテクニック100選&lt;/a&gt;
+を読んで共有ライブラリの作り方や動的なロードの仕方を勉強&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dlopen&lt;/code&gt; とかはじめて使って楽しかった&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;アプリとプロトコルスタックを別プロセスとする設計にした&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;プロトコルスタックがカーネル空間実装の場合と同様のモデルになる&lt;/li&gt;
+&lt;li&gt;アプリが使用する exlay API （send, recv, close など）は RPC で実装した
+&lt;ul&gt;
+&lt;li&gt;glibc で完結できるので SunRPC + XDR を採用，だいぶ詳しくなった&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;UDP/IP/Ethernet のスタックを実装&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ethernet しか間に合わなかった&lt;/li&gt;
+&lt;li&gt;スタックのフレームワーク本体がけっこう大変だったのもある
+&lt;ul&gt;
+&lt;li&gt;とはいえ実装力が足りてないな〜〜〜&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;成果発表&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直前で不具合を発見して修正したが make し忘れてうまく動かなかった（悲しい）&lt;/li&gt;
+&lt;li&gt;懇親会で光成さんに「もちょっと実装頑張りましょうね」と言われる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;今後の展望&#34;&gt;今後の展望&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;ユーザ空間上でのプロトコルの充実&lt;br&gt;
+今の所 UDP/IP/Ethernet しか無い（しかも機能が網羅的ではない）ので簡単な TCP くらい
+は用意したい．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;トンネリングエンドポイントのエクスポート&lt;br&gt;
+例えば VXLAN (L2 over UDP) なんかを exlay で実現しようと思ったら，
+Ethernet, IP, UDP, VXLAN, Ethernet みたいに &lt;strong&gt;アンダーレイからスタックを記述
+しなければならない&lt;/strong&gt; のでもはやトンネリングではない状態です．なので，
+作成したスタックをトンネルエンドポイントとしてエクスポートし，exlay API で
+触れるようにしてトンネリングプロトコルが簡単に実装できるようにする．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;カーネル空間実装&lt;br&gt;
+FreeBSD のカーネルにカーネルモジュールとして実装することを考えています．
+可能なら TCP(UDP)/IP といったルーチンを使いまわして exlay に組み込めたらかっこいい
+なと思います．この場合，各プロトコルはカーネルモジュールとして提供します．&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;感想および反省&#34;&gt;感想および反省&lt;/h4&gt;
+&lt;p&gt;エンジニアリングの現場で活躍している光成さんや星野さんとした実践的なお話は，
+大学にいるだけではなかなかできないことだと思いました．もちろん一般的な企業の
+インターンでもこういうお話はできると思いますが，&lt;strong&gt;自分がやりたいことに対して&lt;/strong&gt;
+時間（とお金）を費やしてもらえる機会は他では得難いものだと思います．&lt;/p&gt;
+&lt;p&gt;ただ，光成さんや星野さんといった人的リソースを活用しきれたかと言われれば，
+まだまだだなと感じます．exlay は学位取得には直接関係しない（と現状は思われる）
+私の趣味研究です．学位取得に関係するテーマでラボユースに申し込むと
+ものすごい加速するんじゃないでしょうか．exlay についても論文は書くつもりでいます．
+どの段階で書くかはわからんが&amp;hellip;&lt;/p&gt;
+&lt;p&gt;あまり時間を割かなかった私でさえ濃い経験ができたので，いわんやをや．
+実装ドリブンな研究として繋がりそうだし．友達もできたし．本当にやってみてよかった！&lt;/p&gt;
+&lt;h3 id=&#34;応募を検討しているひとへ&#34;&gt;応募を検討しているひとへ&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;もっと詳しく知りたいひとへ&lt;br&gt;
+気になることがあれば Twitter の DM でもリプでもお答えします．というか，
+私に限らずほとんどの卒業生は相談に乗ってくれると思います．これをきっかけに
+お友達になりましょう．ぜひ．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;具体的に作りたいものがないひとへ&lt;br&gt;
+ツイートの通り，「XX ができるようになりたい」というふうに伝えるでも私は良いと
+思っています．XX ができるようになっていくうちに XX を使ったなにかが作れそう
+だとひらめくと思います．ぜひ．
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;第9期 サイボウズ・ラボユースの募集がはじまりました．会社からお金をもらって好きにプログラムを書き，成果が自分に帰属するという稀有な制度です．まだ作りたいものが具体的にない人は「現状XXだが〜ができるようになりたい」ということを伝えてみるのもアリだと思います．&lt;a href=&#34;https://t.co/w55Nwf5iDH&#34;&gt;https://t.co/w55Nwf5iDH&lt;/a&gt;&lt;/p&gt;&amp;mdash; nelio (@nelishiba) &lt;a href=&#34;https://twitter.com/nelishiba/status/1117645489023774720?ref_src=twsrc%5Etfw&#34;&gt;April 15, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;実装力が足りてないと思っているひとへ&lt;br&gt;
+落ちたときに考えましょう．それに，ある程度のところまで引き上げてもらったら
+そのあとは自力でなんとかできるようになると思います．そこに到達するまでに
+個人差があるだけです．
+ラボユースで実装力を高めるすばらしいきっかけだとと思って．ぜひ．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;B4 および M1, M2 のひとへ&lt;br&gt;
+卒論や修論のテーマと関係しそうなことを選ぶと研究が加速します．ぜひ．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;D のひとへ&lt;br&gt;
+私以外にそんなことをする人がいるとはなかなか思えませんが，なるべく学位取得に
+関係するテーマを選ぶと良いでしょう．学振に採用されている方は，ラボユースと
+併用できるかはわかりませんが．ぜひ．&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ネット上で影響力が強いひとへ&#34;&gt;ネット上で影響力が強いひとへ&lt;/h3&gt;
+&lt;p&gt;特にこのエントリの共有でなくてもいいのでラボユースという制度を周知していただければ
+幸いです．私にもっと（ネット上の）チカラがあれば&amp;hellip;&lt;/p&gt;
+</description>
+       </item>
+       
+       <item>
+         <title>Power Balance in the WEB</title>
+         <link>https://negli0.github.io/posts/power-balance-in-network/</link>
+         <pubDate>Sun, 24 Feb 2019 18:21:44 +0900</pubDate>
+         
+         <guid>https://negli0.github.io/posts/power-balance-in-network/</guid>
+         <description>&lt;h3 id=&#34;はじめに&#34;&gt;はじめに&lt;/h3&gt;
+&lt;p&gt;ご存知の通り現在の WEB および WEB 周辺技術には HTTPS が多く使用されます．
+某国のでっかいファイヤーウォールの件や
+SNI を利用した某国のトラフィック遮断の件を見たり，
+WEB の動向をのんびり追ったりしていて思うことがちらほらあるわけです．
+私の研究は WEB とはあまり関係ないのですが，実用を考えたときの
+インターネット上のデファクトスタンダードが WEB に存在すると
+感じます．WEB の世界の「あたりまえ」を意識することは大切だと思いながら，
+最近感じたことを書きます．&lt;/p&gt;
+&lt;h3 id=&#34;現在の-web-になるまでの大まかな流れ&#34;&gt;現在の WEB になるまでの大まかな流れ&lt;/h3&gt;
+&lt;p&gt;私の話で登場するのは，ざっくりと&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;サービス事業者&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;コンテンツ事業者とも言えます&lt;/li&gt;
+&lt;li&gt;大きいところだと Google, Akamai, Facebook など
+&lt;ul&gt;
+&lt;li&gt;いわゆるハイパージャイアント&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ネットワーク&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;モバイルキャリア&lt;/li&gt;
+&lt;li&gt;ブロードバンドネットワーク&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;の2者です．今回はこの2者に焦点を当てます．&lt;/p&gt;
+&lt;p&gt;まずは あきみちさん
+（&lt;a href=&#34;https://twitter.com/geekpage&#34;&gt;Twitter: @geekpage&lt;/a&gt;）の 2009 年（！）
+のこの記事を読んでください．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.geekpage.jp/blog/?id=2009/10/20/1&#34;&gt;インターネットの形を変えて行くGoogle,Facebook,Akamai&amp;hellip;: Geekなページ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ここから私の言いたいことを要約すると，
+&lt;strong&gt;ハイパージャイアント（コンテンツ事業者）の台頭で ISP の収入が減ったという変化&lt;/strong&gt;
+です．特に注目したいのは記事内の次の文です．&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;コンテンツを管理するだけではなく、ネットワークも自律的に自分で運用管理することによって、巨大な存在がより巨大になって行く様子を今まさに皆が目にしている感じなのかも知れません。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;商用 ISP のおかげでインターネットが普及&lt;/li&gt;
+&lt;li&gt;インターネットが普及したおかげでコンテンツ事業者が力をつけ始める&lt;/li&gt;
+&lt;li&gt;力をつけたコンテンツ事業者が独自ネットワークを持つ&lt;/li&gt;
+&lt;li&gt;コンテンツ事業者と peer を張ったほうがネットワークオペレーションのコストが下がる&lt;/li&gt;
+&lt;li&gt;トラフィックを集めやすくなったコンテンツ事業者がさらに力をつける&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;実際はもっと複雑なんでしょうが，概ねこんな感じのことが起こっているという
+ことでしょうか．例えば，一昔前は ISP からメールアドレスを貰っていたと
+今は WEB ベースのメール（Gmailなど）が猛威を奮っているわけです．&lt;/p&gt;
+&lt;h3 id=&#34;次の方向性&#34;&gt;次の方向性&lt;/h3&gt;
+&lt;p&gt;先の記事が書かれたのが 2009 年で私がこのエントリを書いているのが
+2019 年です．研究の傍ら観測可能な範囲で，ここ数年でどのような変化が
+起こっているかと言うと，&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;コンテンツ事業者側&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;サービス利用者のために超低遅延を目指す
+&lt;ul&gt;
+&lt;li&gt;CDN 増強，QUIC の導入&lt;/li&gt;
+&lt;li&gt;クラウドのリージョン増加&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;情報セキュリティの観点から TLS ベースの通信を強く推奨
+&lt;ul&gt;
+&lt;li&gt;HTTP → HTTPS → HTTP over QUIC (HTTP/3) の流れ&lt;/li&gt;
+&lt;li&gt;Everything over HTTPS（さらにそういう流れが進む？）
+&lt;ul&gt;
+&lt;li&gt;メール，動画配信などは既に over HTTPS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;ネットワーク側&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SDN/NFV や Service Chaining など，汎用マシン/汎用技術に基づく新しいトラフィックの操作に注力
+&lt;ul&gt;
+&lt;li&gt;OpenFlow&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; → P4&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; (Data Plane Programmability)&lt;/li&gt;
+&lt;li&gt;IPv6 Segment Routing (SRv6)&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;Service Function Chaining (SFC)&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;オペレーションの自動化
+&lt;ul&gt;
+&lt;li&gt;運用コスト削減&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;こんな感じです．他にも進んでいく方向性が現れている部分があると思います．
+私はコンテンツ事業者でもネットワークオペレータでも無いので，
+実際と違うことがあれば（あるとおもう&amp;hellip;）ごめんなさい．
+ここからだけではネットワークオペレータ側がどうやって先の変化の
+盛り返しを図っているのか私にはちょっとわかりません．
+例えば，今後の ISP 業務はどう変わっていくのでしょうか．&lt;/p&gt;
+&lt;h3 id=&#34;パワーバランス&#34;&gt;パワーバランス&lt;/h3&gt;
+&lt;p&gt;ここが本題になります．先の通り，ネットワークオペレータ側は運用コストや
+設備コストを削減するために**「低コストで賢いトラフィック操作」**
+を頑張っている印象です．
+一方でコンテンツ事業者（エンド）側は**「低遅延や高セキュリティ」**
+を頑張っている
+印象です．話題の QUIC（Quick UDP Internet Connection）&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;
+というプロトコルですが，
+登場した背景および取っている手法は次の2点で概ね同意がいただけるかと
+思います．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;低遅延 → over UDP 化&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;ネットワークオペレータ側のミドルボックスの影響を回避&lt;/li&gt;
+&lt;li&gt;TCP ベースにおいて課題だった Head of Line Blocking を回避&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高セキュリティ → TLS 必須&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;QUIC ヘッダの一部を除くほぼ全ての UDP ペイロードを暗号化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;余談ですがover-udp-は要素技術ではなくあくまでも結果として選ばれた手段-だと思いますが-ip-直上で動作するように設計上プロトコル番号を持ってほしかったというのが私の本音ですそのうえで現在のミドルボックス-の都合上現実的な解として-over-udp-採用したと言える-sそうすれば-quic-はトランスポートだって言って全員黙るでしょうにぉs&#34;&gt;余談ですが，over UDP は要素技術ではなく，あくまでも結果として選ばれた手段 だと思いますが， IP 直上で動作するように設計上プロトコル番号を持ってほしかったというのが私の本音です．そのうえで現在のミドルボックス の都合上，現実的な解として over UDP 採用した，と言える． &lt;!-- raw HTML omitted --&gt;そうすれば QUIC はトランスポートだって言って全員黙るでしょうに（ぉ）&lt;!-- raw HTML omitted --&gt;&lt;/h6&gt;
+&lt;p&gt;現在の主な QUIC の用途としては HTTPS の下のトランスポートですが，
+IETF QUIC では用途を HTTPS に限っていないようです．
+つまりポート番号は 443 以外でも設計上 OK みたいです．&lt;/p&gt;
+&lt;p&gt;では，ネットワークオペレータが何に基づいてパケット操作をしているかと
+いえば， それは
+&lt;strong&gt;5 tuple （src IP, dst IP, src Port, dst Port, Protocol No.）&lt;/strong&gt;
+でしょう．&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;ポート&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;サービス&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;22&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;SSH&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;53&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;80&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;HTTP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;443&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;HTTPS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;狭義のポート番号はノード内の通信端点の識別子ですが，
+ポート80 なら HTTP，443 なら HTTPS
+というふうに， いわゆる Well Known ポートはサービスと対応しており，広義
+ではサービスの識別子とも言えます．
+ご存知の通り，ブロードバンドもモバイルも，ポート 80，443 のリクエストが
+大半を占めています．IIJ から出ている Internet Infrastructure
+Review&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt; を読むと面白いと思います．&lt;/p&gt;
+&lt;p&gt;WEB 上サービスが多様化して全部 HTTPS 上に集約されていくのは，時代の流れも
+あって止められないでしょう．が，&lt;strong&gt;周辺技術までも over HTTPS 化するのは
+それでいいんか？と思います．&lt;/strong&gt; アプリケーションペイロードを暗号化する
+のは賛成です．
+例えば DNS over HTTPS&lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt; ですが，機密性を考慮するなら over TLS（over QUIC?）
+で良いと思うのです．
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;ネットワークオペレータが5-tuple を有意に扱える状態でかつ中立を貫くのがバランスの良い世界だと思っていたのだが、世の中そうではないのかもしれん。私はコンテンツ事業者でもネットワークオペレータでもないけども、そのバランスを保つのは大事な気がするのだが。&lt;/p&gt;&amp;mdash; nelio (@nelishiba) &lt;a href=&#34;https://twitter.com/nelishiba/status/1097277192168300544?ref_src=twsrc%5Etfw&#34;&gt;February 17, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+私はコンテンツ事業者でもネットワークオペレータでも
+ないのですが，
+&lt;!-- raw HTML omitted --&gt;Twitter で垂れ流したとおり，
+私はこの辺のバランスがとても大事だと思っていますが，そう思う人は少ないのでしょうか&amp;hellip;？&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;QUIC ではほとんどの制御パケットすら観測不可能である一方，
+Spin Bit について議論されるなど，オペレーションとの落とし所を探るような
+議論も見えます．UDP ポート番号は見えるし．
+ところがなんでもかんでも over HTTPS が進むと 5 tuple
+の意味がなくなるのですが&amp;hellip;
+ポート番号はもはや機能していないというならば，それは果たして良い
+（健全な）状態なの？と思ってしまいます．
+&lt;!-- raw HTML omitted --&gt;実際に NoC 業務 や SoC
+業務をやっている方はどう思っているのだろう．&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;h6 id=&#34;またまた余談ですがそもそも名前解決のトラストモデルが-tls-に基づくなら-dhcp-で降ってくるレゾルバをどうやって信頼するのとなってしまうわけでとするならブラウザにレゾルバのアドレス8888-とかを決め打ちするんですかね&#34;&gt;またまた余談ですが，そもそも名前解決のトラストモデルが TLS に基づくなら DHCP で降ってくるレゾルバをどうやって信頼するのとなってしまうわけで．とするならブラウザにレゾルバのアドレス（8.8.8.8 とか）を決め打ちするんですかね&amp;hellip;&lt;/h6&gt;
+&lt;h3 id=&#34;インターネットの発達と-end-to-end-原理の今後&#34;&gt;インターネットの発達と End-to-End 原理の今後&lt;/h3&gt;
+&lt;p&gt;改めて語るべくもないと思いますが，インターネットが現在ほどの規模に
+発展できたのは IP というプロトコルがステートレスで複雑ではなかった
+（シンプルだった）からというのは大きいポイントだと思われます．
+IP で古くから言われている End-to-End 原理に則り，ネットワーク側は
+いわゆるダム（dumb）ネットワークであり，機能は通信のエンド（両端）
+で実装されるものでした．ところが，身近なところで言えば NAT/NAPT は
+この原理を破るものであり，End-to-End 原理はもはや機能しているのか
+もわかりません．学術な立場でさえも，元々の意味での End-to-End 原理
+に重きを置くものかどうか，私にはよくわかりません．
+もちろんネットワーク中立性という観点からは，通信は End-to−End 原理が
+基本で，その中ではネットワーク側は dumb で解釈されるべきだと思います．&lt;/p&gt;
+&lt;p&gt;つまるところ，私は End-to-End 原理の解釈を今の時代に合うように
+もう一度考え直したいのです．&lt;/p&gt;
+&lt;p&gt;個人的な意見を重ねますが，インターネットの発展の基本である
+シンプルさは大事なのだけれど，シンプルさをなるべく維持しつつも
+ネットワーク側も賢くなって（not-dumb）いくと良いなと思います．
+SFC 然り，SRv6 然り，ネットワーク側が賢くなることは，
+技術の発展でしばしば見られる「抽象度があがる」ことだと思います．
+L2 の上に L3，L4 と抽象度の高い機能が
+積み上がったように．そして SFC も SRv6 も，コスト削減に効くと思いますが，
+新たな価値を創造する方向にも進んだらなお素晴らしいなと思います．
+そういうのがネットワーク側の新しい業務（価値）になっていくんじゃない
+のかなあ．
+そのためにも，というわけではないのですが，End-to-End 原理とは
+なんだったのか，改めてちょっと考えたいのです．&lt;/p&gt;
+&lt;p&gt;ともあれコンテンツ事業者もネットワークも両方ガポガポ儲かってほしい．&lt;/p&gt;
+&lt;h4 id=&#34;その他&#34;&gt;その他&lt;/h4&gt;
+&lt;p&gt;早いとこ MEC（Mobile Edge Computing&lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt;;
+Multi-access Edge Computing&lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;）
+やんないと，この分野もクラウド事業者がリージョン増やしたりして
+ネットワークエッジに計算機いっぱい置いちゃいそう（もう置いてる？）．
+あとそろそろ IoT もトップダウンで技術レベルに落として議論したいですよね．
+雲とセンサとスマホがでかい矢印でつながったポンチ絵描いてるだけだと
+なにも進まないし．インターネット ≠ WEB でしょうし，WEB 以外の
+インターネットの使い方を探したいです
+（探している人おったら友達になりたい）．
+新しいアーキテクチャといえば NDN（Named Data Networking）&lt;sup id=&#34;fnref:10&#34;&gt;&lt;a href=&#34;#fn:10&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;10&lt;/a&gt;&lt;/sup&gt;が
+パッと浮かぶんですが，今どういう状況なんでしょうかね？
+商用稼働までに時間がかかると思いますが，CDN 業務奪っちゃわないかと
+思うんですが（そうではない？）．&lt;/p&gt;
+&lt;h3 id=&#34;さいごに&#34;&gt;さいごに&lt;/h3&gt;
+&lt;p&gt;WEB だけでも社会インフラになってきているわけで，それらを堅牢化していく
+のはそういうものかなと思います（しかたないね）．とはいえネットワーク側と
+エンド側がバランスよく，より賢く（高機能に）なっていく世界ががとても
+すばらしいなとも思っています．&lt;/p&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Nick McKeown, Tom Anderson, Hari Balakrishnan, Guru Parulkar, Larry Peterson, Jennifer Rexford, Scott Shenker, and Jonathan Turner. 2008. OpenFlow: enabling innovation in campus networks. SIGCOMM Comput. Commun. Rev. 38, 2 (March 2008), 69-74. &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Pat Bosshart, Dan Daly, Glen Gibb, Martin Izzard, Nick McKeown, Jennifer Rexford, Cole Schlesinger, Dan Talayco, Amin Vahdat, George Varghese, and David Walker. 2014. P4: programming protocol-independent packet processors. SIGCOMM Comput. Commun. Rev. 44, 3 (July 2014), 87-95. &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://datatracker.ietf.org/doc/draft-filsfils-spring-srv6-network-programming/&#34;&gt;IETF Datatracker | draft-filsfils-spring-srv6-network-programming-07 - SRv6 Network Programming&lt;/a&gt; &lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://datatracker.ietf.org/wg/sfc/about/&#34;&gt;IETF Datatracker | Service Function Chaining (sfc)&lt;/a&gt; &lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://datatracker.ietf.org/wg/quic/documents/&#34;&gt;IETF Datatracker | QUIC (quic)&lt;/a&gt; &lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.iij.ad.jp/dev/report/iir/pdf/iir_vol40_report.pdf&#34;&gt;Internet Infrastructure Review Vol.40 - 定期観測レポート&lt;/a&gt; &lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:7&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://datatracker.ietf.org/doc/rfc8484/&#34;&gt;IETF Datatracker | RFC 8484 - DNS Queries over HTTPS (DoH)&lt;/a&gt; &lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:8&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Yun Chao Hu, Milan Patel, Dario Sabella, Nurit Sprecher, and Valerie Young. Mobile Edge Computing A key technology towards 5G. ETSI White Paper 11, September 2015. Also available at &lt;a href=&#34;http://www.etsi.org/images/files/ETSIWhitePapers/etsi_wp11_mec_a_key_technology_towards_5g.pdf&#34;&gt;here&lt;/a&gt; &lt;a href=&#34;#fnref:8&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:9&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Alex Reznik, Rohit Arora, Mark Cannon, Luca Cominardi, Walter Featherstone, Rui Frazao, Fabio Giust, Sami Kekki, Alice Li, Dario Sabella, Charles Turyagyenda, and Zhou Zheng. Develop- ing Software for Multi-Access Edge Computing. ETSI White Paper 20, September 2017. Also available at &lt;a href=&#34;https://www.etsi.org/images/files/ETSIWhitePapers/etsi_wp20_MEC_SoftwareDevelopment_FINAL.pdf&#34;&gt;here&lt;/a&gt; &lt;a href=&#34;#fnref:9&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:10&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://named-data.net&#34;&gt;Named Data Networking (NDN) - A Future Internet Architecture&lt;/a&gt; &lt;a href=&#34;#fnref:10&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+       </item>
+       
+     </channel>
+   </rss>

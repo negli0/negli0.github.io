@@ -1,38 +1,603 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>engineering on Around The Computer</title>
-    <link>https://negli0.github.io/categories/engineering/</link>
-    <description>Recent content in engineering on Around The Computer</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright &amp;copy; 2018 - negli0</copyright>
-    <lastBuildDate>Mon, 28 Oct 2019 09:23:48 +0900</lastBuildDate><atom:link href="https://negli0.github.io/categories/engineering/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>日本 P4 ユーザ会 2019 参加記（まとめや感想など）</title>
-      <link>https://negli0.github.io/posts/p4-user-jp/</link>
-      <pubDate>Mon, 28 Oct 2019 09:23:48 +0900</pubDate>
-      
-      <guid>https://negli0.github.io/posts/p4-user-jp/</guid>
-      <description>日本 P4 ユーザ会とは ホームページによれば，以下のとおりです． 日</description>
-    </item>
-    
-    <item>
-      <title>KLab Expert Camp にチューターとして参加した</title>
-      <link>https://negli0.github.io/posts/klab-expert-camp/</link>
-      <pubDate>Mon, 02 Sep 2019 14:30:09 +0900</pubDate>
-      
-      <guid>https://negli0.github.io/posts/klab-expert-camp/</guid>
-      <description>概要 2019 年 8/26 ~ 8/29 に開催された 第1回 KLab Expert Camp にチューターとして参加</description>
-    </item>
-    
-    <item>
-      <title>Graduation from the 8th Cybozu Labs Youth</title>
-      <link>https://negli0.github.io/posts/graduate-8th-cybozu-labs-youth/</link>
-      <pubDate>Thu, 18 Apr 2019 19:26:19 +0900</pubDate>
-      
-      <guid>https://negli0.github.io/posts/graduate-8th-cybozu-labs-youth/</guid>
-      <description>サイボウズ・ラボユースを卒業した 少々時間が経過しましたが，3</description>
-    </item>
-    
-  </channel>
-</rss>
+
+   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+     <channel>
+       <title>engineering on Around The Computer</title>
+       <link>https://negli0.github.io/categories/engineering/</link>
+       <description>Recent content in engineering on Around The Computer</description>
+       <generator>Hugo -- gohugo.io</generator>
+       <copyright>Copyright &amp;copy; 2018 - negli0</copyright>
+       <lastBuildDate>Mon, 28 Oct 2019 09:23:48 +0900</lastBuildDate>
+       
+           <atom:link href="https://negli0.github.io/categories/engineering/index.xml" rel="self" type="application/rss+xml" />
+       
+       
+       <item>
+         <title>日本 P4 ユーザ会 2019 参加記（まとめや感想など）</title>
+         <link>https://negli0.github.io/posts/p4-user-jp/</link>
+         <pubDate>Mon, 28 Oct 2019 09:23:48 +0900</pubDate>
+         
+         <guid>https://negli0.github.io/posts/p4-user-jp/</guid>
+         <description>&lt;h2 id=&#34;日本-p4-ユーザ会とは&#34;&gt;日本 P4 ユーザ会とは&lt;/h2&gt;
+&lt;p&gt;ホームページによれば，以下のとおりです．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://p4users.org&#34;&gt;日本 P4 ユーザ会&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://p4.org&#34;&gt;P4 Lang&lt;/a&gt; について日本語で語るグループ．
+P4 関連のセミナー情報やカンファレンス情報及び技術情報を共有する．&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;インタラクティブな議論は Slack 上でされています．&lt;/p&gt;
+&lt;p&gt;10/11(Fri) に「&lt;a href=&#34;https://p4users.org/2019/07/16/event2019/&#34;&gt;日本 P4 ユーザ会 2019&lt;/a&gt;」
+が開催され，私にしては珍しく聴講のみのイベント参加をしてまいりました．
+一緒に行った友人との議論もあって知見が溜まった気がするので吐き出します．&lt;/p&gt;
+&lt;h5 id=&#34;本エントリでは-p4-についての詳細は省きます&#34;&gt;※本エントリでは P4 についての詳細は省きます&lt;/h5&gt;
+&lt;h3 id=&#34;p4-と私&#34;&gt;P4 と私&lt;/h3&gt;
+&lt;p&gt;存在自体は論文&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; を読んで知ってから久しいものですが，具体的に動かしたことはないです．
+Software Defined Network（SDN）の文脈で言われる，いわゆる &amp;ldquo;Data-Plane(D-Plane) Programmability&amp;rdquo;
+を実現するための Domain Specific Language（DSL）です．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.sigcomm.org/sites/default/files/ccr/papers/2014/July/0000000-0000004.pdf&#34;&gt;論文PDF&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;D-Plane Programmability といえば，私は 2017 年に某所で
+OpenFlow&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;（Controller は Ryu）， Docker， Open vSwitch を組み合わせて軽量な
+NFV box を作ってデプロイして面倒を見るという作業に参加していました．手前味噌
+ですが，運用成果をまとめた論文&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; を研究会に出してます．&lt;/p&gt;
+&lt;p&gt;OpenFlow&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; ではヘッダフィールドを規定してパケットプロセッシングする一方，
+P4 はビットストリームとしてパケットプロセッシングするのだな，ぐらいのイメージを
+持っていました．加えて P4 は技術的な特徴からエコシステムまで含めて，OpenFlow
+でうまく行かなかった部分を克服しようとしているように思っておりました．&lt;/p&gt;
+&lt;p&gt;ここから当日得た内容を私なりにまとめてみます．資料は HP 上で公開されています．
+P4 の基本的な仕組みについて触れた資料もあるため全部読めば知識は手に入ります．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://p4users.org/2019/07/16/event2019/&#34;&gt;【資料公開】日本 P4 ユーザ会 2019 開催のお知らせ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;-なお発表内容すべてには触れませんが特に意図はありません&#34;&gt;※ なお発表内容すべてには触れませんが特に意図はありません&lt;/h5&gt;
+&lt;hr&gt;
+&lt;p&gt;感想は以下のようにまとめられます．&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Stratum で P4 プログラムを扱いやすく&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;fully-programmable&amp;rsquo; のつらさと品質保証&lt;/li&gt;
+&lt;li&gt;INT 大流行&lt;/li&gt;
+&lt;li&gt;研究の観点&lt;/li&gt;
+&lt;li&gt;P4 に限らずエコシステムを回すことが大切&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;順番に書いていきます．&lt;/p&gt;
+&lt;h3 id=&#34;stratum-で-p4-プログラムを扱いやすく&#34;&gt;Stratum で P4 プログラムを扱いやすく&lt;/h3&gt;
+&lt;p&gt;実際に P4 を使ったある開発経験者から聞くところによると，Barefoot の SDK を
+直接使うのはけっこう辛いのだそう．加えて私のように手元でちょっとした実験をしたい
+人からするとわざわざ P4 対応の ASIC を購入するのはハードルが高いです．&lt;/p&gt;
+&lt;p&gt;Stratum は ONF や Google からオープンソースとして9月に公開された，いわゆる NOS です．
+P4 対応 ASIC だけでなく，FPGA や NPU，CPU も P4 の実行プラットフォーム
+として扱うことができます．P4 ネイティブ非対応のプラットフォームにも P4 プログラム
+をデプロイして使えるのは非常にありがたいです．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/stratum/stratum&#34;&gt;Stratum - Enabling the era of next-generation SDN&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;各プラットフォームごとの主なターゲットは以下のとおりです．&lt;/p&gt;
+&lt;h4 id=&#34;-ebiken-さんのスライド参照-pdfhttpsp4usersfileswordpresscom201910p4ug-japan-toyota-ebisawa-20191011pdf&#34;&gt;※ ebiken さんのスライド参照: &lt;a href=&#34;https://p4users.files.wordpress.com/2019/10/p4ug-japan-toyota-ebisawa-20191011.pdf&#34;&gt;PDF&lt;/a&gt;&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;プラットフォーム&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;ターゲット&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;処理性能&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;コンパイラ&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ASIC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Barefoot&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;xx Tbps&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;P4 Studio&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;FPGA&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Xilinx, Intel&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;xxx Gbps&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;P4-SDNet, Netcope NP4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;NPU&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Netronome&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;xx Gbps&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Agilio P4C SDK&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CPU&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;BMv2, eBPF&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;x Gbps&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;p4lang/p4c&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;P4 を手元でサクッと試すなら Stratum + BMv2 が良さそうです．
+&amp;ldquo;PoC 程度なら&amp;rdquo; 同じ P4 ファイルをマルチプラットフォームで使い回せます．
+それがP4の意義のひとつですからね．&lt;/p&gt;
+&lt;p&gt;ASIC は高スループットですが P4 で表現可能なことの他にできることが限られます．
+例えば最新の P4_16 の仕様では P4 には除算命令が無いらしいです．
+FPGA では，P4 で表現できないロジックは HDL でどうとでもなりますが，ロジックを変更
+するたびに合成が必要なので規模に寄ってはアジリティは低いのかもしれません．
+NPU ですが，私は使ったことがありません．おそらくだいぶソフトウェア寄りな表現が
+可能になると思います．価格もそこまで高くないそう(7万円とか)です．&lt;/p&gt;
+&lt;p&gt;Stratum とは別に，
+最近だと P4 で D-Plane ロジックを書いてコンパイルすると，それ専用の CLI も一緒に
+生成されるらしい(要出典)ので，C-Plane が CLI
+で良ければコントローラの開発コストも下がりそうですね．P4 の API を提供する
+P4Runtime は gRPC を採用しています．gRPC のインターフェイスに即していれば自由に
+C-Plane アプリ（コントローラ）を作れますし，NETCONF/YANG （xmlRPC）
+のポートも生やせそうですね．&lt;/p&gt;
+&lt;h4 id=&#34;10-29-追記&#34;&gt;10 /29 追記&lt;/h4&gt;
+&lt;p&gt;ebiken さんにご指摘いただきましたが，上記では「Stratum がなければマルチプラットフォームで
+P4 をデプロイできない」のような文脈に取れてしまいます．ご指摘の通りこれは&lt;strong&gt;私の勘違い&lt;/strong&gt;でした
+（すみません）．
+また，Stratum の大きな特徴はは &amp;ldquo;統一的に&amp;rdquo; プラットフォームを扱える点と，P4 言語
+で規定される部分 &amp;ldquo;以外の&amp;rdquo; 共通インターフェイスも提供される点です．
+例えば LINK UP/DOWN は P4 の範囲外ですが Stratum では gNMI/gNOI として提供されます．
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;はい。それに加えP4言語で規定される部分 &amp;quot;以外&amp;quot; の共通インターフェースが提供されるのが大きな特徴です。たとえばLINK Up/DownなどはP4言語の範疇外です。NTT武井さんの資料 Slide 10 の P4Runtime がP4言語で提供されるインターフェースで、gNMI/gNOIはStratum提供です。&lt;a href=&#34;https://t.co/kxDYs3t8b2&#34;&gt;https://t.co/kxDYs3t8b2&lt;/a&gt; &lt;a href=&#34;https://t.co/hdKx4ZZGzC&#34;&gt;pic.twitter.com/hdKx4ZZGzC&lt;/a&gt;&lt;/p&gt;&amp;mdash; Kentaro Ebisawa (@ebiken) &lt;a href=&#34;https://twitter.com/ebiken/status/1188809420156702721?ref_src=twsrc%5Etfw&#34;&gt;October 28, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;fully-programmable-のつらさと品質保証&#34;&gt;‘fully-programmable’ のつらさと品質保証&lt;/h3&gt;
+&lt;p&gt;P4 を使えば完全に D-Plane をフルスクラッチ可能です．つまり，IP routing や
+ACL や forwarding といったよく使う機能も自分で作る必要があります．もちろん
+サンプル P4 ファイルがいくつか提供されることもありますが．
+あと，P4 がキャリアなどで商用利用されることを想定すると品質保証が大切だと考えられます．&lt;/p&gt;
+&lt;p&gt;例えば最近では OSS のソフトウェアルータによる DC Networking が注目されていますが，
+オープンであるがゆえに開発と品質保証を両立するのは大変です．だからこそ
+Cisco や Juniper といったプラットフォームベンダは頑張っているわけですよね．
+プラットフォームベンダの方々は一番要件が厳しいところ（おそらくキャリア）向け
+を想定して開発をしているため，こうした方々の品質とユーザによる &amp;lsquo;fully-programmable&amp;rsquo; な
+P4 部分をどう両立するかが大事なわけです．&lt;/p&gt;
+&lt;p&gt;佐藤さん(Cisco)の資料の pp.18-21 に重要な図が載っています．&lt;/p&gt;
+&lt;h5 id=&#34;-佐藤さんのスライド参照-pdfhttpsp4usersfileswordpresscom201910ciscopdf&#34;&gt;※ 佐藤さんのスライド参照: &lt;a href=&#34;https://p4users.files.wordpress.com/2019/10/cisco.pdf&#34;&gt;PDF&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;かいつまんで説明すると，品質保証がされた基本的な P4 ロジックをプラットフォームベンダ
+（Cisco）が提供し，ユーザは独自で P4 ロジックを用意します．
+加えて，プラットフォームベンダが開発環境として Constraint Checker も提供し，両者に機能重複が
+無いかどうかチェックします．&lt;/p&gt;
+&lt;p&gt;これなら IOS のように品質保証された基本的なロジックと P4 のプログラマビリティ
+の両立が目指せます．この Checker が何をどこまでやってくれるかに期待がかかります．&lt;/p&gt;
+&lt;p&gt;Cisco がチップを Barefoot のようなチップベンダから購入する
+（＝自社製品向けにチップを内製しない）のも然り，ユーザ拡張のための
+Checker も提供してくれるというのも然り，本気で P4 を商用利用しに行こうという
+気合を感じます．Net One Systems（インテグレータ）からも会場で
+ブースが出されていたことも同様のことを感じさせます．&lt;/p&gt;
+&lt;h3 id=&#34;int-大流行&#34;&gt;INT 大流行&lt;/h3&gt;
+&lt;p&gt;P4 ロジックだからこそのユースケースですが，In‐band Network Telemetry (INT)
+を挙げる方がほとんどでした．その目的で面白かったのが，キャリアにおける SLA の
+可視化です．例えば，5G ネットワークを提供するテレコムキャリアが，5G で謳われる
+超低遅延，広帯域，同時多数接続といったサービスが本当に実現できているのか確認する
+のに期待されています．&lt;/p&gt;
+&lt;h5 id=&#34;武井さんntt研究所のスライド参照-pdfhttpsp4usersfileswordpresscom201910p4e383a6e383bce382b6e4bc9ae799bae8a1a8e8b387e69699ntte6ada6e4ba95pdf&#34;&gt;武井さん(NTT研究所)のスライド参照: &lt;a href=&#34;https://p4users.files.wordpress.com/2019/10/p4e383a6e383bce382b6e4bc9ae799bae8a1a8e8b387e69699ntte6ada6e4ba95.pdf&#34;&gt;PDF&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;INT では，INT のドメインに入るときにネットワーク機器が
+メタデータ（タイムスタンプとか）をパケットに追加し，
+ドメインから出るときに機器がメタデータを取り外してテレメトリサーバに計算結果
+（パケットがドメイン内にいた時間とか）を送信します．これにより，パケット単位の
+SLA 可視化が理論上は可能です．&lt;/p&gt;
+&lt;p&gt;課題は時刻同期にあります．IEEE 1588 で定義される PTP はサブマイクロ秒のオーダー
+で時刻同期ができますが，キャリアが持つような広域ネットワークへの適用は現状困難です．
+この規模だと NTP が候補になりますが，時刻同期がミリ秒オーダーにまで荒くなります．
+SLA と一口に言っても色々あるので，NTP でも保証ができるレベルであれば十分に実用が
+期待できる手法だと思います．&lt;/p&gt;
+&lt;p&gt;INT 以外のユースケースは後述の IRTF COIN RG でも議論がされています．&lt;/p&gt;
+&lt;h3 id=&#34;研究の観点&#34;&gt;研究の観点&lt;/h3&gt;
+&lt;p&gt;研究と言っても P4 の応用研究です．P4 自体の研究は私はちっとも詳しくありません．&lt;/p&gt;
+&lt;p&gt;IETF がインターネット周辺の技術の標準化を担う団体である一方，IRTF もう少し研究
+寄りの団体です．IRTF には Computing in the Network (COIN) という Research
+Group (RG）があります．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://trac.ietf.org/trac/irtf/wiki/coin&#34;&gt;Proposed IRTF Research Group: Computing in the Network (COIN)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;今回の発表では特に触れられていませんが，COIN においても P4 の活用が議論の対象
+になっています．
+焦点がよく当たるのは，一般的なアプリケーション処理をネットワーク内
+にどのように透過的に落とし込むかという点です．
+よく混同されますが，”In-Network Computing” と ”Network Computing” は別の概念です．
+というか私も人に言われるまで特に気にしていませんでした．&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;Cambridge の Noa 先生による In-Network Computing の定義．SmartNIC, programable ASIC とかですかね．ネットワーク内にホストを置く Network Computing とは異なると明記されています．&lt;a href=&#34;https://t.co/fyenZmHw3v&#34;&gt;https://t.co/fyenZmHw3v&lt;/a&gt;&lt;/p&gt;&amp;mdash; nelio (@nelishiba) &lt;a href=&#34;https://twitter.com/nelishiba/status/1173781090193920000?ref_src=twsrc%5Etfw&#34;&gt;September 17, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;In-Network Computing はデータをよりビットストリームとして扱っている一方で，
+Network Computing はデータをミドルウェアやプロトコルをベースに扱っていると考えて
+良いでしょう．&lt;/p&gt;
+&lt;p&gt;私が取り組んでる研究のひとつに，一般的なアプリケーション処理を地理的に
+分散した計算機にオフロードするというものがあります．当研究では
+5Gネットワークを想定して Network Computing 寄りの考え方を採用しています．
+国内研究会には論文&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt; を出している（手前味噌v2）ので良かったら読んでみてください．
+国際会議は目下取り組み中です（はよ出せ）．&lt;/p&gt;
+&lt;p&gt;仮に In-Network Computing な手法をアプリケーション処理に適用する場合は NPU ぐらいの
+柔軟性を設けたほうが良いでしょうね．使い方も D-Plane Programmability というよりは
+ヘテロジーニアスコンピューティングやオフローディングという文脈でしょうか．
+現状 P4 をアプリケーション処理一般に適用する試みはあまり見ないですね．&lt;/p&gt;
+&lt;p&gt;あと何でもかんでも Hardware Offloading するのも良くないですよね，ソフトウェアと
+違って刺さっていればデータが来なくても多少なりとも電力消費するので，ピークが
+立つときには有効な手段ですがアベレージが低いと HW でやる意味が薄いですよね．
+特にデータセンタは低消費電力に努めたいわけですし．&lt;/p&gt;
+&lt;h3 id=&#34;p4-に限らずエコシステムを回すことが大切&#34;&gt;P4 に限らずエコシステムを回すことが大切&lt;/h3&gt;
+&lt;p&gt;今回のイベントで，関わる人がみなで盛り上げるということの大切さを感じました．
+そもそもインターネットの世界はマルチステークホルダーで，それぞれの立場のひとが
+同じ方向を向けるというのは結構難しいのです．ネットワーク工学の研究をしていると
+特に感じます．パワーゲームに勝てば良いのかも
+しれませんが，私が目指すのは P4 のように多くの人が嬉しい技術です．&lt;/p&gt;
+&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+&lt;p&gt;とても濃厚な時間でした．台風接近中だと言うのに 150人近い参加者だったそうで，
+そこからも P4 の注目度が伺えます．
+あと一緒に参加した友人x2 が P4 に詳しすぎたのでお昼ご飯食べてるときも私の稚拙な
+解釈を聞いてくれました．おかげで何となく P4 を取り巻く世界（主に産業寄り）が
+見えました．私のようにネットワーク工学を専攻する学生は産業界の話に積極的に
+参加したほうが良いと思いました．Slack にも参加したのできちんと議論に参加して
+いきたい．&lt;/p&gt;
+&lt;p&gt;Stratum+BMv2 くらいさっさと動かしたいので APRESIA の桑田さんの資料を参考に
+がんばります．あと研究室に Netronome NPU があるのでそれも Stratum から
+触れるようにしたいですね．（研究とは直接関係ないのだけどね）&lt;/p&gt;
+&lt;h5 id=&#34;桑田さんの資料参照-pdfhttpsp4usersfileswordpresscom201910e697a5e69cacp4e383a6e383bce382b6e4bc9a2019_apresia_v04pdf&#34;&gt;桑田さんの資料参照: &lt;a href=&#34;https://p4users.files.wordpress.com/2019/10/e697a5e69cacp4e383a6e383bce382b6e4bc9a2019_apresia_v.0.4.pdf&#34;&gt;PDF&lt;/a&gt;&lt;/h5&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Pat Bosshart, Dan Daly, Glen Gibb, Martin Izzard, Nick McKeown, Jennifer Rexford, Cole Schlesinger, Dan Talayco, Amin Vahdat, George Varghese, and David Walker. 2014. P4: programming protocol-independent packet processors. SIGCOMM Comput. Commun. Rev. 44, 3 (July 2014), 87-95. DOI: &lt;a href=&#34;https://doi.org/10.1145/2656877.2656890&#34;&gt;https://doi.org/10.1145/2656877.2656890&lt;/a&gt; &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Nick McKeown, Tom Anderson, Hari Balakrishnan, Guru Parulkar, Larry Peterson, Jennifer Rexford, Scott Shenker, and Jonathan Turner. 2008. OpenFlow: enabling innovation in campus networks. SIGCOMM Comput. Commun. Rev. 38, 2 (March 2008), 69-74. DOI=http://dx.doi.org/10.1145/1355734.1355746 &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;早川 侑太朗, 渡邊 大記, 岡田 和也, &amp;ldquo;clnfv：コンテナを用いた軽量なNFVアーキテクチャ,&amp;rdquo; 信学技報, vol. 117, no. 303, NS2017-111, pp. 1-6, 2017年11月. &lt;a href=&#34;https://www.ieice.org/ken/paper/20171116tbzw/&#34;&gt;研究会ページ&lt;/a&gt; &lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;佐藤 友範, 渡邊 大記, 林 和輝, 近藤 賢郎, 寺岡 文男, “5Gコアネットワーク向けアプリケーション処理連接基盤”, 研究報告マルチメディア通信と分散処理 (DPS), Vol. 2019-DPS-180, no. 18, pp. 1 - 8, 2019 年 9 月. &lt;a href=&#34;https://ipsj.ixsq.nii.ac.jp/ej/?action=pages_view_main&amp;amp;active_action=repository_view_main_item_detail&amp;amp;item_id=199311&amp;amp;item_no=1&amp;amp;page_id=13&amp;amp;block_id=8&#34;&gt;論文リンク&lt;/a&gt; &lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+       </item>
+       
+       <item>
+         <title>KLab Expert Camp にチューターとして参加した</title>
+         <link>https://negli0.github.io/posts/klab-expert-camp/</link>
+         <pubDate>Mon, 02 Sep 2019 14:30:09 +0900</pubDate>
+         
+         <guid>https://negli0.github.io/posts/klab-expert-camp/</guid>
+         <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;2019 年 8/26 ~ 8/29 に開催された 第1回 KLab Expert Camp にチューターとして参加
+させていただきました．テーマは「TCP/IPプロトコルスタック自作開発」です．
+KLab Expert Camp についてはこちらを御覧ください．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://pr.blog.klab.jp/archives/51712424.html&#34;&gt;技術系インターン特別版「KLab Expert Camp」を初開催！: KLab広報ブログ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;参加までの経緯&#34;&gt;参加までの経緯&lt;/h2&gt;
+&lt;p&gt;6月上旬に主催者である山本さんに Twitter で「めっちゃいいですね」とお伝えしたら
+「チューターお待ちしています」とのお返事をいただきました．(ほぼこれだけで決まっちゃった)&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;チューターお待ちしています🤗&lt;/p&gt;&amp;mdash; YAMAMOTO Masaya (@pandax381) &lt;a href=&#34;https://twitter.com/pandax381/status/1137027047589421058?ref_src=twsrc%5Etfw&#34;&gt;June 7, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;この KLab Expert Camp の告知は山本さんのツイートだけだし，
+それにテーマもニッチだし，まあ 4,5 人くらいは集まるでしょと思っていました．&lt;/p&gt;
+&lt;p&gt;後日打ち合わせで 15 人程度いると伝えられてマジかとなりました．（どこに生息してるんだ）&lt;/p&gt;
+&lt;h2 id=&#34;expert-camp-の内容&#34;&gt;Expert Camp の内容&lt;/h2&gt;
+&lt;p&gt;「TCP/IP プロトコルスタック自作開発」という大きなテーマがあり，申込時の希望に
+合わせて以下のコースに分かれて 4 日間ひたすら開発を進めます．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;(1) 基本コース：受講者全員が，用意された教材に沿って学習を進めていく&lt;/li&gt;
+&lt;li&gt;(2) 発展コース：個人毎に，発展的な課題にチャレンジする&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;基本コース&#34;&gt;基本コース&lt;/h3&gt;
+&lt;p&gt;基本コースでは，山本さんの開発している microps (マイクロピーエス) を題材にし，
+山本さんがプロトコルスタックとはなんぞやという話から，各 OS の実装，
+microps ではどう実装しているのか，という話を講義形式で進めます．ある程度
+まで講義が進んだら手を動かして自分で実装したり動作検証したりします．&lt;/p&gt;
+&lt;p&gt;microps はこちら．非常にきれいな実装です．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/pandax381/microps&#34;&gt;microps&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;発展コース&#34;&gt;発展コース&lt;/h3&gt;
+&lt;p&gt;発展コースでは，参加者の作りたいものを作ります．
+今回は 4 名からの希望で，各自以下の内容に取り組んでいらっしゃいました．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;L3 まで microps の写経をしながら改善 + L4 を再実装する&lt;/li&gt;
+&lt;li&gt;Rust で TCP のメカニズムと Socket-like な API を実装する&lt;/li&gt;
+&lt;li&gt;microps 上にルーティングプロトコルを乗せる&lt;/li&gt;
+&lt;li&gt;Rust で L2 ~ L4 をフルスクラッチする&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;みなさん偶然異なるテーマになって面白い．ちなみに私は主に発展コースの
+参加者からの質問に答えたり，質問に答えるための調べ物（あとハッシュタグつきで
+Tweet！）
+をしていました．&lt;/p&gt;
+&lt;h2 id=&#34;お役目-本題&#34;&gt;お役目 (本題)&lt;/h2&gt;
+&lt;p&gt;基本的に私のお役目は発展コースの方の質問に答えることなのですが，私は研究者
+の立場から参加者の方々になにか伝えられたらいいなと思っておりました．
+4日間みなさんが作っていくものがどういう研究につながっているのかとか，今の
+インターネットを取り巻く情勢（クラウド事業者や ISP）の話とか，なぜ IoT が進んで
+行かないのかとか，5G って何が変わるの？とか，クラウドに対するエッジとは？とか．&lt;/p&gt;
+&lt;p&gt;プロトコルスタックは1台のマシン上における比較的ミクロな世界なわけですが，
+それが大規模につながるとこんな世界が広がっているんだよ〜ということを伝えようと
+懇親会でたくさん喋っていました．参加者用 Slack の雑談チャネルにおもしろ論文を
+ブンブン投げたりもしました．将来有望な学生たちに種を蒔きまくっていました．
+全然時間足りなかったけど．&lt;/p&gt;
+&lt;p&gt;私がいる意味ってこういう話を楽しくして，研究おもすれ〜とか，インターネットの世界
+すげ〜とか思ってもらうことだと思ってたんですよね．なのでもし今回私の話が
+コンピュータネットワークやインターネットを専業にするぞというきっかけに（ほんの
+ちょっとでも）なってもらえたら嬉しいです．もしかしたら一緒にお仕事をするかも
+しれない．というか，別に専業にしなくてもいつかどこかで「あ〜 nelio
+ってやつがなんか言ってたなぁ」ぐらいに思ってもらえれば私はお役目を果たせたと思います．
+遅効性だね．&lt;/p&gt;
+&lt;h2 id=&#34;感想&#34;&gt;感想&lt;/h2&gt;
+&lt;p&gt;Twitter でもつぶやきましたが，参加者のみなさんの集中力が本当にすごかった．
+基本コースも発展コースもみんな黙〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜って
+ひたすら黒い画面と向き合ってプロトコルスタックかりかり作ってるんですね．&lt;/p&gt;
+&lt;p&gt;あと，みなさん言語化能力と現状把握能力に長けていて，質問が的確でした．
+とても質問に答えやすかったです．私が知らないことや盲点だったこと
+に気付かされることもしばしばあり，非常に勉強になりました．&lt;/p&gt;
+&lt;p&gt;今回の様子が気になる方は Twitter で
+&lt;a href=&#34;https://twitter.com/hashtag/KLabExpertCamp?src=hashtag_click&amp;amp;f=live&#34;&gt;#KLabExpertCamp&lt;/a&gt;
+&lt;a href=&#34;https://twitter.com/hashtag/%E3%83%97%E3%83%AD%E3%83%88%E3%82%B3%E3%83%AB%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E8%87%AA%E4%BD%9C?src=hashtag_click&#34;&gt;#プロトコルスタック自作&lt;/a&gt;
+のハッシュタグを追っていただけると良いと思います．&lt;/p&gt;
+&lt;p&gt;もし次回があればまた参加したいなと思えるほど素晴らしいイベントでした．&lt;/p&gt;
+&lt;p&gt;山本さんをはじめとする関係者の皆様，ありがとうございました．&lt;/p&gt;
+</description>
+       </item>
+       
+       <item>
+         <title>Graduation from the 8th Cybozu Labs Youth</title>
+         <link>https://negli0.github.io/posts/graduate-8th-cybozu-labs-youth/</link>
+         <pubDate>Thu, 18 Apr 2019 19:26:19 +0900</pubDate>
+         
+         <guid>https://negli0.github.io/posts/graduate-8th-cybozu-labs-youth/</guid>
+         <description>&lt;h2 id=&#34;サイボウズラボユースを卒業した&#34;&gt;サイボウズ・ラボユースを卒業した&lt;/h2&gt;
+&lt;p&gt;少々時間が経過しましたが，3/22 に開催された第8期サイボウズ・ラボユース成果発表会
+をもってラボユースを卒業したことを報告します．成果発表会の様子はこちらから見ることができます．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.cybozu.io/entry/2019/04/02/080000&#34;&gt;「第8期サイボウズ・ラボユース成果発表会」開催 - Cybozu Inside Out | サイボウズエンジニアのブログ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;すでに第9期 の募集も始まっています．通年募集で早いものがちです．
+非常に良い経験をさせてもらったので，当エントリが少しでも周知に貢献できればと思います．&lt;/p&gt;
+&lt;p&gt;募集のページはこちらです．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://labs.cybozu.co.jp/youth/requirements.html&#34;&gt;サイボウズ・ラボユース：募集要項&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;サイボウズラボユースとは&#34;&gt;サイボウズ・ラボユースとは&lt;/h3&gt;
+&lt;p&gt;募集要項のとおり，**個人のソフトウェア研究開発を会社が応援
+(奨励金，社員の密なメンタリング)**してくれる制度で，&lt;strong&gt;中卒以上の未就業者&lt;/strong&gt;を対象
+としています．在宅による遠隔地からの参加も考慮してくれますが，基本はオンサイト勤務です．&lt;/p&gt;
+&lt;p&gt;この制度は以下のような面白い特徴があります．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;企業の業務に直接かかわらなくて OK&lt;/li&gt;
+&lt;li&gt;著作権・特許権などの権利が開発者個人に帰属&lt;/li&gt;
+&lt;li&gt;研究成果を論文として公開して OK&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【必須条件】成果をオープンソースで公開する&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;企業の制度にもかかわらず成果物が業務に関係しないものでもよい，権利が開発者個人に
+帰属する，という点が他にはない魅力だと思います．&lt;/p&gt;
+&lt;h3 id=&#34;応募までの経緯&#34;&gt;応募までの経緯&lt;/h3&gt;
+&lt;p&gt;私が応募に至った経緯はおおむね次のとおりです．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;M2(当時) の途中で自分の実装力への危機感&lt;br&gt;
+私は基本的に研究に必要になったときに実装するタイプで，しかもこれまで PoC 実装
+くらいしかやってこなかった．別に苦手ではないが，「研究 → 実装」のパターンでは
+これまで通りのことしかできないのでは？博士課程ではなにか新しいことを取り入れる
+必要性を感じ始める．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/slankdev&#34;&gt;@slankdev&lt;/a&gt; 氏が Twitter で「ラボユース」とか言ってた気がした &lt;br&gt;
+ラボユースってなんだ？ → 過去の成果発表ページを眺める → 出そ&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;目的意識&#34;&gt;目的意識&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;実装ドリブンな研究: 「実装 → 研究」の練習&lt;/strong&gt;&lt;br&gt;
+作ったものにストーリーを与える（研究として位置づける）練習になると思いました．
+積み重ねれば，実装したことそれ自体が研究として価値を持つということができるように
+なります．私の目標は研究もエンジニアリングも高いレベルで両立する人間です．
+研究だけでもエンジニアリングだけでも目指す像にはたどり着けません．
+大変なんですけどね．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;お金がいただける&lt;/strong&gt;&lt;br&gt;
+お金がいただけるなら大学の研究の時間を少し削ってでもやるだろうという判断です．
+大学では単発で終わらないような大きめの世界観を描いた研究をしています．M2 から研究
+チームの親をやっていることもあり，大学の研究に優先的に割当てないと
+研究が空中分解しかねないためです．あとは今の研究がわりと好きなので．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;カーネルプログラミングしてみたい&lt;/strong&gt;&lt;br&gt;
+研究の性質や背景の都合上，私はこれまでユーザ空間にプロトコルを実装してきました．
+ご存知の通り Linux や FreeBSD などのプロトコルスタックはカーネル空間に実装
+されています．こういうきっかけがなければ博士課程の間にわざわざ時間を確保しない
+だろうなと思いました．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;一流の職業エンジニアの方法論に倣う&lt;/strong&gt;&lt;br&gt;
+大学の研究とは異なり，多くの企業のエンジニアは究極的に Practical であることを
+重要視すると思います．つまり，&lt;strong&gt;目に見える成果物の背後にはそれをその領域へと導いた
+数々の実践的なノウハウ（方法論）がある&lt;/strong&gt;はずだと思いました．問題となるコードの場所
+の当たりをつける，どこがボトルネックになっているのかすばやくざっくり計測する，
+コードを書くときに意識することなど．経験が豊富な企業のエンジニアからの密な指導
+というものは，私のように大学で我流でプログラムを書く人間としては喉から手が出る
+ほど欲しいものです．だって研究するようになるまでほとんど授業でしかコードを書いて
+こなかったんだもの（ついていくので手一杯だった）．&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;そんなこんなで申し込み，面接では自分の研究についていっぱい喋り，採用されました．
+始めは週2で通っていましたが，自分の体調や大学の研究との兼ね合いから週1に収束
+していきました．&lt;/p&gt;
+&lt;h4 id=&#34;exlay-階層独立性の高いプロトコルスタックフレームワーク&#34;&gt;exlay: 階層独立性の高いプロトコルスタックフレームワーク&lt;/h4&gt;
+&lt;p&gt;成果物です．動作原理などの詳細は別記事を後日書くとして，ここでは成果発表のスライドを挙げる
+にとどめます．メンターは光成さん（&lt;a href=&#34;https://twitter.com/herumi&#34;&gt;@herumi&lt;/a&gt;）です．
+&lt;a href=&#34;https://herumi.github.io/ango/&#34;&gt;『クラウドを支えるこれからの暗号技術』&lt;/a&gt; や
+x86 向け JIT アセンブラである &lt;a href=&#34;https://github.com/herumi/xbyak&#34;&gt;Xbyak&lt;/a&gt;で
+ご存知の方も多いかと思います．&lt;/p&gt;
+
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;fad0dd3e2cf84c08bca27e6e222b5237&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;共通のインターフェイスをもったプロトコル群を用意しておき，利用者が好きな順番で
+階層を積み上げるというプロトコルスタックができたら面白いな〜と思い，これを
+テーマにしました．&lt;/p&gt;
+&lt;h4 id=&#34;実際に何を作業したか&#34;&gt;実際に何を作業したか&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;カーネル空間に TCP Echo サーバをカーネルモジュールで作って自作クライアントとやり取りさせる&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ほかの方のメンターをやっている星野さん(&lt;a href=&#34;https://twitter.com/starpoz&#34;&gt;@starpoz&lt;/a&gt;)から workqueue とか completion とかのカーネル機能を紹介してもらい実際に使ってみる&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;__attribute__&lt;/code&gt; や &lt;code&gt;aligned (alignment)&lt;/code&gt; などの gcc の独自拡張を知る&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;strace&lt;/code&gt; や &lt;code&gt;trace-cmd&lt;/code&gt; などのトレーサを使って関数呼び出しを追いかける&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;関数名からソースコードにおける該当箇所を探してふむふむする&lt;/li&gt;
+&lt;li&gt;他にも C/C++ でコーディングするうえでの便利なツールを紹介してもらう&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/f6yT7qVq9R96tF&#34; 
+	width=&#34;595&#34; height=&#34;485&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; 
+	scrolling=&#34;no&#34; 
+	style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; 
+&lt;/iframe&gt; 
+
+
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;NIC デバイスドライバの勉強をした&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Packt から出ている &lt;a href=&#34;https://www.packtpub.com/networking-and-servers/linux-device-drivers-development&#34;&gt;Linux Device Driver Development&lt;/a&gt;
+という本の NIC デバドラの章を訳しながら読む．
+&lt;ul&gt;
+&lt;li&gt;Linux 4.x に対応している貴重な本です．&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NIC デバドラを書く上で Linux カーネルレベルの抽象化をどう扱うか学ぶ&lt;/li&gt;
+&lt;li&gt;特定のハードウェアのデータシートとかは読まないレベルの抽象度の話
+&lt;ul&gt;
+&lt;li&gt;何をしたいときどの関数を呼ぶとか，そういう&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;成果発表に向けてまずはユーザ空間で動くものを作る（とのご指導をいただく）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ロジックができてからカーネルで動かしてみる，でないと大変&lt;/li&gt;
+&lt;li&gt;ということでユーザ空間実装に変更&lt;/li&gt;
+&lt;li&gt;この時点でこの PoC ができれば OK かな，と思うようになる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;プロトコルを共有ライブラリとして扱うように設計した&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.oreilly.co.jp/books/4873112885/&#34;&gt;Binary Hacks ――ハッカー秘伝のテクニック100選&lt;/a&gt;
+を読んで共有ライブラリの作り方や動的なロードの仕方を勉強&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dlopen&lt;/code&gt; とかはじめて使って楽しかった&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;アプリとプロトコルスタックを別プロセスとする設計にした&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;プロトコルスタックがカーネル空間実装の場合と同様のモデルになる&lt;/li&gt;
+&lt;li&gt;アプリが使用する exlay API （send, recv, close など）は RPC で実装した
+&lt;ul&gt;
+&lt;li&gt;glibc で完結できるので SunRPC + XDR を採用，だいぶ詳しくなった&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;UDP/IP/Ethernet のスタックを実装&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ethernet しか間に合わなかった&lt;/li&gt;
+&lt;li&gt;スタックのフレームワーク本体がけっこう大変だったのもある
+&lt;ul&gt;
+&lt;li&gt;とはいえ実装力が足りてないな〜〜〜&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;成果発表&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直前で不具合を発見して修正したが make し忘れてうまく動かなかった（悲しい）&lt;/li&gt;
+&lt;li&gt;懇親会で光成さんに「もちょっと実装頑張りましょうね」と言われる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;今後の展望&#34;&gt;今後の展望&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;ユーザ空間上でのプロトコルの充実&lt;br&gt;
+今の所 UDP/IP/Ethernet しか無い（しかも機能が網羅的ではない）ので簡単な TCP くらい
+は用意したい．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;トンネリングエンドポイントのエクスポート&lt;br&gt;
+例えば VXLAN (L2 over UDP) なんかを exlay で実現しようと思ったら，
+Ethernet, IP, UDP, VXLAN, Ethernet みたいに &lt;strong&gt;アンダーレイからスタックを記述
+しなければならない&lt;/strong&gt; のでもはやトンネリングではない状態です．なので，
+作成したスタックをトンネルエンドポイントとしてエクスポートし，exlay API で
+触れるようにしてトンネリングプロトコルが簡単に実装できるようにする．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;カーネル空間実装&lt;br&gt;
+FreeBSD のカーネルにカーネルモジュールとして実装することを考えています．
+可能なら TCP(UDP)/IP といったルーチンを使いまわして exlay に組み込めたらかっこいい
+なと思います．この場合，各プロトコルはカーネルモジュールとして提供します．&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;感想および反省&#34;&gt;感想および反省&lt;/h4&gt;
+&lt;p&gt;エンジニアリングの現場で活躍している光成さんや星野さんとした実践的なお話は，
+大学にいるだけではなかなかできないことだと思いました．もちろん一般的な企業の
+インターンでもこういうお話はできると思いますが，&lt;strong&gt;自分がやりたいことに対して&lt;/strong&gt;
+時間（とお金）を費やしてもらえる機会は他では得難いものだと思います．&lt;/p&gt;
+&lt;p&gt;ただ，光成さんや星野さんといった人的リソースを活用しきれたかと言われれば，
+まだまだだなと感じます．exlay は学位取得には直接関係しない（と現状は思われる）
+私の趣味研究です．学位取得に関係するテーマでラボユースに申し込むと
+ものすごい加速するんじゃないでしょうか．exlay についても論文は書くつもりでいます．
+どの段階で書くかはわからんが&amp;hellip;&lt;/p&gt;
+&lt;p&gt;あまり時間を割かなかった私でさえ濃い経験ができたので，いわんやをや．
+実装ドリブンな研究として繋がりそうだし．友達もできたし．本当にやってみてよかった！&lt;/p&gt;
+&lt;h3 id=&#34;応募を検討しているひとへ&#34;&gt;応募を検討しているひとへ&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;もっと詳しく知りたいひとへ&lt;br&gt;
+気になることがあれば Twitter の DM でもリプでもお答えします．というか，
+私に限らずほとんどの卒業生は相談に乗ってくれると思います．これをきっかけに
+お友達になりましょう．ぜひ．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;具体的に作りたいものがないひとへ&lt;br&gt;
+ツイートの通り，「XX ができるようになりたい」というふうに伝えるでも私は良いと
+思っています．XX ができるようになっていくうちに XX を使ったなにかが作れそう
+だとひらめくと思います．ぜひ．
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;第9期 サイボウズ・ラボユースの募集がはじまりました．会社からお金をもらって好きにプログラムを書き，成果が自分に帰属するという稀有な制度です．まだ作りたいものが具体的にない人は「現状XXだが〜ができるようになりたい」ということを伝えてみるのもアリだと思います．&lt;a href=&#34;https://t.co/w55Nwf5iDH&#34;&gt;https://t.co/w55Nwf5iDH&lt;/a&gt;&lt;/p&gt;&amp;mdash; nelio (@nelishiba) &lt;a href=&#34;https://twitter.com/nelishiba/status/1117645489023774720?ref_src=twsrc%5Etfw&#34;&gt;April 15, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;実装力が足りてないと思っているひとへ&lt;br&gt;
+落ちたときに考えましょう．それに，ある程度のところまで引き上げてもらったら
+そのあとは自力でなんとかできるようになると思います．そこに到達するまでに
+個人差があるだけです．
+ラボユースで実装力を高めるすばらしいきっかけだとと思って．ぜひ．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;B4 および M1, M2 のひとへ&lt;br&gt;
+卒論や修論のテーマと関係しそうなことを選ぶと研究が加速します．ぜひ．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;D のひとへ&lt;br&gt;
+私以外にそんなことをする人がいるとはなかなか思えませんが，なるべく学位取得に
+関係するテーマを選ぶと良いでしょう．学振に採用されている方は，ラボユースと
+併用できるかはわかりませんが．ぜひ．&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ネット上で影響力が強いひとへ&#34;&gt;ネット上で影響力が強いひとへ&lt;/h3&gt;
+&lt;p&gt;特にこのエントリの共有でなくてもいいのでラボユースという制度を周知していただければ
+幸いです．私にもっと（ネット上の）チカラがあれば&amp;hellip;&lt;/p&gt;
+</description>
+       </item>
+       
+     </channel>
+   </rss>

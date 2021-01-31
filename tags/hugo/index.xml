@@ -1,29 +1,182 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>hugo on Around The Computer</title>
-    <link>https://negli0.github.io/tags/hugo/</link>
-    <description>Recent content in hugo on Around The Computer</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright &amp;copy; 2018 - negli0</copyright>
-    <lastBuildDate>Wed, 09 May 2018 00:32:25 +0900</lastBuildDate><atom:link href="https://negli0.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>GitHub Pages &#43; Hugo で躓いた話</title>
-      <link>https://negli0.github.io/posts/struggle-hugo/</link>
-      <pubDate>Wed, 09 May 2018 00:32:25 +0900</pubDate>
-      
-      <guid>https://negli0.github.io/posts/struggle-hugo/</guid>
-      <description>うまくいかなかった話をしたい 前回エントリ(link)で GitHub Pages +</description>
-    </item>
-    
-    <item>
-      <title>Network × Research なブログを目指す</title>
-      <link>https://negli0.github.io/posts/start-hugo/</link>
-      <pubDate>Sun, 29 Apr 2018 00:24:46 +0900</pubDate>
-      
-      <guid>https://negli0.github.io/posts/start-hugo/</guid>
-      <description>Hello, Ph.D Cource こんにちは，nelio です． 後期博士課程に進学したので</description>
-    </item>
-    
-  </channel>
-</rss>
+
+   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+     <channel>
+       <title>hugo on Around The Computer</title>
+       <link>https://negli0.github.io/tags/hugo/</link>
+       <description>Recent content in hugo on Around The Computer</description>
+       <generator>Hugo -- gohugo.io</generator>
+       <copyright>Copyright &amp;copy; 2018 - negli0</copyright>
+       <lastBuildDate>Wed, 09 May 2018 00:32:25 +0900</lastBuildDate>
+       
+           <atom:link href="https://negli0.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+       
+       
+       <item>
+         <title>GitHub Pages &#43; Hugo で躓いた話</title>
+         <link>https://negli0.github.io/posts/struggle-hugo/</link>
+         <pubDate>Wed, 09 May 2018 00:32:25 +0900</pubDate>
+         
+         <guid>https://negli0.github.io/posts/struggle-hugo/</guid>
+         <description>&lt;h2 id=&#34;うまくいかなかった話をしたい&#34;&gt;うまくいかなかった話をしたい&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://negli0.github.io/posts/start-hugo/&#34;&gt;前回エントリ(link)&lt;/a&gt;で &lt;em&gt;GitHub Pages + Hugo&lt;/em&gt; による HP
+開設の話をしました．&lt;/p&gt;
+&lt;p&gt;私は OSS を自分で設定したり動かしたりすることは好きなのですが，ドキュメント内の目的箇所
+を特定するまでに時間がかかったり，大前提な部分を読み飛ばしたりなどのうっかりをやりがちです．&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;このエントリは，私が GitHub Pages と Hugo を使って HP を開設するまでに躓いたことたちを供養するためのものです．&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;私は&lt;!-- raw HTML omitted --&gt;&lt;em&gt;できるひとたちの途中でうまくいかなかった話&lt;/em&gt;&lt;!-- raw HTML omitted --&gt;
+みたいなものに興味があるので，自分もなるべくそれらを残すようにしようと思っています．どんな人もしょうもないことで詰まったりするんだって話が聞けるとなんだかホッとするじゃないですか．俺ツエー話とは別で失敗エントリがあってもいいと思うんです．&lt;/p&gt;
+&lt;h3 id=&#34;1-function-default-not-defined&#34;&gt;1. function &amp;ldquo;default&amp;rdquo; not defined&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt; function &amp;quot;default&amp;quot; not defined
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;ローカル環境でサイトを生成して手元で確認するときに &lt;code&gt;hugo -wD server&lt;/code&gt; を実行しますが，その際に Hugo が吐く go のエラーです．
+&lt;a href=&#34;https://gohugo.io/functions/default/&#34;&gt;ドキュメント&lt;/a&gt;を読むとわかるんですが，Hugo には &lt;code&gt;default&lt;/code&gt; という function が用意されています．
+用意されているのに未定義だと怒られるということはおそらく当時パッケージマネージャで入れた Hugo のバージョンが低かったのでしょう．GitHub から Hugo の最新版をクローンして使ってみたら解決されました．&lt;/p&gt;
+&lt;h4 id=&#34;a1-最新版の-hugo-を使用する&#34;&gt;A1. 最新版の Hugo を使用する&lt;/h4&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;code&gt;default&lt;/code&gt; の使い方は以下のように，&lt;code&gt;Params.seo_title&lt;/code&gt; に値が設定されていない場合はデフォルトである &lt;code&gt;.Title&lt;/code&gt; が title タグに使われるというふうです．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&amp;lt;&lt;span style=&#34;color:#a6e22e&#34;&gt;title&lt;/span&gt;&amp;gt;{{ .&lt;span style=&#34;color:#a6e22e&#34;&gt;Params&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;seo_title&lt;/span&gt; | &lt;span style=&#34;color:#66d9ef&#34;&gt;default&lt;/span&gt; .&lt;span style=&#34;color:#a6e22e&#34;&gt;Title&lt;/span&gt; }}&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;title&lt;/span&gt;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;他のサイトジェネレータでも同じことだと思いますが，Hugo はサイトやページのタイトルやタグなどを &lt;code&gt;Value&lt;/code&gt; として設定します．
+ユーザが設定するサイトの baseurl やタイトルなどは &lt;code&gt;config.toml&lt;/code&gt; に設定します．&lt;/p&gt;
+&lt;p&gt;また，テーマ側の layout 以下とトップディレクトリの &lt;code&gt;layout/&lt;/code&gt; 以下に同名ファイル（e.g., &lt;code&gt;header.html&lt;/code&gt;）が存在する場合はトップディレクトリの &lt;code&gt;layout/&lt;/code&gt; のファイルが優先（オーバーライド）されます．これを利用して既存テーマを改造することができます．&lt;/p&gt;
+&lt;h3 id=&#34;2-公開ページ用のブランチを-gh-pages-にしたいできない&#34;&gt;2. 公開ページ用のブランチを &lt;code&gt;gh-pages&lt;/code&gt; にしたい（できない！）&lt;/h3&gt;
+&lt;p&gt;研究室の HP でも Hugo を使っています．HP のソース（Hugo 的には &lt;code&gt;public/&lt;/code&gt; 以下）は &lt;code&gt;gh-pages&lt;/code&gt; というブランチで，そのソースを生成するためのファイル群は &lt;code&gt;master&lt;/code&gt; ブランチで，同一のレポジトリで管理しています．記事を書いて &lt;code&gt;master&lt;/code&gt; に push すると CircleCI によってサイトが生成され，それを &lt;code&gt;gh-pages&lt;/code&gt; に push してくれてページが更新されます．&lt;/p&gt;
+&lt;p&gt;同様に，自分のサイトでもこのようなブランチの分離をしたくなりました．&lt;/p&gt;
+&lt;p&gt;私の作業の流れは Hugo Document の Quick Start と Host on GitHub に基づいています．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/getting-started/quick-start/&#34;&gt;Quick Start | Hugo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/hosting-and-deployment/hosting-on-github/&#34;&gt;Host on Github | Hugo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ユーザに紐づく GitHub Pages のリポジトリに関して重要なのは以下の2点です．&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;リポジトリ名は &lt;code&gt;&amp;lt;USERNAME&amp;gt;.github.io&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;!-- raw HTML omitted --&gt;公開ページ用のブランチは &lt;code&gt;master&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;2 でハマりました．ドキュメントにしっかり書いてあるのに読み飛ばしたのでしょう．
+研究室 HP と同様に &lt;code&gt;gh-pages&lt;/code&gt; ブランチを公開ページ用に使用できると&lt;strong&gt;勝手に思い込んで&lt;/strong&gt;いました．&lt;/p&gt;
+&lt;p&gt;つまり，&lt;code&gt;master&lt;/code&gt; に生成元のファイル群を push して公開ページ用のブランチを変更しようとしました．
+実際に公開ページ用のブランチを変更しようとするとグレーアウトされて変更できません．
+&lt;figure class=&#34;center&#34;&gt;
+    &lt;img src=&#34;https://negli0.github.io/img/github-pages.png&#34;/&gt; &lt;figcaption&gt;
+            &lt;h4&gt;図1． master branch から変更不可&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h4 id=&#34;a2-ページ公開用には-usernamegithubio-の-markmaster-ブランチmarkを使う&#34;&gt;A2. ページ公開用には &lt;code&gt;&amp;lt;username&amp;gt;.github.io&lt;/code&gt; の &lt;!-- raw HTML omitted --&gt;&lt;code&gt;master&lt;/code&gt; ブランチ&lt;!-- raw HTML omitted --&gt;を使う&lt;/h4&gt;
+&lt;hr&gt;
+&lt;p&gt;この仕様をきちんと把握していなかったのでした．Hugo で記事を公開するより前に
+ページのレイアウトを改造するとき，よくある手順は以下のとおりです．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ hugo new site ./site-name &lt;span style=&#34;color:#75715e&#34;&gt;# サイトを作成するファイル群の生成&lt;/span&gt;
+$ cd ./site-name            
+$ ls
+archetypes/  config.toml  content/  data/  layouts/  static/  themes/
+$ git init				
+$ git add . &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;  git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;initial commit&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# master に commit&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;サイトの設定はこれ以降 commit していけば保存されますが，ブランチを新たに作成していないので，&lt;code&gt;master&lt;/code&gt; ブランチに &lt;code&gt;config.toml&lt;/code&gt; のような設定ファイルを追加してしまいます．
+この状態で「レイアウトができた，記事書いて公開するぞ〜」と意気込んで push すると，&lt;strong&gt;めでたく図１のようになります&lt;/strong&gt;．&lt;/p&gt;
+&lt;p&gt;これを回避するには，なんでもいいので開発用ブランチでも切っておけば良かったわけです．
+手順は以下の通り．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ hugo new site ./site-name &lt;span style=&#34;color:#75715e&#34;&gt;# サイトを作成するファイル群の生成&lt;/span&gt;
+$ cd ./site-name            
+$ ls
+archetypes/  config.toml  content/  data/  layouts/  static/  themes/
+$ git init				
+$ git checkout -b dev		&lt;span style=&#34;color:#75715e&#34;&gt;# 開発用ブランチにチェックアウト&lt;/span&gt;
+$ git add . &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;initial commit&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# dev に commit&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;3-同一リポジトリ上で-public-以下だけ-master-ブランチで扱う&#34;&gt;3. 同一リポジトリ上で &lt;code&gt;public/&lt;/code&gt; 以下だけ &lt;code&gt;master&lt;/code&gt; ブランチで扱う&lt;/h3&gt;
+&lt;p&gt;Hugo を使う上で，&lt;code&gt;config.toml&lt;/code&gt; などの設定ファイル群の commit 先として考えられるのは以下の 2 つです．&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;!-- raw HTML omitted --&gt;ページ公開用と同一リポジトリの &lt;code&gt;master&lt;/code&gt; 以外のブランチ&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;ページ公開用と別のリポジトリ&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Hugo 公式では１を採用しており，Git の機能である &lt;code&gt;git submodule&lt;/code&gt; で実現しています．
+私も Hugo 公式のやり方に従いました．&lt;/p&gt;
+&lt;h4 id=&#34;a3-git-submodule-で-public-以下を別プロジェクトとして管理できる&#34;&gt;A3. Git Submodule で public/ 以下を別プロジェクトとして管理できる&lt;/h4&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;git-submodule-とは&#34;&gt;git submodule とは&lt;/h4&gt;
+&lt;p&gt;一旦話が Git submodule に逸れます．&lt;br&gt;
+使用目的は公式ドキュメントから引用します．（公式最強）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;あるプロジェクトで作業をしているときに、プロジェクト内で別のプロジェクトを使わなければならなくなることがよくあります。サードパーティが開発しているライブラリや、自身が別途開発していて複数の親プロジェクトから利用しているライブラリなどがそれにあたります。こういったときに出てくるのが**「ふたつのプロジェクトはそれぞれ別のものとして管理したい。だけど、一方を他方の一部としても使いたい」という問題**です。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://git-scm.com/book/ja/v1/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E3%82%B5%E3%83%96%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB&#34;&gt;Git - サブモジュール&lt;/a&gt; より&lt;/p&gt;
+&lt;p&gt;Hugo + GitHub Pages の場合を考えると，&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;設定ファイルや記事の元となる md ファイル&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;punlic/&lt;/code&gt; 以下&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;themes/&lt;/code&gt; 以下&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;をそれぞれ別のプロジェクトとして管理したいわけです．実際，ほとんどの Hugo のテーマが GitHub で管理されているので，自サイトのテーマは submodle で管理するのが自然です．&lt;/p&gt;
+&lt;p&gt;submodule の詳細については先の公式ドキュメントを，実際の操作や簡単な使い方はこちらの Qiita エントリがわかりやすいです．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/sotarok/items/0d525e568a6088f6f6bb&#34;&gt;Git submodule の基礎 - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/kinpira/items/3309eb2e5a9a422199e9&#34;&gt;Git submoduleの押さえておきたい理解ポイントのまとめ - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;今回のような Hugo + GitHub Pages の場合，&lt;code&gt;public/&lt;/code&gt; 以下をプロジェクトとして &lt;code&gt;&amp;lt;username&amp;gt;/&amp;lt;username&amp;gt;.github.io&lt;/code&gt; の &lt;code&gt;master&lt;/code&gt; ブランチに commit していけば良いわけです．&lt;/p&gt;
+&lt;h3 id=&#34;結論&#34;&gt;結論&lt;/h3&gt;
+&lt;p&gt;公式ドキュメントが最強なので思慮深く読むべし．
+個人ユーザの場合，ページ公開用には &lt;code&gt;master&lt;/code&gt; ブランチしか許可されてないことをきちんと把握しておくべきでした．&lt;/p&gt;
+</description>
+       </item>
+       
+       <item>
+         <title>Network × Research なブログを目指す</title>
+         <link>https://negli0.github.io/posts/start-hugo/</link>
+         <pubDate>Sun, 29 Apr 2018 00:24:46 +0900</pubDate>
+         
+         <guid>https://negli0.github.io/posts/start-hugo/</guid>
+         <description>&lt;h2 id=&#34;hello-phd-cource&#34;&gt;Hello, Ph.D Cource&lt;/h2&gt;
+&lt;p&gt;こんにちは，nelio です．&lt;br&gt;
+後期博士課程に進学したので，自分の名前で売っていくことがこれまで以上に重要な気がします．&lt;/p&gt;
+&lt;p&gt;ということで研究の合間を縫ってやっとのことで HP を作りました．&lt;/p&gt;
+&lt;h2 id=&#34;hugo--github-pages-で-hp-作成&#34;&gt;Hugo + GitHub Pages で HP 作成&lt;/h2&gt;
+&lt;p&gt;世の中は便利かつ多様で，自分のアウトプットを披露できる場がいろいろありますね．
+CS 分野で R&amp;amp;D（特に R）をしている身なので，以前から自分の研究の話とか実験の話とかを
+外に出したら面白いんじゃないかと思っていました．&lt;em&gt;Hugo +  GitHub Pages&lt;/em&gt; を選択した
+決め手は次のとおりです．&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;クラウドホストしたい（できれば無料で）&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;極力コンテンツだけ書きたい&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CLI ベースで書きたい&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ちょっとしたカスタマイズ性がある&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;以下，順次説明します．&lt;/p&gt;
+&lt;h4 id=&#34;1-クラウドホストしたいできれば無料で&#34;&gt;1. クラウドホストしたい（できれば無料で）&lt;/h4&gt;
+&lt;p&gt;メンテナンスにあまり手間と費用を掛けたくなかったことが大きな理由です．
+私の所属する研究室では，以前はオンプレで WEB ページを運営していました．あたりまえですがサービス
+そのものだけでなく，システム側の運営保守も必要です．ネットワークが専門なので
+インフラの運用保守技術も身につけておく必要はあるのですが，結局はやる人間が限られて，それで摩耗して研究がおろそかになるというのは本末転倒です．&lt;del&gt;（引き継ぎが下手なだけでは）&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;結局研究室の HP は GitHub Pages にてサービスだけメンテナンスしようということになりました．
+そこで一度経験したこともあって自分の HP も GitHub Pages にホストしたくなりました．
+ドメインもデフォルトで困らないのでそのままです．&lt;/p&gt;
+&lt;h4 id=&#34;2-極力コンテンツだけ書きたい&#34;&gt;2. 極力コンテンツだけ書きたい&lt;/h4&gt;
+&lt;p&gt;フロントエンドに疎いので，デザインとかは既存のものをちょちょっと触ってかゆいところに手が届くようにすれば十分でした．
+フロントエンドは移り変わりが激しい印象があって，今必死で覚えてもすぐに次のいいモノが出てきそうです．
+フロントエンドをガッツリやる気力も出なかったので，GitHub Pages と相性のいいサイトジェネレータを使えると嬉しかった．&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://jekyllrb-ja.github.io&#34;&gt;Jekyll&lt;/a&gt; でも良かったんですが，Golang のほうが親しいのと，研究室 HP でも使っているので &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; にしました.&lt;/p&gt;
+&lt;h4 id=&#34;3-cli-ベースで書きたい&#34;&gt;3. CLI ベースで書きたい&lt;/h4&gt;
+&lt;p&gt;CLI というより，普段使っているエディタ（nvim）を使うほうが書きやすいかなという判断です．このあたりは GitHub Pages を使うと決めた理由の一部でもあります．時間がないときはコンテンツの下書きだけして &lt;code&gt;dev branch&lt;/code&gt; に push しておき，完成したら &lt;code&gt;master branch&lt;/code&gt; に反映するやりかたをしています．&lt;/p&gt;
+&lt;h4 id=&#34;4-ちょっとしたカスタマイズ性がある&#34;&gt;4. ちょっとしたカスタマイズ性がある&lt;/h4&gt;
+&lt;p&gt;これが地味に重要でした．おそらく私のように&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;イチからデザインを考えるのは難しいが，気に入ったテーマを自分好みに改造はしたい&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;みたいな人は多いんじゃないでしょうか．私は &lt;a href=&#34;https://themes.gohugo.io/hugo-kiera/&#34;&gt;Kiera&lt;/a&gt; というテーマを選択しました．
+派手すぎず質素すぎないところが GOOD です．これに SNS シェアボタンや HTML の &lt;code&gt;meta tag&lt;/code&gt; をいじったり，記事にカテゴリーやタグをつけられるようにしました．あとは関連記事を表示したり Google Analytics と連携させたりツイートを埋め込んだりしたいです．&lt;/p&gt;
+&lt;p&gt;テーマ自体も GitHub で管理されているので &lt;code&gt;git submodule&lt;/code&gt; 機能を使って更新を確認します．&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;目標ネットワーク--リサーチな話を面白く書く&#34;&gt;目標：ネットワーク ✕ リサーチな話を面白く書く&lt;/h2&gt;
+&lt;h3 id=&#34;世の中おもしろいエンジニアリングブログはいっぱいある&#34;&gt;世の中おもしろいエンジニアリングブログはいっぱいある&lt;/h3&gt;
+&lt;p&gt;この HP は，私が日々のインプットを「せっかくだから見えるところに置こう」という名目で開始しました．内容は IT 系のエンジニアリングの話がほとんどだと思いますが，ぶっちゃけすでに面白いブログはいっぱいありますよね．それに今の私にはエンジニアとして出せるものは少なく，純粋なエンジニアリング話を私が書く意味はあまりなさそうだなとか長いこと思っていました．&lt;/p&gt;
+&lt;h3 id=&#34;ネットワーク--リサーチな記事&#34;&gt;ネットワーク × リサーチな記事&lt;/h3&gt;
+&lt;p&gt;ではどうするのかといえば，エンジニアリングではなく&lt;strong&gt;リサーチ寄り&lt;/strong&gt;の話題を多めに書いてみようかなと思います．ネット上でよく目にする &lt;code&gt;XXX&lt;/code&gt; を作りました！みたいな開発系エントリ，読んでて楽しいですよね．一方で私も研究者なのでリサーチな話を気軽に見たいんですが，あまりアカデミアな話って日本語記事で見ないんですよね．&lt;/p&gt;
+&lt;p&gt;加えてアカデミアかはさておき，高レイヤでサービスなアプリケーションの話はよく見かけます．人口が多いことに比例して目に入る機会が多いことに起因しているのでしょうか．一方で低レイヤでカーネルなシステムの話は最近流行っているのか，しばしば Twitter でも見かけます．ところが&lt;strong&gt;ネットワークそのもの&lt;/strong&gt;な話ってあまり見ないんですよね．（システム内のチューニングとか実装寄りな話はたまに見かけます）&lt;/p&gt;
+&lt;p&gt;ということで，自身の専門がネットワークでしかもアカデミックな研究をしているので，自分の研究だけではなくぶっとんだ論文とか研究とかを紹介したいです．まずはちょっとだけ期待してください．修士課程から数えると3年目ですが，**&lt;!-- raw HTML omitted --&gt;研究の世界がこんなにも自由だ！&lt;!-- raw HTML omitted --&gt;**ということを伝えられたらいいな．&lt;/p&gt;
+&lt;h3 id=&#34;一番伝えたいこと&#34;&gt;一番伝えたいこと&lt;/h3&gt;
+&lt;p&gt;この HP がきっかけでネットワークが面白いと思ってくれる人が増えたら最高です．（あわよくばリサーチャー仲間に！）&lt;/p&gt;
+</description>
+       </item>
+       
+     </channel>
+   </rss>

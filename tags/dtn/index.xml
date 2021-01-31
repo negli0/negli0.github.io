@@ -1,20 +1,157 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>DTN on Around The Computer</title>
-    <link>https://negli0.github.io/tags/dtn/</link>
-    <description>Recent content in DTN on Around The Computer</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright &amp;copy; 2018 - negli0</copyright>
-    <lastBuildDate>Tue, 26 Jun 2018 17:46:54 +0900</lastBuildDate><atom:link href="https://negli0.github.io/tags/dtn/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Talk at Turing Complete FM Meetup</title>
-      <link>https://negli0.github.io/posts/talk-at-tcfm-meetup/</link>
-      <pubDate>Tue, 26 Jun 2018 17:46:54 +0900</pubDate>
-      
-      <guid>https://negli0.github.io/posts/talk-at-tcfm-meetup/</guid>
-      <description>Turing Complete FM とは Turing Complete FM Rui Ueyama さんによるプログラミングについてのポッド</description>
-    </item>
-    
-  </channel>
-</rss>
+
+   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+     <channel>
+       <title>DTN on Around The Computer</title>
+       <link>https://negli0.github.io/tags/dtn/</link>
+       <description>Recent content in DTN on Around The Computer</description>
+       <generator>Hugo -- gohugo.io</generator>
+       <copyright>Copyright &amp;copy; 2018 - negli0</copyright>
+       <lastBuildDate>Tue, 26 Jun 2018 17:46:54 +0900</lastBuildDate>
+       
+           <atom:link href="https://negli0.github.io/tags/dtn/index.xml" rel="self" type="application/rss+xml" />
+       
+       
+       <item>
+         <title>Talk at Turing Complete FM Meetup</title>
+         <link>https://negli0.github.io/posts/talk-at-tcfm-meetup/</link>
+         <pubDate>Tue, 26 Jun 2018 17:46:54 +0900</pubDate>
+         
+         <guid>https://negli0.github.io/posts/talk-at-tcfm-meetup/</guid>
+         <description>&lt;h2 id=&#34;turing-complete-fm-とは&#34;&gt;Turing Complete FM とは&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://turingcomplete.fm&#34;&gt;Turing Complete FM&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/rui314&#34;&gt;Rui Ueyama&lt;/a&gt; さんによるプログラミングについてのポッドキャストです．
+毎回ゲストを招いて，プログラミングに関するあれこれを Rui
+さんとゲストが喋っていく形式になっています．&lt;/p&gt;
+&lt;p&gt;ほとんどの回が高度すぎるので，半分理解できたらまあいいほうです．
+よくわかんないけど，すごそう，面白そうという気持ちは大事にしたいです．&lt;/p&gt;
+&lt;p&gt;もうちょっというと，自分が知らなかった話を楽しそうに話されているとなんだか
+「ぐぬぬ，面白さがわからん！勉強だ！！」となるのでなんか知らんが頑張ろうという気になります．&lt;/p&gt;
+&lt;h2 id=&#34;tcfm-meetup&#34;&gt;TCFM Meetup&lt;/h2&gt;
+&lt;h4 id=&#34;参加応募の殺到&#34;&gt;参加応募の殺到&lt;/h4&gt;
+&lt;p&gt;Rui さんの「TCFM，ミートアップ的なことしてもいいかも？」というツイートがきっかけで
+開催が決定しました．&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;今月24日からの週、一週間日本行くんですけど &lt;a href=&#34;https://twitter.com/hashtag/tcfm?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#tcfm&lt;/a&gt; ミートアップ的なのしてもいいかも？&lt;/p&gt;&amp;mdash; Rui Ueyama (@rui314) &lt;a href=&#34;https://twitter.com/rui314/status/1007255390025740289?ref_src=twsrc%5Etfw&#34;&gt;June 14, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;そしてあれよあれよという間に応募が殺到し，当日は
+110 人が来場することになりました．募集開始が 6/21 でミートアップ当日が 6/25
+という短い募集期間だったにもかかわらずこれだけの人が集まるとは&amp;hellip;&lt;/p&gt;
+&lt;p&gt;実際のポッドキャスト視聴者は一体何人なんでしょうか．&lt;/p&gt;
+&lt;h4 id=&#34;lt-枠への応募&#34;&gt;LT 枠への応募&lt;/h4&gt;
+&lt;p&gt;募集のページを開いたら LT 枠があって，学生は学生で応募できるようになっていました．
+TCFM ポッドキャストを聞く人は，なにか技術的に得意なことを持っている人がほとんどだと
+思うので，そういった人たちの前で発表するのは結構勇気がいりそうですよね．&lt;/p&gt;
+&lt;p&gt;私はといえば「やっべ，こんなん怖いじゃん（応募ボタンぽち〜）」のような感じで気づいたら
+応募していました．&lt;/p&gt;
+&lt;p&gt;多分大きく理由は2つあって，&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;無名の研究者(私)がすごいエンジニア達の前で発表できる機会は極めて貴重&lt;/li&gt;
+&lt;li&gt;そのようなすごい人達に自分の話を聞いてもらいたい&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;という気持ちが恐れに勝ったのだと思います．&lt;/p&gt;
+&lt;p&gt;で，結果的に発表して大正解だったので，衝動に身を任せて本当に良かった！
+勢い大事！&lt;/p&gt;
+&lt;h4 id=&#34;発表内容&#34;&gt;発表内容&lt;/h4&gt;
+&lt;p&gt;私が発表したのは他の発表者と異なり，少々アカデミア寄りの内容です．L4 End-to-End
+が限界な一方，ミドルボックスを取り除くのは現実的ではないので，高機能通信路を
+End-to-End で提供するために階層を1つ追加しよう，みたいな話です．&lt;/p&gt;
+&lt;p&gt;発表資料はコレです．&lt;/p&gt;
+
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;4252dfd6913246d3aa571607e79eb93a&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;本当は前日から実験を回していて，当日はとれたての実験データを公開するつもりだった
+のですが，思いの外手こずりデータ収集に失敗しました．&lt;/p&gt;
+&lt;p&gt;発表は 8 分だったのですが，8 分で何かを伝えるのは非常に難しいことがわかりました．
+当日喋ってない内容はそのうちブログのエントリで出せたらなと思います．&lt;/p&gt;
+&lt;p&gt;TCFM ポッドキャストでは今の所ネットワークの内容にあまりフォーカスされないので，
+自分の発表がウケるか非常に不安でした．&lt;/p&gt;
+&lt;p&gt;あと，事前に Rui さんに資料を共有し忘れていて，Dropbox の URL
+を自分で直打ちする自体を招いてしまいました．スムーズな進行の妨げになることは
+避けたいです，失礼いたしました．&lt;/p&gt;
+&lt;h5 id=&#34;url-直打ち&#34;&gt;URL 直打ち&lt;/h5&gt;
+&lt;p&gt;Dropbox の URL を直打ちしたら一発で通ったのがややウケした．&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;dropboxのURL一発入力すごい &lt;a href=&#34;https://twitter.com/hashtag/tcfm?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#tcfm&lt;/a&gt;&lt;/p&gt;&amp;mdash; みすどラ0.F (@MysticDoll) &lt;a href=&#34;https://twitter.com/MysticDoll/status/1011202225123651585?ref_src=twsrc%5Etfw&#34;&gt;June 25, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;h4 id=&#34;発表後と懇親会&#34;&gt;発表後と懇親会&lt;/h4&gt;
+&lt;p&gt;時系列が前後しますが，発表は結構好評で，懇親会でたくさん話しかけてもらいました．
+ネットワーク系の方々とアカデミアの発表の場以外で話せるのは楽しかったです．
+&lt;!-- raw HTML omitted --&gt;発表はしてみるものだなと思いました．&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;Rui さんと直接お話できました．「日本の大学生はもっとCSを詰め込む勉強をしたほうがいい」
+とおっしゃっていたのが印象的でした．これはアメリカのトップ校に通われている方の言葉だなと．&lt;/p&gt;
+&lt;h3 id=&#34;その他の-lt-枠&#34;&gt;その他の LT 枠&lt;/h3&gt;
+&lt;p&gt;非常に濃かったです．&lt;/p&gt;
+&lt;h4 id=&#34;shinh-さんカジュアルに実行時リンクロードする&#34;&gt;shinh さん「カジュアルに実行時リンク&amp;amp;ロードする」&lt;/h4&gt;
+&lt;p&gt;スライドは→&lt;a href=&#34;http://shinh.skr.jp/slide/dynload/000.html&#34;&gt;こちら&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;難しそうに思えるが，ちょっとした実験をするときに有用なことがある．適当に事例を紹介します．といった話．&lt;/p&gt;
+&lt;p&gt;(コメントできない&amp;hellip;スライド読んで勉強します&amp;hellip;)&lt;/p&gt;
+&lt;p&gt;「メモリにぺたっと貼り付けるとなんか動く」とか「適当なアドレスに関数ポインタを代入」とか，さらっとレベルの高いことをおっしゃっていました．
+私は低レイヤが特別得意なわけではないので精進するんだ&amp;hellip;&lt;/p&gt;
+&lt;h4 id=&#34;nsasaki128-さん無理数時計作ってみた&#34;&gt;nsasaki128 さん「無理数時計作ってみた」&lt;/h4&gt;
+&lt;p&gt;発表にあったハッカソンで開発された「無理数時計」は
+→ &lt;a href=&#34;https://hyurumi.github.io/MuriSuDokei/&#34;&gt;こちら&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;「時間→数字→無理数」でしょ，という発送でで無理数に現れる数値で時刻を
+表現するという大変ぶっとんだ代物（褒め言葉）でした．数学的に面白いことができるのはとてもうらやましい．数学やんなきゃ．&lt;/p&gt;
+&lt;p&gt;普通に実装したのでは文字列探索の計算量が大きくて使いものにならなかったそうです．
+そこで，このプログラムに特化したアルゴリズムを設計して期待値を数学的に算出します．その後アルゴリズムを実装して計算量を削減，期待値に近い実行時間を示した，という発表でした．&lt;/p&gt;
+&lt;p&gt;すばらしいなと思ったのは，XXというアルゴリズムはどの程度の計算量の削減が望めるのかを数学的に検証してから実装している点です．
+この手順は私も見習いたいと思いました．&lt;/p&gt;
+&lt;h4 id=&#34;retrage01-さんwip-porting-lkl-to-bitvisor&#34;&gt;retrage01 さん「[WIP] Porting LKL to BitVisor」&lt;/h4&gt;
+&lt;p&gt;Linux Kernel Library (LKL) を BitVisor に移植するというプロジェクト．&lt;/p&gt;
+&lt;p&gt;発表資料はこちら．
+
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;ae844998599b4cdaa563edd541ff22ee&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;LKL はコンパイルすると &lt;code&gt;liblkl.so&lt;/code&gt; のようなものが生成され，Linux カーネルをライブラリとして扱えるプロジェクトです．
+モチベーションは「面白そうだから」．libc のような便利なものが無い環境で
+動作させるので，まずは timer, thread, semaphore, mutex, file read/write が必要．&lt;/p&gt;
+&lt;p&gt;現在 LKL のビルドは通っている状態で， BitVisor への統合だけは完了しているそうです．BitVisor のビルドシステムに LKL を組み込むのが大変そうだとか．&lt;/p&gt;
+&lt;h4 id=&#34;inada-naoki-さんcompact-pygc_head&#34;&gt;Inada Naoki さん「Compact PyGC_Head」&lt;/h4&gt;
+&lt;p&gt;発表資料はこちら
+
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;b77d551e19fe4d839d4a39dc924eddb8&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+&lt;/p&gt;
+&lt;p&gt;Python の GC がどのように実装されてるのかの話から，ヘッダ部分の使用メモリ量を改善する話．
+私が GC の話に全く詳しくないのでコメントできない&amp;hellip;つらい&amp;hellip;&lt;/p&gt;
+&lt;p&gt;32bit システムと 64bit システムとではポインタサイズが違い，参照カウントに必要な
+3bit が 32bit システムでは用意できない，さてどうしようと．Rui さんが 「世の中 64
+bit が当たり前になってきているので 32bit を切り捨てるというのもあるのでは？」と
+コメントしていました．&lt;/p&gt;
+&lt;p&gt;Rui さんが「GC のバグは全部つらいバグ」って言っていたのが印象的でした．&lt;/p&gt;
+&lt;h4 id=&#34;κeen-さんgc-と-1bitの話&#34;&gt;κeen さん「GC と 1bitの話」&lt;/h4&gt;
+&lt;p&gt;発表資料は→&lt;a href=&#34;http://keens.github.io/slide/gcto1bit/&#34;&gt;こちら&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;連続して GC の話です．またしても技術的な話が全くわからずつらい&amp;hellip;
+オブジェクトのフィールドをポインタと値に分けて格納し，ポインタをオブジェクトポインタの
+前に，値をオブジェクトポインタの後にそれぞれ置くと物理で 1bit も使わずに
+情報を保持できる双方向レイアウトの話がありましたが，これ他のところでも使えそうだ
+と思いました．そこまで情報量を削減する必要がある場面が他にあるかは私にはわからないですが&amp;hellip;&lt;/p&gt;
+&lt;p&gt;κeen さんが発表中に Rui さんに「これって TCFM で話されていましたよね？」と聞いているのが面白かったです．いい雰囲気でした．&lt;/p&gt;
+&lt;h3 id=&#34;パネルディスカッション&#34;&gt;パネルディスカッション&lt;/h3&gt;
+&lt;p&gt;パネルディスカッションは出演者へ質問ができるコーナーで，インタラクティブに
+進みました．&lt;/p&gt;
+&lt;p&gt;togetter でいい感じにまとめられています．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://togetter.com/li/1241054&#34;&gt;Turing Complete FMミートアップ ツイートまとめ 2018/06/25開催 #tcfm&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;印象的だったものを書きます．&lt;/p&gt;
+&lt;h5 id=&#34;csの勉強はどうやってやるのか&#34;&gt;CSの勉強はどうやってやるのか？&lt;/h5&gt;
+&lt;p&gt;本を読むというのが王道っぽいです．Rui さんは一冊読むのに非常に時間を掛けるのだとか．さらにるくすさんは分厚い本も通しで読むらしく，るくすさんが多方面に詳しいことと辻褄が合う，ということをおっしゃっていました．
+hikalium さんは技術書だけではなく小説も読むということで，読む速度が身についていることが幸いしているともおっしゃっていました．&lt;/p&gt;
+&lt;h5 id=&#34;僕が面白いと思うものはみなさんも面白いと思う&#34;&gt;僕が面白いと思うものはみなさんも面白いと思う&lt;/h5&gt;
+&lt;p&gt;Ruiさんの発言です．
+コンテンツをどうやって決めているのかという文脈だったと思います．
+番組プロデューサーとしての感性は信じていいものだとおっしゃっていました．&lt;/p&gt;
+&lt;h3 id=&#34;まとめ&#34;&gt;まとめ&lt;/h3&gt;
+&lt;p&gt;CS分野1つをとってもまだまだ私の知らないことはいっぱいあるのだな〜と．
+あと，勢いで発表して本当によかった．Rui さんをはじめ，関係者のみなさま，ありがとうございました．&lt;/p&gt;
+&lt;p&gt;機会があればまた発表したいな．&lt;/p&gt;
+</description>
+       </item>
+       
+     </channel>
+   </rss>

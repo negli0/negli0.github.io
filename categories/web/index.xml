@@ -1,20 +1,73 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>web on Around The Computer</title>
-    <link>https://negli0.github.io/categories/web/</link>
-    <description>Recent content in web on Around The Computer</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright &amp;copy; 2018 - negli0</copyright>
-    <lastBuildDate>Sun, 29 Apr 2018 00:24:46 +0900</lastBuildDate><atom:link href="https://negli0.github.io/categories/web/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Network × Research なブログを目指す</title>
-      <link>https://negli0.github.io/posts/start-hugo/</link>
-      <pubDate>Sun, 29 Apr 2018 00:24:46 +0900</pubDate>
-      
-      <guid>https://negli0.github.io/posts/start-hugo/</guid>
-      <description>Hello, Ph.D Cource こんにちは，nelio です． 後期博士課程に進学したので</description>
-    </item>
-    
-  </channel>
-</rss>
+
+   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+     <channel>
+       <title>web on Around The Computer</title>
+       <link>https://negli0.github.io/categories/web/</link>
+       <description>Recent content in web on Around The Computer</description>
+       <generator>Hugo -- gohugo.io</generator>
+       <copyright>Copyright &amp;copy; 2018 - negli0</copyright>
+       <lastBuildDate>Sun, 29 Apr 2018 00:24:46 +0900</lastBuildDate>
+       
+           <atom:link href="https://negli0.github.io/categories/web/index.xml" rel="self" type="application/rss+xml" />
+       
+       
+       <item>
+         <title>Network × Research なブログを目指す</title>
+         <link>https://negli0.github.io/posts/start-hugo/</link>
+         <pubDate>Sun, 29 Apr 2018 00:24:46 +0900</pubDate>
+         
+         <guid>https://negli0.github.io/posts/start-hugo/</guid>
+         <description>&lt;h2 id=&#34;hello-phd-cource&#34;&gt;Hello, Ph.D Cource&lt;/h2&gt;
+&lt;p&gt;こんにちは，nelio です．&lt;br&gt;
+後期博士課程に進学したので，自分の名前で売っていくことがこれまで以上に重要な気がします．&lt;/p&gt;
+&lt;p&gt;ということで研究の合間を縫ってやっとのことで HP を作りました．&lt;/p&gt;
+&lt;h2 id=&#34;hugo--github-pages-で-hp-作成&#34;&gt;Hugo + GitHub Pages で HP 作成&lt;/h2&gt;
+&lt;p&gt;世の中は便利かつ多様で，自分のアウトプットを披露できる場がいろいろありますね．
+CS 分野で R&amp;amp;D（特に R）をしている身なので，以前から自分の研究の話とか実験の話とかを
+外に出したら面白いんじゃないかと思っていました．&lt;em&gt;Hugo +  GitHub Pages&lt;/em&gt; を選択した
+決め手は次のとおりです．&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;クラウドホストしたい（できれば無料で）&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;極力コンテンツだけ書きたい&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CLI ベースで書きたい&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ちょっとしたカスタマイズ性がある&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;以下，順次説明します．&lt;/p&gt;
+&lt;h4 id=&#34;1-クラウドホストしたいできれば無料で&#34;&gt;1. クラウドホストしたい（できれば無料で）&lt;/h4&gt;
+&lt;p&gt;メンテナンスにあまり手間と費用を掛けたくなかったことが大きな理由です．
+私の所属する研究室では，以前はオンプレで WEB ページを運営していました．あたりまえですがサービス
+そのものだけでなく，システム側の運営保守も必要です．ネットワークが専門なので
+インフラの運用保守技術も身につけておく必要はあるのですが，結局はやる人間が限られて，それで摩耗して研究がおろそかになるというのは本末転倒です．&lt;del&gt;（引き継ぎが下手なだけでは）&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;結局研究室の HP は GitHub Pages にてサービスだけメンテナンスしようということになりました．
+そこで一度経験したこともあって自分の HP も GitHub Pages にホストしたくなりました．
+ドメインもデフォルトで困らないのでそのままです．&lt;/p&gt;
+&lt;h4 id=&#34;2-極力コンテンツだけ書きたい&#34;&gt;2. 極力コンテンツだけ書きたい&lt;/h4&gt;
+&lt;p&gt;フロントエンドに疎いので，デザインとかは既存のものをちょちょっと触ってかゆいところに手が届くようにすれば十分でした．
+フロントエンドは移り変わりが激しい印象があって，今必死で覚えてもすぐに次のいいモノが出てきそうです．
+フロントエンドをガッツリやる気力も出なかったので，GitHub Pages と相性のいいサイトジェネレータを使えると嬉しかった．&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://jekyllrb-ja.github.io&#34;&gt;Jekyll&lt;/a&gt; でも良かったんですが，Golang のほうが親しいのと，研究室 HP でも使っているので &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; にしました.&lt;/p&gt;
+&lt;h4 id=&#34;3-cli-ベースで書きたい&#34;&gt;3. CLI ベースで書きたい&lt;/h4&gt;
+&lt;p&gt;CLI というより，普段使っているエディタ（nvim）を使うほうが書きやすいかなという判断です．このあたりは GitHub Pages を使うと決めた理由の一部でもあります．時間がないときはコンテンツの下書きだけして &lt;code&gt;dev branch&lt;/code&gt; に push しておき，完成したら &lt;code&gt;master branch&lt;/code&gt; に反映するやりかたをしています．&lt;/p&gt;
+&lt;h4 id=&#34;4-ちょっとしたカスタマイズ性がある&#34;&gt;4. ちょっとしたカスタマイズ性がある&lt;/h4&gt;
+&lt;p&gt;これが地味に重要でした．おそらく私のように&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;イチからデザインを考えるのは難しいが，気に入ったテーマを自分好みに改造はしたい&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;みたいな人は多いんじゃないでしょうか．私は &lt;a href=&#34;https://themes.gohugo.io/hugo-kiera/&#34;&gt;Kiera&lt;/a&gt; というテーマを選択しました．
+派手すぎず質素すぎないところが GOOD です．これに SNS シェアボタンや HTML の &lt;code&gt;meta tag&lt;/code&gt; をいじったり，記事にカテゴリーやタグをつけられるようにしました．あとは関連記事を表示したり Google Analytics と連携させたりツイートを埋め込んだりしたいです．&lt;/p&gt;
+&lt;p&gt;テーマ自体も GitHub で管理されているので &lt;code&gt;git submodule&lt;/code&gt; 機能を使って更新を確認します．&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;目標ネットワーク--リサーチな話を面白く書く&#34;&gt;目標：ネットワーク ✕ リサーチな話を面白く書く&lt;/h2&gt;
+&lt;h3 id=&#34;世の中おもしろいエンジニアリングブログはいっぱいある&#34;&gt;世の中おもしろいエンジニアリングブログはいっぱいある&lt;/h3&gt;
+&lt;p&gt;この HP は，私が日々のインプットを「せっかくだから見えるところに置こう」という名目で開始しました．内容は IT 系のエンジニアリングの話がほとんどだと思いますが，ぶっちゃけすでに面白いブログはいっぱいありますよね．それに今の私にはエンジニアとして出せるものは少なく，純粋なエンジニアリング話を私が書く意味はあまりなさそうだなとか長いこと思っていました．&lt;/p&gt;
+&lt;h3 id=&#34;ネットワーク--リサーチな記事&#34;&gt;ネットワーク × リサーチな記事&lt;/h3&gt;
+&lt;p&gt;ではどうするのかといえば，エンジニアリングではなく&lt;strong&gt;リサーチ寄り&lt;/strong&gt;の話題を多めに書いてみようかなと思います．ネット上でよく目にする &lt;code&gt;XXX&lt;/code&gt; を作りました！みたいな開発系エントリ，読んでて楽しいですよね．一方で私も研究者なのでリサーチな話を気軽に見たいんですが，あまりアカデミアな話って日本語記事で見ないんですよね．&lt;/p&gt;
+&lt;p&gt;加えてアカデミアかはさておき，高レイヤでサービスなアプリケーションの話はよく見かけます．人口が多いことに比例して目に入る機会が多いことに起因しているのでしょうか．一方で低レイヤでカーネルなシステムの話は最近流行っているのか，しばしば Twitter でも見かけます．ところが&lt;strong&gt;ネットワークそのもの&lt;/strong&gt;な話ってあまり見ないんですよね．（システム内のチューニングとか実装寄りな話はたまに見かけます）&lt;/p&gt;
+&lt;p&gt;ということで，自身の専門がネットワークでしかもアカデミックな研究をしているので，自分の研究だけではなくぶっとんだ論文とか研究とかを紹介したいです．まずはちょっとだけ期待してください．修士課程から数えると3年目ですが，**&lt;!-- raw HTML omitted --&gt;研究の世界がこんなにも自由だ！&lt;!-- raw HTML omitted --&gt;**ということを伝えられたらいいな．&lt;/p&gt;
+&lt;h3 id=&#34;一番伝えたいこと&#34;&gt;一番伝えたいこと&lt;/h3&gt;
+&lt;p&gt;この HP がきっかけでネットワークが面白いと思ってくれる人が増えたら最高です．（あわよくばリサーチャー仲間に！）&lt;/p&gt;
+</description>
+       </item>
+       
+     </channel>
+   </rss>
