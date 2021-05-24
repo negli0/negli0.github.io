@@ -52,13 +52,17 @@ description: "About nelio"
 	*IEICE Transactions on Communications*, Vol.E101-B, No.9, pp.1967-1981.
 
 #### Conference
+1.  <u>Yuki Nagai</u>, Hiroki Watanabe, Takao Kondo, and Fumio Teraoka,
+	**"LiONv2: An Experimental Network Construction Tool Considering Disaggregation of Network Configuration and Device Configuration,"**
+	*The 6th IEEE Conference on Network Softwarization (NetSoft'21)*, June. 2021. (to appear)
+
 1. <u>Kazuki Hayashi</u>, Hiroki Watanabe, Takao Kondo, and Fumio Teraoka,
-	**“LiON: A L3 Protocol Agnostic Experimental Network Construction Tool Based on Infrastructure as Code”**, 
-	*The Sixth IEEE International Conference on Software Defined Systems (SDS-2019)*, June. 2019.
+	**"LiON: A L3 Protocol Agnostic Experimental Network Construction Tool Based on Infrastructure as Code,"**
+	*The 6th IEEE International Conference on Software Defined Systems (SDS'19)*, pp. 64-71, June. 2019.
 
 1. <u>Hiroki Watanabe</u>, Takao Kondo, Kunitake Kaneko, and Fumio Teraoka, 
 	**"Separating Communication Policies and Mechanisms to Make Protocol Layering Clearer,"**
-	*2017 26th International Conference on Computer Communication and Networks (ICCCN)*, 
+	*The 26th International Conference on Computer Communication and Networks (ICCCN'17)*,
 	Vancouver, BC, 2017, pp. 1-9. (Acceptance Rate: 27%)
 
 #### Workshop / Poster
@@ -70,20 +74,24 @@ description: "About nelio"
 
 #### Domestic 
 #### Conference / Workshop
+1. <u>稲垣 勇佑</u>, 渡邊 大記, 安森 涼, 近藤 賢郎, 熊倉 顕, 前迫 敬介, 張 亮, 寺岡 文男,
+	**"地理的分散環境を想定したMECにおけるオフローディング基盤"**,
+   	*研究報告マルチメディア通信と分散処理 (DPS)*, vol. 2021-DPS-186, No. 22, pp. 1-8, 2021年3月.
+
 1. <u>渡邊 大記</u>, 寺岡 文男,
-       **“高機能通信を提供する Layer-5 における Disruption Tolerant Networking の実現”**, 
+       **"高機能通信を提供する Layer-5 における Disruption Tolerant Networking の実現"**,
 	   *信学技報*, vol. 120, no. 356, IA2020-31, pp. 1-8, 2021年1月. 
 
 1. <u>長井 悠毅</u>, 渡邊 大記, 近藤 賢郎, 寺岡 文男,
-       **“ベンダ非依存性を実現する実験用仮想ネットワーク自動構築機構LiONの拡張”**, 
+       **"ベンダ非依存性を実現する実験用仮想ネットワーク自動構築機構LiONの拡張"**, 
 	   *信学技報*, vol. 120, no. 162, NS2020-47, pp. 33-38, 2020年9月.
 
 1. <u>佐藤 友範</u>, 渡邊 大記, 林 和輝, 近藤 賢郎, 寺岡 文男, 
-	**“5Gコアネットワーク向けアプリケーション処理連接基盤”**, 
+	**"5Gコアネットワーク向けアプリケーション処理連接基盤"**, 
 	*研究報告マルチメディア通信と分散処理 (DPS)*, Vol. 2019-DPS-180, no. 18, pp. 1 - 8, 2019 年 9 月.
 
 1. <u>永山 裕人</u>, 渡邊 大記, 寺岡 文男, 
-       **“ID/Locator分離とLocator分割に基づくネットワークスライシングにおけるDiffservによる資源隔離”**, 
+       **"ID/Locator分離とLocator分割に基づくネットワークスライシングにおけるDiffservによる資源隔離"**,
 	   *マルチメディア, 分散, 協調とモバイルシンポジウム 2019 論文集*, Vol. 2019, pp. 1801-1810, 2019 年 7 月.
 
 1. <u>佐藤 友範</u>, 渡邊 大記, 林 和輝, 寺岡 文男, 
@@ -91,7 +99,7 @@ description: "About nelio"
 	*研究報告マルチメディア通信と分散処理 (DPS)*, Vol. 2019-DPS-179, no. 28, pp. 1-8, 2019年5月.
 
 1. <u>林 和輝</u>, 渡邊 大記, 近藤 賢郎, 寺岡 文男,
-	**"LiON: Infrastructure as Codeに基づくL3プロトコル非依存な仮想ネットワーク構築ツール”**, 
+	**"LiON: Infrastructure as Codeに基づくL3プロトコル非依存な仮想ネットワーク構築ツール"**, 
 	*信学技報*, vol. 118, no. 465, NS2018-296, pp. 593-598, 2019年3月.
 
 1. <u>日下部 俊吾</u>, 渡邊 大記, 近藤 賢郎, 寺岡 文男,
