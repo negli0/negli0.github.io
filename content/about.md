@@ -171,4 +171,4 @@ description: "About nelio"
 1. **"日本学生支援機構 留学生交流支援制度（短期派遣）"** (2013) -- 80,000 JPY
 
 ---
-(last update: Jan. 31 2021)
+(last update: May 24 2021)
