@@ -184,10 +184,13 @@ QUIC の標準化に携わっている Oku Kazuho さんから，QUIC
 {{< tweet 1005379838608211968 >}}
 正確な情報ありがとうございます．（追記終わり）
 
-#### QUIC
+#### QUIC (Quick UDP Internet Connections)
 MPQUIC の説明をするために QUIC の説明をします．
 注目度の高さからか，大変勉強になる記事が多いです，ありがとうございます．
 以下の記事を参考に，かい摘んで説明します．
+
+(2021/06/15 追記)
+現在，QUIC は Quick UDP Internet Connections の略ではなく単に QUIC． (追記終わり)
 
 - [GoogleのQUICプロトコル：TCPからUDPへWebを移行する | POSTD](https://postd.cc/googles-quic-protocol-moving-web-tcp-udp/)
 
